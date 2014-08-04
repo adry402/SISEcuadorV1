@@ -5,25 +5,24 @@ window._skel_config = {
     resetCSS: true,
     boxModel: 'border',
     grid: {gutters: 30},
-     breakpoints: {
-        wide: {range: '1200-', containers: 1140, grid: {gutters: 50}},
-        narrow: {range: '481-1199', containers: 960},
-        narrowerL: {range: '869-960', containers: 'fluid'},
-       narrowerP: {range: '481-868', containers: 'fluid'},
-        mobile: {range: '-480', containers: 'fluid', lockViewport: true, grid: {collapse: true, gutters: 20}}
-    }
+    breakpoints: {
+		wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+		narrow: { range: '481-1199', containers: 960 },
+		narrower: { range: '481-960', containers: 'fluid' },
+		mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 20 } }
+	}
 };
 
 window._skel_panels_config = {
     panels: {
         leftPanel: {
-            breakpoints: 'narrowerP,narrowerL,mobile',
+            breakpoints: 'narrower,mobile',
             position: 'left',
             size: 250,
             html: '<div data-action="moveCell" data-args="left-sidebar,content"></div>'
         },
         rightPanel: {
-            breakpoints: 'narrowerP,mobile',
+            breakpoints: 'narrower,mobile',
             position: 'right',
             size: 250,
             html: '<div data-action="moveCell" data-args="right-sidebar,content"></div>'
@@ -46,14 +45,14 @@ window._skel_panels_config = {
             
         },
         leftPanelButton: {
-            breakpoints: 'narrowerP,narrowerL,mobile',
+            breakpoints: 'narrower,mobile',
             position: 'top-left',
             width: 80,
             height: 60,
             html: '<div class="toggle" data-action="togglePanel" data-args="leftPanel"></div>'
         },
         rightPanelButton: {
-            breakpoints: 'narrowerP,mobile',
+            breakpoints: 'narrower,mobile',
             position: 'top-right',
             width: 80,
             height: 60,
