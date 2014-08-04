@@ -1,0 +1,61 @@
+/* Header */
+
+/*Estilo para tablet landscape*/
+
+#header {
+    margin-top: 0em;
+  color: white; 
+}
+
+#leftPanel,
+#rightPanel {
+   
+      background: #f6f6f6;
+}
+
+#leftPanelButton .toggle {
+     background: #001C36 url('images/menu.png') no-repeat center;
+   
+  
+}
+
+
+/* Title */
+
+#title {
+    text-align: center;
+    padding-top: 30px;
+    margin: 0 0 1.5em 0;
+    height: 100px;
+     
+
+}
+
+#titleBar {
+    
+    
+}
+
+/* Nav */
+
+#nav {
+    position: relative;
+    text-align: center;
+}
+
+#nav a {
+    margin: 0 0.5em 0 0.5em;
+}
+
+.loadingPag{
+   
+    top:100px;
+    left: 360px;
+}
+
+.tab-links a {
+    padding:6px 50px;
+    font-size:15px;
+    
+}
+

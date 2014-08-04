@@ -1,0 +1,489 @@
+/* 
+    Created on : 23/01/2014, 04:18:28 PM
+    Author     : ADRIANA.ROMERO
+*/
+
+@font-face {
+    font-family: 'hmedium';
+    src: url('../font/helveticaneuemed-webfont.eot');
+    src: url('../font/helveticaneuemed-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneuemed-webfont.woff') format('woff'),
+        url('../font/helveticaneuemed-webfont.ttf') format('truetype'),
+        url('../font/helveticaneuemed-webfont.svg#helveticaneuemedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'hnormal';
+    src: url('../font/helveticaneueout-webfont.eot');
+    src: url('../font/helveticaneueout-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneueout-webfont.woff') format('woff'),
+        url('../font/helveticaneueout-webfont.ttf') format('truetype'),
+        url('../font/helveticaneueout-webfont.svg#helvnueoutlinenormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'hregular';
+    src: url('../font/helveticaneue-webfont.eot');
+    src: url('../font/helveticaneue-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneue-webfont.woff') format('woff'),
+        url('../font/helveticaneue-webfont.ttf') format('truetype'),
+        url('../font/helveticaneue-webfont.svg#helveticaneueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'hheavy';
+    src: url('../font/helveticaneuehv-webfont.eot');
+    src: url('../font/helveticaneuehv-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneuehv-webfont.woff') format('woff'),
+        url('../font/helveticaneuehv-webfont.ttf') format('truetype'),
+        url('../font/helveticaneuehv-webfont.svg#helveticaneueheavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'hlight';
+    src: url('../font/helveticaneuelt-webfont.eot');
+    src: url('../font/helveticaneuelt-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneuelt-webfont.woff') format('woff'),
+        url('../font/helveticaneuelt-webfont.ttf') format('truetype'),
+        url('../font/helveticaneuelt-webfont.svg#helveticaneuelight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'hitalic';
+    src: url('../font/helveticaneueit-webfont.eot');
+    src: url('../font/helveticaneueit-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneueit-webfont.woff') format('woff'),
+        url('../font/helveticaneueit-webfont.ttf') format('truetype'),
+        url('../font/helveticaneueit-webfont.svg#helveticaneueitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'hbold';
+    src: url('../font/helveticaneuebd-webfont.eot');
+    src: url('../font/helveticaneuebd-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/helveticaneuebd-webfont.woff') format('woff'),
+        url('../font/helveticaneuebd-webfont.ttf') format('truetype'),
+        url('../font/helveticaneuebd-webfont.svg#helveticaneuebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body, input, select, textarea {
+    font-family: 'hlight';
+    font-weight: 400;
+}
+
+body {
+    background: #fff;
+    color: #000;
+    line-height: 2em;
+}
+
+
+
+/* Footer */
+
+#footer {
+    color: #62696c;
+    text-align: center;
+    font-size: 1px;
+    line-height: 10px;
+}
+
+/* Overlays */
+
+#contactBar {
+
+    background: rgba(0,28,54,0.9);
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.25em;
+
+}
+
+#contactBar a {
+    display: inline-block;
+    margin: 0 0.85em 0.85em 0.85em;
+    color: #fff;
+
+}
+
+/* Panels */
+
+#leftPanel,
+#rightPanel,
+#bottomPanel {
+   
+    padding: 1.25em;
+}
+
+#leftPanel a,
+#rightPanel a {
+    display: block;
+    color: #000;
+    border-top: solid 1px #546368;
+    line-height: 4em;
+
+}
+
+#leftPanel li:first-child > a,
+#rightPanel li:first-child > a {
+    border-top: 0;
+}
+
+
+
+#nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+/**********************************************************/
+/*Estilo para el autocomplete                            */
+/**********************************************************/
+
+.ui-autocomplete-input{
+    font-family:hlight;
+    font-size: 14px; 
+    width: 100%;
+    height: 28px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius:  6px;
+    border-radius:  6px;
+    background-color: #FFFFFF;
+    background-position: right;
+    color: #47565B;
+
+
+
+}
+.ui-autocomplete {
+    list-style: none;
+    position: absolute;
+
+    width: 100px;
+    font-family:hlight;
+    font-size: 14px;
+    display: block; 
+    padding-top: 20px;
+    background-color: #FBFBFB;
+    color: #141414; 
+
+}
+
+.ui-autocomplete li {
+
+    cursor: pointer;
+    padding-top: 15px;
+    border-bottom: 1px solid #7C7C7C;
+
+
+}
+
+
+.ui-autocomplete li a{
+
+    text-align: justify;
+
+}
+
+.loadingPag{
+    background: url('images/ajax-loader.gif');
+    position: relative;
+    width:145px;
+    height:145px;
+
+}
+.absoluta {
+    position: absolute ;
+    top:150px;
+    bottom: 0;
+    width: 140px;
+    font-family: hbold;
+    text-align: center;
+    font-size: 11px;
+}
+
+/*******************************
+/*Estilo para la tabla de datos
+********************************/
+
+.pg-normal {
+    font-family: hlight;
+    color: black;
+    font-weight: normal;
+    text-decoration: none;    
+    background: transparent;
+    font-size: 15px;
+    width: 29px;
+    height: 29px;
+    border: none;
+}
+.pg-selected {
+    font-family: hbold;
+    color: #fff;
+    font-weight: bolder;        
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    background: transparent;
+    text-decoration: underline;
+
+}
+
+
+
+#pageNavPosition{
+
+    padding:10px 3px 5px 3px;
+    background:url(images/encabezado.png);
+    font-family: hlight;
+    text-align: center;
+}
+
+#results{
+
+    font-family: hlight;
+    font-size: 13px;
+    line-height:25px;
+    width: 100%
+}
+
+
+
+#results tr:first-child td:last-child {
+    border-radius:0px 5px 0px 0px;
+}
+
+#results thead{
+    font-family: hbold;
+    font-weight: bolder;
+    color:#000;
+    background-color: #444 !important;
+    border-bottom:1px #494949 solid;
+    font-size: 14px;
+    text-align: center;
+}
+#results tr:nth-child(2n) {
+    background: #d1d1d1;
+
+}
+
+#results tr:nth-child(2n+1){
+    background: #e6e6e6;
+}
+
+.estiloColumnas{
+
+    width: 4%;
+    text-align: center
+}
+
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+}
+
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+
+.tab-links li {
+    margin:0px 0px;
+    float:left;
+    list-style:none;
+    border-left: 1px solid #fff
+    
+}
+
+.tab-links a {
+    padding:6px 26px;
+    display:inline-block;
+    background:#001C36;
+    font-size:13px;
+    font-weight:600;
+    color:#fff;
+    text-decoration: none;
+    transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+    background:#a7cce5;
+    text-decoration:none;
+}
+
+li.active a, li.active a:hover {
+    background:#fff;
+    color:#000;
+  
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+    padding:1px;
+    border-radius:3px;
+    background:#F6F6F6;
+}
+
+.tab {
+    display:none;
+}
+
+
+
+
+.tab.active {
+    display:block;
+}
+
+#definicion{
+    font-size: 16px;
+    font-family: hbold;
+}
+
+#ficha{
+    font-size: 15px;
+}
+
+#divFuente{
+    font-size: 10px;
+    line-height:15px;
+}
+
+
+.icon-left{
+    background: url(images/icon-left.png) no-repeat;
+    width: 30px;
+    height: 30px;
+    margin-top:10px !important; 
+}
+
+.icon-right{
+    background: url(images/icon-right.png) no-repeat;
+    width: 30px;
+    height: 30px;
+    margin-top:10px !important; 
+}
+
+.icon-myshare{
+    background:  url(images/icon-share.png) no-repeat !important;
+    background-position: center !important;
+
+}
+
+.icon-mysearch{
+    background:  url(images/icon-search.png) no-repeat right  !important;
+}
+
+.icon-siise{
+    background:  url(images/icon-siise1.png) no-repeat left  !important;
+}
+
+/**********************************************************/
+/*Estilo para las listas                                  */
+/**********************************************************/
+
+/*Listas en sectores y subsectores*/
+/*Este es el UL*/
+.listviewSector{
+
+    font-size:15px;
+    font-family:hlight;
+
+    list-style: none;
+
+}
+
+.listviewSector li{
+
+    /* background: url(images/indicadores-siise.png);*/
+    background-position: right;
+    background-repeat: no-repeat; 
+    border-bottom: 1px solid #BFBFBF;
+
+}
+
+.listviewSector li a{
+    text-decoration: none;
+    display:block;
+
+    padding: 15px;
+    cursor:pointer;
+    color: #000;
+}
+
+
+
+.listviewSector li a:hover{
+    font-weight: bold;
+    font-size:17px;
+    font-family:hbold;
+    padding-left: 15px
+}
+
+.icon-msg{
+     background:#001C36  url(images/icon-msg.png) no-repeat  !important;
+     width: 36px;
+     height: 23px;
+}
+.icon-facebook{
+     background:#001C36  url(images/icon-facebook.png) no-repeat   !important;
+      width: 23px;
+     height: 23px;
+}
+.icon-twitter{
+     background:#001C36  url(images/icon-twitter.png) no-repeat   !important;
+      width: 23px;
+     height: 23px;
+}
+
+.icon-whats{
+     background:#001C36  url(images/icon-whats.png) no-repeat   !important;
+      width: 23px;
+     height: 23px;
+}
+
+#share a{
+   margin-top: 20px;
+}

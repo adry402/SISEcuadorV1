@@ -1,0 +1,102 @@
+/* Header */
+
+#header {
+    margin-top: 0em;
+    background: rgba(0,28,54,0.9);
+    color: white;
+    margin-right: -5px;
+     font-size:20px;
+}
+
+#leftPanelButton .toggle {
+    text-align: left;
+    padding-left: 20px;
+     background: #001C36 url('images/menu.png') no-repeat center;
+   
+  
+}
+
+.icon-mysearch{
+    background: #001C36 url(images/icon-search.png) no-repeat center  !important;
+}
+
+.icon-myshare{
+    background:#001C36  url(images/icon-share.png) no-repeat center  !important;
+}
+
+
+/* Title */
+
+#title {
+    text-align: center;
+    padding-top: 30px;
+    margin: 0 0 1.5em 0;
+    height: 100px;
+
+}
+
+/* Nav */
+
+#nav {
+    position: relative;
+    text-align: center;
+}
+
+#nav a {
+    margin: 0 1em 0 1em;
+}
+
+/**********************************************************/
+/*Estilo para las listas                                  */
+/**********************************************************/
+
+/*Listas en sectores y subsectores*/
+/*Este es el UL*/
+.listviewSector{
+
+    font-size:17px;
+
+}
+
+.listviewSector li a{
+  
+    padding: 25px;
+}
+
+.loadingPag{
+   
+    top:200px;
+    left: 350px;
+}
+
+.tab-links a {
+    padding:6px 120px;
+    font-size:17px;
+    width: 100%
+    
+}
+
+#results{
+
+    
+    font-size: 15px;
+}
+
+#results thead{
+  
+
+    font-size: 17px;
+
+}
+
+
+
+#divFuente{
+    font-size: 13px;
+    
+    line-height:20px;
+}
+
+#container{
+    height: 500px !important;
+}

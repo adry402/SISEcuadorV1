@@ -1,0 +1,106 @@
+body{
+    font-size: 12.5pt;
+    line-height: 1.5em;
+}
+
+
+
+.container {
+    margin-top: -35px;
+    padding: 0em 1.2em 1.7em 1.2em;
+    text-align: justify;
+}
+
+
+/* Header */
+
+#header {
+    margin-top: 4.5em;
+    text-align: center;
+}
+
+
+
+/* Title */
+
+#title {
+    display: none;
+}
+
+/* Nav */
+
+#nav a {
+    margin: 0 0.5em 0 0.5em;
+}
+
+
+
+/* Footer */
+
+#footer {
+    margin-bottom: 3em;
+}
+
+#leftPanel,
+#rightPanel {
+
+    background: #f6f6f6;
+}
+
+/* Overlays */
+
+#leftPanelButton .toggle,
+#rightPanelButton .toggle {
+    display: block;
+    background: none;
+    height: 50px;
+    line-height: 44px;
+
+}
+
+#leftPanelButton .toggle {
+    text-align: left;
+    padding-left: 20px;
+    background: url('images/menu.png') no-repeat ;
+    background-position: left;
+}
+
+#rightPanelButton .toggle {
+    text-align: right;
+    padding-right: 20px;
+
+}
+
+
+
+#titleBar {
+    
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+}
+
+
+
+
+
+#nav a {
+    margin: 0 0.5em 0 0.5em;
+}
+
+.loadingPag{
+
+    top:100px;
+    left: 65px;
+}
+#container{
+    height: 340px
+}
+
+@media  screen and (min-width : 321px) {
+    .loadingPag{
+
+        top:-10px;
+        left: 130px;
+    }
+}
