@@ -8,8 +8,8 @@ window._skel_config = {
     breakpoints: {
         wide: {range: '1200-', containers: 1140, grid: {gutters: 50}},
         narrow: {range: '481-1199', containers: 960},
-        narrowerL: {range: '769-960', containers: 'fluid'},
-        narrowerP: {range: '481-768', containers: 'fluid'},
+        narrowerP: {range: '769-960', containers: 'fluid'},
+       narrowerL: {range: '481-768', containers: 'fluid'},
         mobile: {range: '-480', containers: 'fluid', lockViewport: true, grid: {collapse: true, gutters: 20}}
     }
 };
