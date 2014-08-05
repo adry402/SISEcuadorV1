@@ -24,10 +24,19 @@
 }
 
 
+#share a {
+    margin: 2em;
+    padding: 2em;
+    background: #001C36;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+}
+
 /* Title */
 
 #title {
-    text-align: center;
+   padding-left: 110px;
     padding-top: 30px;
     margin: 0 0 1.5em 0;
     height: 100px;
@@ -101,6 +110,6 @@
 }
 
 .tab-links a {
-    padding:6px 90px;
+    padding:6px 80px;
     
 }

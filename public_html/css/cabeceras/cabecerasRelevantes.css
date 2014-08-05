@@ -14,3 +14,10 @@
     background: rgba(0,28,54,0.9) url(../images/icon-relevante2.png) no-repeat center !important;
     background-position: 180px !important;
 }
+
+@media  screen and (min-width : 321px) {
+    #titleBar {
+
+        background-position: 90px !important;
+    }
+}
