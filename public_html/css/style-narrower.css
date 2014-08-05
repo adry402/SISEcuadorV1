@@ -99,3 +99,8 @@
 #container{
     height: 500px !important;
 }
+
+.tab-links a {
+    padding:6px 90px;
+    
+}

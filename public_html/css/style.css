@@ -114,6 +114,10 @@ body {
     line-height: 2em;
 }
 
+#titleBar {
+    font-family: hbold;
+  
+}
 
 
 /* Footer */
@@ -166,10 +170,13 @@ body {
     border-top: 0;
 }
 
-
-
 #nav a {
     color: #000;
+    text-decoration: none;
+}
+
+#share a {
+    color: #fff;
     text-decoration: none;
 }
 
@@ -413,7 +420,7 @@ li.active a, li.active a:hover {
 }
 
 .icon-mysearch{
-    background:  url(images/icon-search.png) no-repeat right  !important;
+    background:  url(images/icon-search.png) no-repeat center  !important;
 }
 
 .icon-siise{
@@ -462,28 +469,29 @@ li.active a, li.active a:hover {
     padding-left: 15px
 }
 
-.icon-msg{
-     background:#001C36  url(images/icon-msg.png) no-repeat  !important;
+.email{
+     background:#001C36  url(images/icon-msg.png) no-repeat center  !important;
      width: 36px;
      height: 23px;
 }
-.icon-facebook{
-     background:#001C36  url(images/icon-facebook.png) no-repeat   !important;
-      width: 23px;
-     height: 23px;
+.facebook{
+     background:#001C36  url(images/icon-facebook.png) no-repeat center   !important;
+    
 }
-.icon-twitter{
-     background:#001C36  url(images/icon-twitter.png) no-repeat   !important;
-      width: 23px;
-     height: 23px;
+.twitter{
+     background:#001C36  url(images/icon-twitter.png) no-repeat center   !important;
+     
 }
 
-.icon-whats{
-     background:#001C36  url(images/icon-whats.png) no-repeat   !important;
-      width: 23px;
-     height: 23px;
+.google{
+     background:#001C36  url(images/icon-whats.png) no-repeat center   !important;
+   
 }
 
 #share a{
    margin-top: 20px;
+}
+#labelShare{
+    font-family: hbold;
+    
 }
