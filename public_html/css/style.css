@@ -116,7 +116,14 @@ body {
 
 #titleBar {
     font-family: hbold;
+     background: rgba(0,28,54,0.9)!important;
   
+  
+}
+
+#header{
+   font-family: hbold;
+     background: rgba(0,28,54,0.9)!important; 
 }
 
 
