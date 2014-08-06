@@ -116,7 +116,7 @@ function ViewModelGrafica() {
                         },
                         title: {
                             text: result.etiquetaX_indicador
-                        },
+                        }
                     },
                     yAxis: {
                         floor: 0,
@@ -132,7 +132,7 @@ function ViewModelGrafica() {
                     tooltip: {
                         valueSuffix: result.tooltip_indicador
                     },
-                    exporting: {
+                     exporting: {
                         enabled: false}
                     ,
                     series: []
@@ -161,6 +161,8 @@ function ViewModelGrafica() {
             });
         }
     });
+    
+    
 }
 // Activamos knockout.js
 ko.applyBindings(new ViewModelGrafica());

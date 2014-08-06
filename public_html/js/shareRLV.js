@@ -3,23 +3,18 @@
  * and open the template in the editor.
  */
 $(document).ready(function() {
-    var pageTitle = document.title; //HTML page title
-    var pageUrl = location.href; //Location of the page
+    if (location.search.substr(1)) {
+        Variable = location.search.substr(1);
+        var elem = Variable.split('&');
+        nombreIndicador = elem[0];
+        serialGrupo = elem[1];
+        serialSistema = elem[2];
+    }
+
+    var pageTitle = document.title ; //HTML page title
+    var pageUrl = 'www.siise.gob.ec/share/grafica.html?' + nombreIndicador + '&' + serialGrupo + '&' + serialSistema; //Location of the page
 
 
-    //user hovers on the share button	
-//    $('#share-wrapper li').hover(function() {
-//        var hoverEl = $(this); //get element
-//
-//        //browsers with width > 699 get button slide effect
-//        if ($(window).width() > 699) {
-//            if (hoverEl.hasClass('visible')) {
-//                hoverEl.animate({"margin-left": "-117px"}, "fast").removeClass('visible');
-//            } else {
-//                hoverEl.animate({"margin-left": "0px"}, "fast").addClass('visible');
-//            }
-//        }
-//    });
 
     //user clicks on a share button
     $('.button-wrap').click(function(event) {
@@ -35,7 +30,7 @@ $(document).ready(function() {
                 break;
             case 'google':
                 var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
-
+                break;
             case 'email':
                 var openLink = 'mailto:?subject=' + pageTitle + '&body=Found this useful link for you : ' + pageUrl;
                 break;
