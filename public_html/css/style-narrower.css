@@ -1,26 +1,40 @@
 /* Header */
 
+
+
 #header {
     margin-top: 0em;
     color: white;
-    margin-right: -5px;
      font-size:20px;
+   background: #001C36;
+       margin-left:-40px;
+       margin-right: -40px
 }
 
 #leftPanelButton .toggle {
     text-align: left;
     padding-left: 20px;
-     background: #001C36 url('images/menu.png') no-repeat center;
-   
+    height: 100px;
+     background: url('images/menu.png') no-repeat;
+   background-position: 20px;
   
 }
 
-.icon-mysearch{
-    background: #001C36 url(images/icon-search.png) no-repeat center  !important;
+#rightPanelButton .toggle {
+   
+    height: 100px;
+  
 }
 
 .icon-myshare{
-    background:#001C36  url(images/icon-share.png) no-repeat center  !important;
+   
+    background-position: 10px !important;
+
+}
+
+.icon-mysearch{
+    
+    background-position: 10px !important;
 }
 
 
@@ -36,7 +50,7 @@
 /* Title */
 
 #title {
-   padding-left: 110px;
+   padding-left: 150px;
     padding-top: 30px;
     margin: 0 0 1.5em 0;
     height: 100px;
@@ -47,7 +61,7 @@
 
 #nav {
     position: relative;
-    text-align: center;
+    text-align: left;
 }
 
 #nav a {
@@ -112,4 +126,9 @@
 .tab-links a {
     padding:6px 80px;
     
+}
+
+#miMapa{
+   width: 50%; 
+   height:350px; 
 }

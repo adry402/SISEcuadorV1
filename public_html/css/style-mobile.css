@@ -26,6 +26,7 @@ body{
 
 #title {
     display: none;
+    
 }
 
 /* Nav */
@@ -101,10 +102,19 @@ body{
     height: 340px
 }
 
+#miMapa{
+   width: 100%; 
+   height:250px; 
+}
+
 @media  screen and (min-width : 321px) {
     .loadingPag{
 
         top:-10px;
         left: 130px;
     }
+    
+    #miMapa{ 
+   height:180px; 
+}
 }

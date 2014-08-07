@@ -11,7 +11,7 @@ var cadena = "";
 var estiloProvincia;
 function init() {
     $(".loadingPag").css("display", "block");
-//    $("#miMapa").css("display", "none");
+   
     mapa = new OpenLayers.Map("miMapa");
 
 //    var osm = new OpenLayers.Layer.OSM();
@@ -31,10 +31,39 @@ function init() {
 //        mapa.addControl(new OpenLayers.Control.LayerSwitcher(true));
 //        mapa.addControl(new OpenLayers.Control.MousePosition({numDigits: 2}));
 
-
+ $("#miMapa").css("display", "none");
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
+            
+            
+            
+            
+            function ViewModelSector() {
 
+                var ipserver;
+                $.ajax({
+                    url: "cadenaMapa.txt",
+                    dataType: "text",
+                    success: function(data) {
+                        ipserver = data;
+                        var cadena = ipserver + "/WSMapas/webresources/territorial/3/" + lng + "/" + lat;
+
+                        $.getJSON(cadena, function(result) {
+                            $(".loadingPag").css("display", "none");
+                            $("#miMapa").css("display", "block");
+                            var objeto = result[0];
+
+                            $("#datos").html(objeto[3]);
+                        });
+                    }
+                });
+
+
+            }
+// Activamos knockout.js
+            ko.applyBindings(new ViewModelSector());
+            
+            
 
             lat = position.coords.latitude;
             lng = position.coords.longitude;
@@ -62,30 +91,6 @@ function init() {
 
 
 
-            function ViewModelSector() {
-
-                var ipserver;
-                $.ajax({
-                    url: "cadenaMapa.txt",
-                    dataType: "text",
-                    success: function(data) {
-                        ipserver = data;
-                        var cadena = ipserver + "/WSMapas/webresources/territorial/3/" + lng + "/" + lat;
-
-                        $.getJSON(cadena, function(result) {
-                            $(".loadingPag").css("display", "none");
-                            $("#miMapa").css("display", "block");
-                            var objeto = result[0];
-
-                            $("#datos").html(objeto[3]);
-                        });
-                    }
-                });
-
-
-            }
-// Activamos knockout.js
-            ko.applyBindings(new ViewModelSector());
         });
 
 

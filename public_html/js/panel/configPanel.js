@@ -31,7 +31,7 @@ window._skel_panels_config = {
     overlays: {
         titleBar: {
             breakpoints: 'mobile',
-            position: 'top-center',
+            position: 'top',
             width: '100%',
             height: 50,
             html: '<div data-action="copyHTML" data-args="title"></div>'
