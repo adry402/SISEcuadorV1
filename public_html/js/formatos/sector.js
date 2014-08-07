@@ -25,7 +25,7 @@ function ViewModelSector() {
                 $(".loadingPag").css("display", "none");
                  $.each(result, function() {
                     principal.ejemploLista.push({
-                        url: ko.observable("relvInd.html?" + this.serialGrp),
+                       url: ko.observable("subsector.html?" + this.serialGrp + "&" + this.serialSys),
                         details: ko.observable(""),
                         nombreGrupo: ko.observable(this.nombreGrp)
                     });
