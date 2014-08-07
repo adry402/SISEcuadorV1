@@ -12,6 +12,7 @@ function ViewModelGrafica() {
     }
     $(".loadingPag").css("display", "block");
     $("#divFuente").css("display", "none");
+    $(".nombreIndicador").css("display", "none");
     var cadena = "";
     principal.ejemploLista = ko.observableArray();
     principal.fichaList = ko.observableArray();
@@ -36,7 +37,8 @@ function ViewModelGrafica() {
                 }
 
 
-//
+                $(".nombreIndicador").css("display", "block");
+                $(".nombreIndicador").html(result.nombre_indicador);
 //                //Se hace visible la tabla
                 $("#tblCabecera").css("display", "block");
                 $("#pageNavPosition").css("display", "block");
@@ -61,25 +63,25 @@ function ViewModelGrafica() {
 
                     });
                     for (var j = 0; j < datoR.length; j++) {
-                        
-                         if (result.tooltip_indicador !== null)
+
+                        if (result.tooltip_indicador !== null)
                         {
                             principal.ejemploLista.push({
-                            dato1: "",
-                            dato2: result.valoresX_indicador[j],
-                            dato3: datoR[j] + " " + result.tooltip_indicador
-                        });
-                            
+                                dato1: "",
+                                dato2: result.valoresX_indicador[j],
+                                dato3: datoR[j] + " " + result.tooltip_indicador
+                            });
+
                         }
-                        else{
-                           principal.ejemploLista.push({
-                            dato1: "",
-                            dato2: result.valoresX_indicador[j],
-                            dato3: datoR[j]  });
-                            
+                        else {
+                            principal.ejemploLista.push({
+                                dato1: "",
+                                dato2: result.valoresX_indicador[j],
+                                dato3: datoR[j]});
+
                         }
-                        
-                        
+
+
                     }
                 }
 
@@ -95,8 +97,8 @@ function ViewModelGrafica() {
                     //Type spline: suaviza las curvas
                     chart: {
                         type: 'spline'
-               
-                   
+
+
                     },
                     title: {
                         text: result.nombre_indicador,
@@ -132,7 +134,7 @@ function ViewModelGrafica() {
                     tooltip: {
                         valueSuffix: result.tooltip_indicador
                     },
-                     exporting: {
+                    exporting: {
                         enabled: false}
                     ,
                     series: []
@@ -146,11 +148,11 @@ function ViewModelGrafica() {
                         data: result.valoresY_indicador[i].data
                     });
                 }
-                
-              
-                 chart.tooltip.refresh(chart.series[0].data[0]);
-                
-              
+
+
+                chart.tooltip.refresh(chart.series[0].data[0]);
+
+
 
             }).error(function() {
                 $(".loadingPag").css("display", "none");
@@ -161,8 +163,8 @@ function ViewModelGrafica() {
             });
         }
     });
-    
-    
+
+
 }
 // Activamos knockout.js
 ko.applyBindings(new ViewModelGrafica());

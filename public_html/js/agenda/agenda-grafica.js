@@ -13,9 +13,9 @@ function ViewModelGrafica() {
     principal.ejemploLista = ko.observableArray();
     principal.fichaList = ko.observableArray();
 
-   
+    $(".nombreIndicador").css("display", "none");
     $("#definicion").css("display", "none");
-    
+
     $("#errorGrafico").css("display", "none");
     //Se hace visible la tabla
     $("#tblCabecera").css("display", "none");
@@ -42,11 +42,12 @@ function ViewModelGrafica() {
                         textoBoton: ko.observable("Ver ficha")
                     });
                 }
+                $(".nombreIndicador").css("display", "block");
+                $(".nombreIndicador").html(result.nombre_indicador);
 
+                $(".loadingPag").css("display", "none");
 
-                 $(".loadingPag").css("display", "none");
-               
-//
+ $("#definicion").css("display", "block");
 //                $("#footerGrafico").css("display", "block");
 ////
 ////                //Se hace visible la tabla
@@ -162,12 +163,12 @@ function ViewModelGrafica() {
                         data: result.valoresY_indicador[i].data
                     });
                 }
-                    chart.tooltip.refresh(chart.series[0].data[0]);
+                chart.tooltip.refresh(chart.series[0].data[0]);
 
 
             }).error(function() {
-                 $(".loadingPag").css("display", "block");
-                  $("#errorGrafico").css("display", "block");
+                $(".loadingPag").css("display", "block");
+                $("#errorGrafico").css("display", "block");
                 $("#footerGrafico").css("display", "none");
                 $(".errorGrafico").html("Al momento no se puede mostrar la informacion");
             });
