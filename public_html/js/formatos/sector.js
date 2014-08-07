@@ -1,16 +1,16 @@
 
+
+
 function ViewModelSector() {
 
     var principal = this;
     principal.ejemploLista = ko.observableArray();
-    principal.listaBusqueda = ko.observableArray();
-
+    principal.listaAcordeon = ko.observableArray();
+    principal.firstName = ko.observable("");
     //Se recupera la variable
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
     }
-    var ipserver;
-
 
     $(".loadingPag").css("display", "block");
     var ipserver;
@@ -18,16 +18,14 @@ function ViewModelSector() {
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
-        crossDomain: true,
         success: function(data) {
             ipserver = data;
-            var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indgrupo/movil/" + Variable;
+           var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indgrupo/movil/" + Variable;
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-
-                $.each(result, function() {
+                 $.each(result, function() {
                     principal.ejemploLista.push({
-                        url: ko.observable("subsector.html?" + this.serialGrp + "&" + this.serialSys),
+                        url: ko.observable("relvInd.html?" + this.serialGrp),
                         details: ko.observable(""),
                         nombreGrupo: ko.observable(this.nombreGrp)
                     });
@@ -35,7 +33,8 @@ function ViewModelSector() {
             });
         }
     });
-
+    
+    
      principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
     function indOj() {
