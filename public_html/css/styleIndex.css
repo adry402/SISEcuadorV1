@@ -166,6 +166,11 @@ a.button-left span {
 
 }
 
+.icon-tt{ 
+    background: transparent  url('images/boton-territorial.png') no-repeat top left;
+
+}
+
 
 
 /* #### Mobile Phones Low Definition #### */
@@ -192,7 +197,7 @@ a.button-left span {
     section{
 
         top:114px; 
-
+        padding-bottom: 40px;
     }
 }
 
@@ -216,6 +221,7 @@ a.button-left span {
         width: 260px !important;
         margin-left: 90px;
         padding-top: 0px;
+
     }
     a.button-left span {
         padding-top: 15px;
@@ -248,20 +254,20 @@ a.button-left span {
     header {
         height:170px; 
     }
-     header table{
+    header table{
         margin: auto;
         margin-top: 30px;
     }
-     section{
+    section{
 
         top:170px; 
 
     }
-    
-     a.button-left {
+
+    a.button-left {
         width: 220px !important;
         margin:auto;
-         margin-top: 100px;
+        margin-top: 100px;
     }
     a.button-left span {
 
@@ -281,7 +287,7 @@ a.button-left span {
         margin-top: 30px;
     }
 
-     section{
+    section{
 
         top:160px; 
 
