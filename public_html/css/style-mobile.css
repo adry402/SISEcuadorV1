@@ -26,7 +26,7 @@ body{
 
 #title {
     display: none;
-    
+
 }
 
 /* Nav */
@@ -83,7 +83,7 @@ body{
 
 
 #titleBar {
-   
+
     text-align: center;
     line-height: 44px;
     color: #fff;
@@ -103,8 +103,8 @@ body{
 }
 
 #miMapa{
-   width: 100%; 
-   height:250px; 
+    width: 100%; 
+    height:250px; 
 }
 
 @media  screen and (min-width : 321px) {
@@ -113,10 +113,10 @@ body{
         top:-10px;
         left: 130px;
     }
-    
+
     #miMapa{ 
-   height:180px; 
-}
+        height:180px; 
+    }
 }
 
 
@@ -126,28 +126,59 @@ body{
     border-spacing: 20px;
 }
 #rightPanel select{
-    
+
     font-size: 15px;
-    width: 180px;
+    width: 200px;
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;
     height: 50px;
-     background: #f6f6f6;
+    background: #f6f6f6;
 }
 
 .infoTerritorial{
     font-size: 13px;
-   
+
 }
 
 .infoTerritorial table{
     width: 100%;
-     border-collapse: separate;
+    border-collapse: separate;
     border-spacing: 3px;
 }
 
-.infoTerritorial table thead{
-     font-size: 14px;
-   font-family: hbold;
+.infoTerritorial table thead tr{
+    font-size: 13px;
+    color:#fff;
+    background-color:  #666666 !important;
+    border-bottom:1px #494949 solid;
+
+    text-align: center;
+}
+
+.tituloTablas{
+
+    font-size: 13px;
+    font-family: hbold;
+    text-align: left;
+   
+}
+
+.infoTerritorial table tr:nth-child(2n) {
+    background: #d1d1d1;
+
+}
+
+.infoTerritorial table tr:nth-child(2n+1){
+    background: #e6e6e6;
+}
+
+.infoTerritorial img{
+    width: 100%;
+    height: 2px;
+}
+
+#bntConsultaT{
+    
+    margin-left: 120px;
 }

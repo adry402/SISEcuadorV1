@@ -13,6 +13,10 @@ function init() {
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
 
+
+    $('#parroquia').attr("disabled", true);
+    $('#bntConsultaT').attr("disabled", true);
+
     mapa = new OpenLayers.Map("miMapa");
 
 //    var osm = new OpenLayers.Layer.OSM();
@@ -79,7 +83,8 @@ function init() {
 
                 self.regionSeleccionada.subscribe(function(serialRegion) {
                     self.provincias([]);
-
+                    $('#parroquia').attr("disabled", true);
+                    $('#bntConsultaT').attr("disabled", true);
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -104,6 +109,8 @@ function init() {
 
                 self.provinciaSeleccionada.subscribe(function(serialProvincia) {
                     self.cantones([]);
+                     $('#parroquia').attr("disabled", true);
+                    $('#bntConsultaT').attr("disabled", true);
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -125,8 +132,8 @@ function init() {
                     });
 
                 });
-                
-                 self.cantonSeleccionado.subscribe(function(serialCanton) {
+
+                self.cantonSeleccionado.subscribe(function(serialCanton) {
                     self.parroquias([]);
                     $.ajax({
                         url: "cadena.txt",
@@ -136,6 +143,8 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indparroquia/" + serialCanton;
 
                             $.getJSON(cadena, function(result) {
+                                $('#parroquia').attr("disabled", false);
+                                $('#bntConsultaT').attr("disabled", false);
                                 $.each(result, function() {
                                     self.parroquias.push({
                                         serialPar: this.serialPar,
@@ -281,11 +290,10 @@ function init() {
                                                     name: '% viviendas recuperables',
                                                     data: [parseFloat((provincia.vivRecuperable * 100 / provincia.viviendas).toFixed(2)), parseFloat((canton.vivRecuperable * 100 / canton.viviendas).toFixed(2))]
                                                 },
-                                                        
-                                                        {
+                                                {
                                                     name: '% viviendas irrecuperables',
                                                     data: [parseFloat((provincia.vivIrrecuperable * 100 / provincia.viviendas).toFixed(2)), parseFloat((canton.vivIrrecuperable * 100 / canton.viviendas).toFixed(2))]
-                                                } ]
+                                                }]
                                         });
 
 
