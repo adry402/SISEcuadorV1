@@ -118,3 +118,36 @@ body{
    height:180px; 
 }
 }
+
+
+#rightPanel table{
+
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+#rightPanel select{
+    
+    font-size: 15px;
+    width: 180px;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    height: 50px;
+     background: #f6f6f6;
+}
+
+.infoTerritorial{
+    font-size: 13px;
+   
+}
+
+.infoTerritorial table{
+    width: 100%;
+     border-collapse: separate;
+    border-spacing: 3px;
+}
+
+.infoTerritorial table thead{
+     font-size: 14px;
+   font-family: hbold;
+}
