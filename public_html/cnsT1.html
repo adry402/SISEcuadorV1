@@ -228,7 +228,12 @@
                         <select id="canton" data-bind="options: cantones, value: cantonSeleccionado, optionsText : 'nombreCiu', optionsValue : 'serialCiu', optionsCaption : 'Cantón'"></select><br/>
                         <select id="parroquia" data-bind="options: parroquias, value: parrSeleccionada, optionsText : 'nombrePar', optionsValue : 'serialPar', optionsCaption : 'Parroquia'"></select><br/>
                         <br>
-                        <input id="bntConsultaT" type="button" name="bt1" value="Consultar"> 
+                        <form data-bind="submit: redirigir">
+
+                            <input id="btnConsultaT" type="submit" value="Consultar">
+                        </form>
+
+
                     </div>
                 </section>
             </div>

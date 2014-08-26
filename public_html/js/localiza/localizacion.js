@@ -15,7 +15,10 @@ function init() {
 
 
     $('#parroquia').attr("disabled", true);
-    $('#bntConsultaT').attr("disabled", true);
+
+//    $('#bntConsultaT').prop("disabled", true);
+
+    $('input[type="submit"]').attr('disabled', 'disabled');
 
     mapa = new OpenLayers.Map("miMapa");
 
@@ -59,6 +62,14 @@ function init() {
 
                 self.parr = ko.observableArray();
 
+
+                //variables para consulta de busqueda
+                var auxProvincia;
+                var auxCanton;
+                var auxParroquia;
+                var banderaParroquia;
+       
+
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -84,7 +95,7 @@ function init() {
                 self.regionSeleccionada.subscribe(function(serialRegion) {
                     self.provincias([]);
                     $('#parroquia').attr("disabled", true);
-                    $('#bntConsultaT').attr("disabled", true);
+                    $('input[type="submit"]').attr('disabled', 'disabled');
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -109,8 +120,9 @@ function init() {
 
                 self.provinciaSeleccionada.subscribe(function(serialProvincia) {
                     self.cantones([]);
-                     $('#parroquia').attr("disabled", true);
-                    $('#bntConsultaT').attr("disabled", true);
+
+                    $('#parroquia').attr("disabled", true);
+                    $('input[type="submit"]').attr('disabled', 'disabled');
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -119,6 +131,9 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indcanton/" + serialProvincia;
 
                             $.getJSON(cadena, function(result) {
+
+                                auxProvincia = result[0].serialPrv.codigotPrv;
+
                                 $.each(result, function() {
                                     self.cantones.push({
                                         serialCiu: this.serialCiu,
@@ -135,6 +150,7 @@ function init() {
 
                 self.cantonSeleccionado.subscribe(function(serialCanton) {
                     self.parroquias([]);
+
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -143,8 +159,10 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indparroquia/" + serialCanton;
 
                             $.getJSON(cadena, function(result) {
+                                auxCanton = result[0].codigotPar.substring(0, 4);
+                                banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
                                 $('#parroquia').attr("disabled", false);
-                                $('#bntConsultaT').attr("disabled", false);
+                                $('input[type="submit"]').removeAttr('disabled');
                                 $.each(result, function() {
                                     self.parroquias.push({
                                         serialPar: this.serialPar,
@@ -158,6 +176,34 @@ function init() {
                     });
 
                 });
+
+                self.parrSeleccionada.subscribe(function(serialParroquia) {
+                    $.ajax({
+                        url: "cadena.txt",
+                        dataType: "text",
+                        success: function(data) {
+                            ipserver = data;
+                            var cadena = ipserver + "/ServicioWeb/webresources/indparroquia/par/" + serialParroquia;
+
+                            $.getJSON(cadena, function(result) {
+                                auxParroquia = result.codigotPar;
+                                banderaParroquia = "cnsT3.html?" + auxProvincia + "&" + auxCanton+"&"+auxParroquia;
+                            });
+
+                        }
+                    });
+
+
+                });
+
+
+                    self.redirigir = function() {
+
+                        location.href = banderaParroquia;
+
+
+                    };
+
 
                 var nombre_prv;
                 var nombre_ciu;
@@ -175,6 +221,7 @@ function init() {
                         var cadena = ipserver + "/WSMapas/webresources/territorial/3/" + lng + "/" + lat;
 
                         $.getJSON(cadena, function(result) {
+
                             $(".loadingPag").css("display", "none");
                             $(".infoTerritorial").css("display", "block");
                             $("#miMapa").css("display", "block");
