@@ -12,10 +12,7 @@ var estiloProvincia;
 var provPA;
 var cantPA;
 function init() {
-    $(".loadingPag").css("display", "block");
-    $(".infoTerritorial").css("display", "none");
-    $('#parroquia').attr("disabled", true);
-      $('input[type="submit"]').removeAttr('disabled');
+
 
     mapa = new OpenLayers.Map("miMapa");
 
@@ -41,6 +38,11 @@ function init() {
             parroquia = elem[2];
         }
 
+        $(".loadingPag").css("display", "block");
+        $(".infoTerritorial").css("display", "none");
+        $('#parroquiaCombo').attr("disabled", true);
+        $('input[type="submit"]').attr('disabled', 'disabled');
+
         var self = this;
         self.fichaList = ko.observableArray();
         self.regiones = ko.observableArray();
@@ -58,11 +60,11 @@ function init() {
 
         var ipserver;
 
-  //variables para consulta de busqueda
-                var auxProvincia;
-                var auxCanton;
-                var auxParroquia;
-                var banderaParroquia;
+        //variables para consulta de busqueda
+        var auxProvincia;
+        var auxCanton;
+        var auxParroquia;
+        var banderaParroquia;
 
 
 //Consulta las regiones
@@ -88,7 +90,7 @@ function init() {
         //Carga las provincias segun la region
         self.regionSeleccionada.subscribe(function(serialRegion) {
             self.provincias([]);
-            $('#parroquia').attr("disabled", true);
+            $('#parroquiaCombo').attr("disabled", true);
             $('input[type="submit"]').attr('disabled', 'disabled');
             $.ajax({
                 url: "cadena.txt",
@@ -111,11 +113,11 @@ function init() {
             });
 
         });
- //Carga los cantones por provincia
+        //Carga los cantones por provincia
         self.provinciaSeleccionada.subscribe(function(serialProvincia) {
             self.cantones([]);
 
-            $('#parroquia').attr("disabled", true);
+            $('#parroquiaCombo').attr("disabled", true);
             $('input[type="submit"]').attr('disabled', 'disabled');
             $.ajax({
                 url: "cadena.txt",
@@ -139,7 +141,7 @@ function init() {
             });
 
         });
- //Carga las parroquias por canton
+        //Carga las parroquias por canton
         self.cantonSeleccionado.subscribe(function(serialCanton) {
             self.parroquias([]);
             $.ajax({
@@ -152,7 +154,7 @@ function init() {
                     $.getJSON(cadena, function(result) {
                         auxCanton = result[0].codigotPar.substring(0, 4);
                         banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
-                        $('#parroquia').attr("disabled", false);
+                        $('#parroquiaCombo').attr("disabled", false);
                         $('input[type="submit"]').removeAttr('disabled');
                         $.each(result, function() {
                             self.parroquias.push({
@@ -167,7 +169,7 @@ function init() {
             });
 
         });
- //Consulta la parroquia segun ID
+        //Consulta la parroquia segun ID
         self.parrSeleccionada.subscribe(function(serialParroquia) {
             $.ajax({
                 url: "cadena.txt",
@@ -211,7 +213,7 @@ function init() {
             dataType: "text",
             success: function(data) {
                 ipserver = data;
-                var cadena = ipserver + "/WSMapas/webresources/territorial/parr/"+provincia+"/"+canton+"/"+parroquia;
+                var cadena = ipserver + "/WSMapas/webresources/territorial/parr/" + provincia + "/" + canton + "/" + parroquia;
 
                 $.getJSON(cadena, function(result) {
                     var consulta = result[0];
@@ -249,7 +251,7 @@ function init() {
                     codigo_par = consulta[5];
                     nombre_ciu = consulta[1];
                     nombre_par = consulta[4];
-                    
+
                     //                Consulta de altura y superficie
 
 
@@ -258,7 +260,7 @@ function init() {
                         dataType: "text",
                         success: function(data) {
                             ipserver = data;
-                            var cadena = ipserver + "/ServicioWeb/webresources/territorial/consultaDPA/" + codigo_prv + "/" + codigo_ciu+"/"+codigo_par;
+                            var cadena = ipserver + "/ServicioWeb/webresources/territorial/consultaDPA/" + codigo_prv + "/" + codigo_ciu + "/" + codigo_par;
 
                             $.getJSON(cadena, function(result) {
 
@@ -296,8 +298,53 @@ function init() {
                                 $("#ciu_escola24").html(canton.escola24);
                                 $("#par_hacinaHogares").html(parroquia.hacinaHogares);
                                 $("#ciu_hacinaHogares").html(canton.hacinaHogares);
+                                $.ajax({
+                                    url: "cadena.txt",
+                                    dataType: "text",
+                                    success: function(data) {
+                                        ipserver = data;
+                                        var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv + "/" + codigo_ciu + "/" + codigo_par;
+                                        $.getJSON(cadena, function(result) {
 
-              
+                                            $.each(result, function() {
+                                                var codDistrito = this.codigotDistrito;
+                                                var auxObjetos = "<li>"
+                                                        + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
+                                                        + "<tbody>";
+                                                var lista = this.datosCanton;
+                                                var auxTabla = " ";
+                                                var cont = 0;
+                                                $.each(lista, function() {
+                                                    cont = cont + 1;
+                                                    if (cont === 1) {
+
+                                                        auxTabla = auxTabla
+                                                                + "<tr><td style='text-align: right'>" + codDistrito + "</td>"
+                                                                + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                    } else {
+
+                                                        auxTabla = auxTabla
+                                                                + "<tr><td style='text-align: right'>" + "  " + "</td>"
+                                                                + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                    }
+
+
+
+
+                                                });
+
+                                                var final = "</tbody></table></li>";
+                                                var queryTotal = auxObjetos + auxTabla + final;
+
+                                                $("#listviewSistema").append(queryTotal);
+                                            });
+
+                                        });
+                                    }
+                                });
+
 
                                 $('#container1').highcharts({
                                     chart: {
@@ -331,7 +378,7 @@ function init() {
                                             }
                                         }
                                     },
-                                     series: [{
+                                    series: [{
                                             name: '% viviendas aceptables',
                                             data: [parseFloat((canton.vivAceptable * 100 / canton.viviendas).toFixed(2)), parseFloat((parroquia.vivAceptable * 100 / parroquia.viviendas).toFixed(2))]
                                         }, {
@@ -380,10 +427,10 @@ function init() {
                                     },
                                     series: [{
                                             name: '% población urbana',
-                                            data: [parseFloat((canton.perUrbana * 100 / canton.per).toFixed(2)),parseFloat((parroquia.perUrbana * 100 / parroquia.per).toFixed(2))]
+                                            data: [parseFloat((canton.perUrbana * 100 / canton.per).toFixed(2)), parseFloat((parroquia.perUrbana * 100 / parroquia.per).toFixed(2))]
                                         }, {
                                             name: '% población rural',
-                                            data: [parseFloat((canton.perRural * 100 / canton.per).toFixed(2)),parseFloat((parroquia.perRural * 100 / parroquia.per).toFixed(2))]
+                                            data: [parseFloat((canton.perRural * 100 / canton.per).toFixed(2)), parseFloat((parroquia.perRural * 100 / parroquia.per).toFixed(2))]
                                         }]
                                 });
 
@@ -392,9 +439,6 @@ function init() {
                         }
 
                     });
-
-
-
                 });
             }
         });

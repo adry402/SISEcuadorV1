@@ -5,36 +5,46 @@
 #header {
     margin-top: 0em;
     color: white;
-     font-size:20px;
-   background: #001C36;
-       margin-left:-40px;
-       margin-right: -40px
+    font-size:20px;
+    background: #001C36;
+    margin-left:-40px;
+    margin-right: -40px
 }
 
 #leftPanelButton .toggle {
     text-align: left;
-    padding-left: 20px;
+    padding-left: 23px;
     height: 100px;
-     background: url('images/menu.png') no-repeat;
-   background-position: 20px;
-  
-}
+    background:rgba(0,28,54,0.9) url('images/menu.png') no-repeat;
+    background-position: 30px;
 
-#rightPanelButton .toggle {
-   
-    height: 100px;
-  
 }
-
 .icon-myshare{
-   
-    background-position: 10px !important;
+    background:rgba(0,28,54,0.9)  url(images/icon-share.png) no-repeat !important;
+    background-position: 40px !important;
 
 }
 
 .icon-mysearch{
-    
-    background-position: 10px !important;
+    background:rgba(0,28,54,0.9)  url(images/icon-search.png) no-repeat  !important;
+    background-position: 40px !important;
+}
+
+#rightPanelButton .toggle {
+
+    height: 100px;
+
+}
+
+.icon-myshare{
+
+    background-position: 23px !important;
+
+}
+
+.icon-mysearch{
+
+    background-position: 23px !important;
 }
 
 
@@ -50,7 +60,7 @@
 /* Title */
 
 #title {
-   padding-left: 150px;
+    padding-left: 150px;
     padding-top: 30px;
     margin: 0 0 1.5em 0;
     height: 100px;
@@ -81,31 +91,43 @@
 }
 
 .listviewSector li a{
-  
+
     padding: 25px;
 }
+@media (min-width: 768px) and (max-width: 979px) { 
+    .loadingPag{
 
-.loadingPag{
-   
-    top:200px;
-    left: 350px;
+        top:300px;
+        left: 350px;
+    }
 }
+
+@media screen and (min-width: 979px)  {
+    .loadingPag{
+
+        top:200px;
+        left: 450px;
+    }
+
+}
+
+
 
 .tab-links a {
     padding:6px 100px;
     font-size:17px;
     width: 100%
-    
+
 }
 
 #results{
 
-    
+
     font-size: 15px;
 }
 
 #results thead{
-  
+
 
     font-size: 17px;
 
@@ -115,7 +137,7 @@
 
 #divFuente{
     font-size: 13px;
-    
+
     line-height:20px;
 }
 
@@ -125,10 +147,72 @@
 
 .tab-links a {
     padding:6px 80px;
-    
+
 }
 
 #miMapa{
-   width: 50%; 
-   height:350px; 
+    width: 65%; 
+    margin-left: 160px !important;
+    height:350px; 
+}
+
+.tituloTablas{
+
+    font-size: 18px;
+    font-family: hbold;
+    text-align: left;
+
+}
+
+.infoTerritorial{
+    font-size: 15px;
+}
+
+.infoTerritorial table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+}
+
+.infoTerritorial table thead tr{
+    font-size: 16px;
+    color:#fff;
+    background-color:  #A7A7A7 !important;
+    border-bottom:1px #494949 solid;
+    text-align: center;
+}
+
+.infoTerritorial table tr:nth-child(2n) {
+    background: #d1d1d1;
+
+}
+
+.infoTerritorial table tr:nth-child(2n+1){
+    background: #e6e6e6;
+}
+
+.infoTerritorial img{
+    width: 100%;
+    height: 4px;
+}
+
+#container1{
+    margin-bottom: 100px;
+}
+
+#rightPanel table{
+
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+#rightPanel select{
+
+    font-size: 15px;
+    width: 200px;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    height: 60px;
+    background: #f6f6f6;
+    margin-top: 30px;
 }

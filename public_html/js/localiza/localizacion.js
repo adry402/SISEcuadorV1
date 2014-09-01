@@ -14,7 +14,7 @@ function init() {
     $(".infoTerritorial").css("display", "none");
 
 
-    $('#parroquia').attr("disabled", true);
+    $('#parroquiaCombo').attr("disabled", true);
 
 //    $('#bntConsultaT').prop("disabled", true);
 
@@ -61,14 +61,14 @@ function init() {
 
 
                 self.parr = ko.observableArray();
-
+             
 
                 //variables para consulta de busqueda
                 var auxProvincia;
                 var auxCanton;
                 var auxParroquia;
                 var banderaParroquia;
-       
+
 
                 var ipserver;
                 $.ajax({
@@ -94,7 +94,7 @@ function init() {
 
                 self.regionSeleccionada.subscribe(function(serialRegion) {
                     self.provincias([]);
-                    $('#parroquia').attr("disabled", true);
+                    $('#parroquiaCombo').attr("disabled", true);
                     $('input[type="submit"]').attr('disabled', 'disabled');
                     $.ajax({
                         url: "cadena.txt",
@@ -121,7 +121,7 @@ function init() {
                 self.provinciaSeleccionada.subscribe(function(serialProvincia) {
                     self.cantones([]);
 
-                    $('#parroquia').attr("disabled", true);
+                    $('#parroquiaCombo').attr("disabled", true);
                     $('input[type="submit"]').attr('disabled', 'disabled');
                     $.ajax({
                         url: "cadena.txt",
@@ -161,7 +161,7 @@ function init() {
                             $.getJSON(cadena, function(result) {
                                 auxCanton = result[0].codigotPar.substring(0, 4);
                                 banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
-                                $('#parroquia').attr("disabled", false);
+                                $('#parroquiaCombo').attr("disabled", false);
                                 $('input[type="submit"]').removeAttr('disabled');
                                 $.each(result, function() {
                                     self.parroquias.push({
@@ -187,7 +187,7 @@ function init() {
 
                             $.getJSON(cadena, function(result) {
                                 auxParroquia = result.codigotPar;
-                                banderaParroquia = "cnsT3.html?" + auxProvincia + "&" + auxCanton+"&"+auxParroquia;
+                                banderaParroquia = "cnsT3.html?" + auxProvincia + "&" + auxCanton + "&" + auxParroquia;
                             });
 
                         }
@@ -197,12 +197,12 @@ function init() {
                 });
 
 
-                    self.redirigir = function() {
+                self.redirigir = function() {
 
-                        location.href = banderaParroquia;
+                    location.href = banderaParroquia;
 
 
-                    };
+                };
 
 
                 var nombre_prv;
@@ -294,6 +294,52 @@ function init() {
                                                             valorParr: this.perPorParroquia
                                                         });
                                                     });
+                                                });
+                                            }
+                                        });
+                                        $.ajax({
+                                            url: "cadena.txt",
+                                            dataType: "text",
+                                            success: function(data) {
+                                                ipserver = data;
+                                                var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv;
+                                                $.getJSON(cadena, function(result) {
+                                                   
+                                                    $.each(result, function() {
+                                                         var codDistrito = this.codigotDistrito;
+                                                        var auxObjetos = "<li>"
+                                                                + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
+                                                                + "<tbody>";
+                                                        var lista = this.datosCanton;
+                                                        var auxTabla = " ";
+                                                        var cont = 0;
+                                                        $.each(lista, function() {
+                                                             cont = cont + 1;
+                                                             if (cont === 1){
+                                                                 
+                                                                  auxTabla = auxTabla 
+                                                                    + "<tr><td style='text-align: right'>" + codDistrito + "</td>"
+                                                                    + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
+                                                                    + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                             }else{
+                                                                 
+                                                                  auxTabla = auxTabla 
+                                                                    + "<tr><td style='text-align: right'>"+"  "+"</td>"
+                                                                    + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
+                                                                    + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                             }
+                                                           
+                                                           
+                                                            
+                                                                   
+                                                        });
+                                                      
+                                                        var final = "</tbody></table></li>";
+                                                        var queryTotal = auxObjetos + auxTabla+final;
+
+                                                        $("#listviewSistema").append(queryTotal);
+                                                    });
+
                                                 });
                                             }
                                         });

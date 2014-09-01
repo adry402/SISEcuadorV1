@@ -32,7 +32,7 @@ $(document).ready(function() {
                 var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-                var openLink = 'mailto:?subject=' + pageTitle + '&body=Found this useful link for you : ' + pageUrl;
+                var openLink = 'mailto:?subject=' + pageTitle + '&body=Se encontró esta información que es muy útil : ' + pageUrl;
                 break;
         }
 

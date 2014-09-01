@@ -513,3 +513,8 @@ li.active a, li.active a:hover {
     padding-top: 20px;
     font-family: hbold;
 }
+
+#btnConsultaT{
+    margin-top: 30px;
+    height: 60px;
+}

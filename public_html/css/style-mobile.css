@@ -150,7 +150,7 @@ body{
 .infoTerritorial table thead tr{
     font-size: 13px;
     color:#fff;
-    background-color:  #666666 !important;
+    background-color:  #A7A7A7 !important;
     border-bottom:1px #494949 solid;
 
     text-align: center;
@@ -181,4 +181,9 @@ body{
 #bntConsultaT{
     
     margin-left: 120px;
+}
+
+#codigoDistrito{
+    font-size: 12px;
+    font-family: hbold;
 }

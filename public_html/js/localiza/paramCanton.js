@@ -12,10 +12,9 @@ var estiloProvincia;
 var provPA;
 var cantPA;
 function init() {
-    $(".loadingPag").css("display", "block");
-    $(".infoTerritorial").css("display", "none");
-    $('#parroquia').attr("disabled", true);
-      $('input[type="submit"]').removeAttr('disabled');
+
+
+
 
     mapa = new OpenLayers.Map("miMapa");
 
@@ -40,6 +39,11 @@ function init() {
             canton = elem[1];
         }
 
+        $(".loadingPag").css("display", "block");
+        $(".infoTerritorial").css("display", "none");
+        $('#parroquiaCombo').attr("disabled", true);
+        $('input[type="submit"]').attr('disabled', 'disabled');
+
         var self = this;
         self.fichaList = ko.observableArray();
         self.regiones = ko.observableArray();
@@ -57,11 +61,11 @@ function init() {
 
         var ipserver;
 
-  //variables para consulta de busqueda
-                var auxProvincia;
-                var auxCanton;
-                var auxParroquia;
-                var banderaParroquia;
+        //variables para consulta de busqueda
+        var auxProvincia;
+        var auxCanton;
+        var auxParroquia;
+        var banderaParroquia;
 
 
 
@@ -88,8 +92,8 @@ function init() {
 
         self.regionSeleccionada.subscribe(function(serialRegion) {
             self.provincias([]);
-           $('#parroquia').attr("disabled", true);
-                    $('input[type="submit"]').attr('disabled', 'disabled');
+            $('#parroquiaCombo').attr("disabled", true);
+            $('input[type="submit"]').attr('disabled', 'disabled');
             $.ajax({
                 url: "cadena.txt",
                 dataType: "text",
@@ -114,9 +118,9 @@ function init() {
 
         self.provinciaSeleccionada.subscribe(function(serialProvincia) {
             self.cantones([]);
-           
-                    $('#parroquia').attr("disabled", true);
-                    $('input[type="submit"]').attr('disabled', 'disabled');
+
+            $('#parroquiaCombo').attr("disabled", true);
+            $('input[type="submit"]').attr('disabled', 'disabled');
             $.ajax({
                 url: "cadena.txt",
                 dataType: "text",
@@ -125,7 +129,7 @@ function init() {
                     var cadena = ipserver + "/ServicioWeb/webresources/indcanton/" + serialProvincia;
 
                     $.getJSON(cadena, function(result) {
-                         auxProvincia = result[0].serialPrv.codigotPrv;
+                        auxProvincia = result[0].serialPrv.codigotPrv;
                         $.each(result, function() {
                             self.cantones.push({
                                 serialCiu: this.serialCiu,
@@ -151,9 +155,9 @@ function init() {
 
                     $.getJSON(cadena, function(result) {
                         auxCanton = result[0].codigotPar.substring(0, 4);
-                                banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
-                                $('#parroquia').attr("disabled", false);
-                                $('input[type="submit"]').removeAttr('disabled');
+                        banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
+                        $('#parroquiaCombo').attr("disabled", false);
+                        $('input[type="submit"]').removeAttr('disabled');
                         $.each(result, function() {
                             self.parroquias.push({
                                 serialPar: this.serialPar,
@@ -167,35 +171,28 @@ function init() {
             });
 
         });
-        
-         self.parrSeleccionada.subscribe(function(serialParroquia) {
-                    $.ajax({
-                        url: "cadena.txt",
-                        dataType: "text",
-                        success: function(data) {
-                            ipserver = data;
-                            var cadena = ipserver + "/ServicioWeb/webresources/indparroquia/par/" + serialParroquia;
 
-                            $.getJSON(cadena, function(result) {
-                                auxParroquia = result.codigotPar;
-                                banderaParroquia = "cnsT3.html?" + auxProvincia + "&" + auxCanton+"&"+auxParroquia;
-                            });
+        self.parrSeleccionada.subscribe(function(serialParroquia) {
+            $.ajax({
+                url: "cadena.txt",
+                dataType: "text",
+                success: function(data) {
+                    ipserver = data;
+                    var cadena = ipserver + "/ServicioWeb/webresources/indparroquia/par/" + serialParroquia;
 
-                        }
+                    $.getJSON(cadena, function(result) {
+                        auxParroquia = result.codigotPar;
+                        banderaParroquia = "cnsT3.html?" + auxProvincia + "&" + auxCanton + "&" + auxParroquia;
                     });
 
+                }
+            });
 
-                });
-                
-                 self.redirigir = function() {
+        });
 
-                        location.href = banderaParroquia;
-
-//                        alert("aqui: " + auxProvincia + "-" + auxCanton + "-" + auxParroquia);
-                    };
-
-
-
+        self.redirigir = function() {
+            location.href = banderaParroquia;
+        };
 
         var nombre_prv;
         var nombre_ciu;
@@ -210,7 +207,7 @@ function init() {
             dataType: "text",
             success: function(data) {
                 ipserver = data;
-                var cadena = ipserver + "/WSMapas/webresources/territorial/"+provincia+"/"+canton;
+                var cadena = ipserver + "/WSMapas/webresources/territorial/" + provincia + "/" + canton;
 
                 $.getJSON(cadena, function(result) {
                     var consulta = result[0];
@@ -314,6 +311,53 @@ function init() {
                                     }
                                 });
 
+                                $.ajax({
+                                    url: "cadena.txt",
+                                    dataType: "text",
+                                    success: function(data) {
+                                        ipserver = data;
+                                        var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv;
+                                        $.getJSON(cadena, function(result) {
+
+                                            $.each(result, function() {
+                                                var codDistrito = this.codigotDistrito;
+                                                var auxObjetos = "<li>"
+                                                        + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
+                                                        + "<tbody>";
+                                                var lista = this.datosCanton;
+                                                var auxTabla = " ";
+                                                var cont = 0;
+                                                $.each(lista, function() {
+                                                    cont = cont + 1;
+                                                    if (cont === 1) {
+
+                                                        auxTabla = auxTabla
+                                                                + "<tr><td style='text-align: right'>" + codDistrito + "</td>"
+                                                                + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                    } else {
+
+                                                        auxTabla = auxTabla
+                                                                + "<tr><td style='text-align: right'>" + "  " + "</td>"
+                                                                + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                    }
+
+
+
+
+                                                });
+
+                                                var final = "</tbody></table></li>";
+                                                var queryTotal = auxObjetos + auxTabla + final;
+
+                                                $("#listviewSistema").append(queryTotal);
+                                            });
+
+                                        });
+                                    }
+                                });
+
                                 $('#container1').highcharts({
                                     chart: {
                                         type: 'column'
@@ -408,14 +452,9 @@ function init() {
 
                     });
 
-
-
                 });
             }
         });
-
-
-
     }
 // Activamos knockout.js
     ko.applyBindings(new ViewModelSector());
