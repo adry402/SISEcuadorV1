@@ -318,15 +318,15 @@ function init() {
                                                              if (cont === 1){
                                                                  
                                                                   auxTabla = auxTabla 
-                                                                    + "<tr><td style='text-align: right'>" + codDistrito + "</td>"
-                                                                    + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
-                                                                    + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                                    + "<tr><td style='text-align: right;  width: 33%;'>" + codDistrito + "</td>"
+                                                                    + "<td style='text-align: right; width: 33%;'>" + this.nombreCanton + "</td>"
+                                                                    + "<td style='text-align: right; width: 33%;'>" + this.personas + "</td></tr>";
                                                              }else{
                                                                  
                                                                   auxTabla = auxTabla 
-                                                                    + "<tr><td style='text-align: right'>"+"  "+"</td>"
-                                                                    + "<td style='text-align: right'>" + this.nombreCanton + "</td>"
-                                                                    + "<td style='text-align: right'>" + this.personas + "</td></tr>";
+                                                                    + "<tr><td style='text-align: right; width: 33%;'>"+"  "+"</td>"
+                                                                    + "<td style='text-align: right; width: 33%;'>" + this.nombreCanton + "</td>"
+                                                                    + "<td style='text-align: right; width: 33%;'>" + this.personas + "</td></tr>";
                                                              }
                                                            
                                                            
