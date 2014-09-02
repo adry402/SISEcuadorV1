@@ -9,8 +9,8 @@ $(document).ready(function() {
         nombreIndicador = Variable;
     }
 
-    var pageTitle = document.title ; //HTML page title
-    var pageUrl = 'https://docs.google.com/uc?export=download&id=0B6nFnRTu3W1XMTF0a1k3THBTUVU' ; //Location of the page
+    var pageTitle = document.title; //HTML page title
+    var pageUrl = 'https://docs.google.com/uc?export=download&id=0B6nFnRTu3W1XMTF0a1k3THBTUVU'; //Location of the page
 
 
 
@@ -30,7 +30,8 @@ $(document).ready(function() {
                 var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-                var openLink = 'mailto:?subject=' + pageTitle + '&body=Se encontró esta información que es muy útil : ' + pageUrl;
+                var openLink = 'mailto:?subject=' + pageTitle 
+                        + '&body=Se encontró esta información que es muy útil :' + encodeURIComponent(pageUrl);
                 break;
         }
 
