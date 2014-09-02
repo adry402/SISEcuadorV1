@@ -148,7 +148,8 @@ function ViewModelGrafica() {
                     },
                     tooltip: {
                         valueSuffix: result.tooltip_indicador
-                    },
+                    }
+                    ,
                     exporting: {
                         enabled: false}
                     ,

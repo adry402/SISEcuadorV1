@@ -10,7 +10,7 @@ $(document).ready(function() {
     }
 
     var pageTitle = document.title ; //HTML page title
-    var pageUrl = 'www.siise.gob.ec/share/agnGrafica.html?' + nombreIndicador; //Location of the page
+    var pageUrl = 'https://docs.google.com/uc?export=download&id=0B6nFnRTu3W1XMTF0a1k3THBTUVU' ; //Location of the page
 
 
 
