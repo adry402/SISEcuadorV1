@@ -31,7 +31,7 @@ $(document).ready(function() {
                 break;
             case 'email':
                 var openLink = 'mailto:?subject=' + pageTitle 
-                        + '&body=Se encontró esta información que es muy útil :' + encodeURIComponent(pageUrl);
+                        + '&body=Se encontró esta información que es muy útil : ' + encodeURIComponent(pageUrl);
                 break;
         }
 
