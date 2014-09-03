@@ -7,9 +7,9 @@ window._skel_config = {
     grid: {gutters: 30},
      breakpoints: {
 		wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
-		narrow: { range: '601-1199', containers: 960 },
-		narrower: { range: '601-960', containers: 'fluid' },
-		mobile: { range: '-600', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 20 } }
+		narrow: { range: '701-1199', containers: 960 },
+		narrower: { range: '701-960', containers: 'fluid' },
+		mobile: { range: '-700', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 20 } }
 	}
 };
 
