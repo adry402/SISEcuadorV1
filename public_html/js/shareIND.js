@@ -5,12 +5,14 @@
 $(document).ready(function() {
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
-
-        nombreIndicador = Variable;
+        var elem = Variable.split('&');
+        nombreIndicador = elem[0];
+        serialGrupo = elem[1];
+        serialSistema = elem[2];
     }
 
     var pageTitle = document.title; //HTML page title
-    var pageUrl ='www.siise.gob.ec/share/agnGrafica.html?'+ nombreIndicador; //Location of the page
+    var pageUrl = 'www.siise.gob.ec/share/grafica.html?' + nombreIndicador + '&' + serialGrupo + '&' + serialSistema; //Location of the page
 
 
 
@@ -30,8 +32,7 @@ $(document).ready(function() {
                 var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-                var openLink = 'mailto:?subject=' + pageTitle 
-                        + '&body=Se encontró esta información que es muy útil :' + encodeURIComponent(pageUrl);
+                var openLink = 'mailto:?subject=' + pageTitle + '&body=Se encontró esta información que es muy útil : ' + encodeURIComponent(pageUrl);
                 break;
         }
 

@@ -11,8 +11,8 @@ $(document).ready(function() {
         serialSistema = elem[2];
     }
 
-    var pageTitle = document.title ; //HTML page title
-    var pageUrl = 'www.siise.gob.ec/share/grafica.html?' + nombreIndicador + '&' + serialGrupo + '&' + serialSistema; //Location of the page
+    var pageTitle = document.title; //HTML page title
+    var pageUrl = 'www.siise.gob.ec/share/relvGrafica.html?' + nombreIndicador + '&' + serialGrupo + '&' + serialSistema; //Location of the page
 
 
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-                var openLink = 'mailto:?subject=' + pageTitle + '&body=Se encontró esta información que es muy útil : ' + pageUrl;
+                var openLink = 'mailto:?subject=' + pageTitle + '&body=Se encontró esta información que es muy útil : ' +encodeURIComponent(pageUrl);
                 break;
         }
 
