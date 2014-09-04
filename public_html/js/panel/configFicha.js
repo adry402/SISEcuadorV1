@@ -16,7 +16,7 @@ window._skel_config = {
 window._skel_panels_config = {
     panels: {
         leftPanel: {
-            breakpoints: 'narrower,mobile',
+            breakpoints: 'narrow,narrower,mobile',
             position: 'left',
             size: 250,
             html: '<div data-action="moveCell" data-args="left-sidebar,content"></div>'
@@ -40,7 +40,7 @@ window._skel_panels_config = {
 
         },
         leftPanelButton: {
-            breakpoints: 'narrower,mobile',
+            breakpoints: 'narrow,narrower,mobile',
             position: 'top-left',
             width: 80,
             height: 60,

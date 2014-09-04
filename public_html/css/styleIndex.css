@@ -245,9 +245,9 @@ a.button-left span {
 
     a.button-left {
 
-        width: 155px !important;
-        margin-left: 50px;
-        padding-bottom: 20px;
+        width: 165px !important;
+        margin-left: 45px;
+        padding-bottom: 10px;
     }
 }
 @media (min-width: 768px) and (max-width: 979px){

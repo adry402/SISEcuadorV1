@@ -22,3 +22,10 @@
         background-position: 120px !important;
     }
 }
+@media  screen and (max-width : 360px )and ( min-width: 321px) {
+    
+     #titleBar {
+
+        background-position: 70px !important;
+    }
+}

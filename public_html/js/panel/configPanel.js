@@ -7,7 +7,7 @@ window._skel_config = {
     grid: {gutters: 30},
      breakpoints: {
 		wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
-		narrow: { range: '761-1199', containers: 960 },
+		narrow: { range: '761-1199', containers: 990 },
 		narrower: { range: '761-960', containers: 'fluid' },
 		mobile: { range: '-760', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 20 } }
 	}
@@ -16,13 +16,13 @@ window._skel_config = {
 window._skel_panels_config = {
     panels: {
         leftPanel: {
-            breakpoints: 'narrower,mobile',
+            breakpoints: 'narrow,narrower,mobile',
             position: 'left',
             size: 250,
             html: '<div data-action="moveCell" data-args="left-sidebar,content"></div>'
         },
         rightPanel: {
-            breakpoints: 'narrower,mobile',
+            breakpoints: 'narrow,narrower,mobile',
             position: 'right',
             size: 250,
             html: '<div data-action="moveCell" data-args="right-sidebar,content"></div>'
@@ -47,14 +47,14 @@ window._skel_panels_config = {
 
         },
         leftPanelButton: {
-            breakpoints: 'narrower,mobile',
+            breakpoints: 'narrow,narrower,mobile',
             position: 'top-left',
             width: 80,
             height: 60,
             html: '<div class="toggle" data-action="togglePanel" data-args="leftPanel"></div>'
         },
         rightPanelButton: {
-            breakpoints: 'narrower,mobile',
+            breakpoints: 'narrow,narrower,mobile',
             position: 'top-right',
             width: 80,
             height: 60,
