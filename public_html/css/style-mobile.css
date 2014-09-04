@@ -161,7 +161,7 @@ body{
     font-size: 13px;
     font-family: hbold;
     text-align: left;
-   
+
 }
 
 .infoTerritorial table tr:nth-child(2n) {
@@ -179,7 +179,7 @@ body{
 }
 
 #bntConsultaT{
-    
+
     margin-left: 120px;
 }
 

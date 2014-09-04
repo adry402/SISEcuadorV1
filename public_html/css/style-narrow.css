@@ -8,7 +8,7 @@
     font-family: hbold;
     color: red;
     height: 100px;
-        
+
 }
 
 #leftPanelButton .toggle {
@@ -64,7 +64,7 @@
     padding-top: 30px;
     margin: 0 0 1.5em 0;
     height: 100px;
-     background-position: 160px !important;
+    background-position: 160px !important;
 
 }
 
@@ -86,7 +86,7 @@
 /*Listas en sectores y subsectores*/
 /*Este es el UL*/
 .listviewSector{
- margin-top: 30px;
+    margin-top: 30px;
     font-size:17px;
 
 }
@@ -103,7 +103,7 @@
         top:300px;
         left: 350px;
     }
-    
+
 }
 
 @media screen and (min-width: 979px)  {
@@ -222,5 +222,5 @@
 }
 
 .tabs{
-     margin-top: 30px;
+    margin-top: 30px;
 }
