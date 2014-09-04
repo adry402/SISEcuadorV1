@@ -29,3 +29,18 @@
         background-position: 70px !important;
     }
 }
+
+@media (min-width: 768px) and (max-width: 979px){
+
+    #header{
+        background-position: 145px !important;
+    } 
+}
+
+
+@media screen and (min-width: 979px)  {
+    
+    #header{
+        background-position: 140px !important;
+    } 
+}
