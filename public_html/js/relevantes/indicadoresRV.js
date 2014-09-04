@@ -111,7 +111,7 @@ function ViewModelIndicador() {
                             location.href = "agnGrafica.html?" + serialGrp;
                         }
                         else {
-                            location.href = "grafica.html?" + serialInd + "&" + serialGrp + "&" + Variable;
+                            location.href = "relvGrafica.html?" + serialInd + "&" + serialGrp + "&" + Variable;
 
                         }
 

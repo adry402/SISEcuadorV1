@@ -44,7 +44,7 @@ function init() {
         navigator.geolocation.getCurrentPosition(function(position) {
 
 
-
+alert('llego aqui:' + position);
 
             function ViewModelSector() {
                 var self = this;
