@@ -9,7 +9,7 @@ $(document).ready(function() {
         nombreIndicador = Variable;
     }
 
-    var pageTitle = document.title; //HTML page title
+    var pageTitle = document.title + " -SIISE"; //HTML page title
     var pageUrl ='www.siise.gob.ec/share/agnGrafica.html?'+ nombreIndicador; //Location of the page
 
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
                 break;
             case 'email':
                 var openLink = 'mailto:?subject=' + pageTitle 
-                        + '&body=Se encontró esta información que es muy útil : ' + encodeURIComponent(pageUrl);
+                        + '&body=Se ha compartido información del Ministerio de Coordinación de Desarrollo Social - MCDS: : ' + encodeURIComponent(pageUrl);
                 break;
         }
 
