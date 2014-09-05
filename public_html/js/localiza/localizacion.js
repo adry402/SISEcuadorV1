@@ -10,6 +10,8 @@ var lng;
 var cadena = "";
 var estiloProvincia;
 function init() {
+    
+ 
 
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
@@ -950,12 +952,12 @@ function init() {
                         });
                     }
                 });
-
+          
             }
 // Activamos knockout.js
             ko.applyBindings(new ViewModelSector());
 
-
+            
 
             lat = -0.20300087;
             lng = -78.4987696;
