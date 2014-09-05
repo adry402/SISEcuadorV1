@@ -44,7 +44,7 @@ function init() {
         navigator.geolocation.getCurrentPosition(function(position) {
 
 
-alert('llego aqui:' + position);
+            alert('llego aqui:' + position);
 
             function ViewModelSector() {
                 var self = this;
@@ -61,7 +61,7 @@ alert('llego aqui:' + position);
 
 
                 self.parr = ko.observableArray();
-             
+
 
                 //variables para consulta de busqueda
                 var auxProvincia;
@@ -247,38 +247,46 @@ alert('llego aqui:' + position);
 
                                         var provincia = result[0];
                                         var canton = result[1];
-                                        $("#per_Prv").html(provincia.per);
-                                        $("#per_Ciu").html(canton.per);
-                                        $("#pobU_Prv").html(provincia.perUrbana);
-                                        $("#pobU_Ciu").html(canton.perUrbana);
-                                        $("#pobR_Prv").html(provincia.perRural);
-                                        $("#pobR_Ciu").html(canton.perRural);
-                                        $("#super_Prv").html(provincia.superficie);
-                                        $("#super_Ciu").html(canton.superficie);
-                                        $("#alt_Prv").html(provincia.alturaMedia);
-                                        $("#alt_Ciu").html(canton.alturaMedia);
-                                        $("#den_Prv").html(provincia.densidadPoblacional);
-                                        $("#den_Ciu").html(canton.densidadPoblacional);
-                                        $("#prv_per02").html(provincia.per02);
-                                        $("#ciu_per02").html(canton.per02);
-                                        $("#prv_per35").html(provincia.per35);
-                                        $("#ciu_per35").html(canton.per35);
-                                        $("#prv_per617").html(provincia.per617);
-                                        $("#ciu_per617").html(canton.per617);
-                                        $("#prv_per1829").html(provincia.per1829);
-                                        $("#ciu_per1829").html(canton.per1829);
-                                        $("#prv_per3064").html(provincia.per3064);
-                                        $("#ciu_per3064").html(canton.per3064);
-                                        $("#prv_per65").html(provincia.per65);
-                                        $("#ciu_per65").html(canton.per65);
-                                        $("#prv_perpobreza").html(provincia.perPobreza);
-                                        $("#ciu_perpobreza").html(canton.perPobreza);
-                                        $("#prv_analfa15").html(provincia.analfa15);
-                                        $("#ciu_analfa15").html(canton.analfa15);
-                                        $("#prv_escola24").html(provincia.escola24);
-                                        $("#ciu_escola24").html(canton.escola24);
-                                        $("#prv_hacinaHogares").html(provincia.hacinaHogares);
-                                        $("#ciu_hacinaHogares").html(canton.hacinaHogares);
+                                        $("#per_Prv").html(format(provincia.per));
+                                        $("#per_Ciu").html(format(canton.per));
+                                        $("#pobU_Prv").html(format(provincia.perUrbana));
+                                        $("#pobU_Ciu").html(format(canton.perUrbana));
+                                        $("#pobR_Prv").html(format(provincia.perRural));
+                                        $("#pobR_Ciu").html(format(canton.perRural));
+                                        $("#super_Prv").html(format(provincia.superficie));
+                                        $("#super_Ciu").html(format(canton.superficie));
+                                        $("#alt_Prv").html(format(provincia.alturaMedia));
+                                        $("#alt_Ciu").html(format(canton.alturaMedia));
+                                        $("#den_Prv").html(format(provincia.densidadPoblacional));
+                                        $("#den_Ciu").html(format(canton.densidadPoblacional));
+                                        $("#prv_per02").html(format(provincia.per02));
+                                        $("#ciu_per02").html(format(canton.per02));
+                                        $("#prv_per35").html(format(provincia.per35));
+                                        $("#ciu_per35").html(format(canton.per35));
+                                        $("#prv_per617").html(format(provincia.per617));
+                                        $("#ciu_per617").html(format(canton.per617));
+                                        $("#prv_per1829").html(format(provincia.per1829));
+                                        $("#ciu_per1829").html(format(canton.per1829));
+                                        $("#prv_per3064").html(format(provincia.per3064));
+                                        $("#ciu_per3064").html(format(canton.per3064));
+                                        $("#prv_per65").html(format(provincia.per65));
+                                        $("#ciu_per65").html(format(canton.per65));
+                                        $("#prv_perpobreza").html(format(provincia.perPobreza));
+                                        $("#prvpor_perpobreza").html(parseFloat((provincia.perPobreza * 100 / provincia.totalPobreza).toFixed(2)) + '%');
+                                        $("#ciu_perpobreza").html(format(canton.perPobreza));
+                                        $("#ciupor_perpobreza").html(parseFloat((canton.perPobreza * 100 / canton.totalPobreza).toFixed(2)) + '%');
+                                        $("#prv_analfa15").html(format(provincia.analfa15));
+                                        $("#prvpor_analfa15").html(parseFloat((provincia.analfa15 * 100 / provincia.perAnalfa15).toFixed(2)) + '%');
+                                        $("#ciu_analfa15").html(format(canton.analfa15));
+                                        $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
+                                        $("#prv_escola24").html(format(provincia.escola24));
+                                        $("#prvpor_escola24").html(parseFloat((provincia.escola24 * 100 / provincia.perEscola24).toFixed(2)) + '%');
+                                        $("#ciu_escola24").html(format(canton.escola24));
+                                        $("#ciupor_escola24").html(parseFloat((canton.escola24 * 100 / canton.perEscola24).toFixed(2)) + '%');
+                                        $("#prv_hacinaHogares").html(format(provincia.hacinaHogares));
+                                        $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(2)) + '%');
+                                        $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
+                                        $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(2)) + '%');
 
                                         $.ajax({
                                             url: "cadena.txt",
@@ -291,7 +299,7 @@ alert('llego aqui:' + position);
                                                     $.each(result, function() {
                                                         self.parr.push({
                                                             nombreParr: this.nombreParroquia,
-                                                            valorParr: this.perPorParroquia
+                                                            valorParr: format(this.perPorParroquia)
                                                         });
                                                     });
                                                 });
@@ -304,9 +312,9 @@ alert('llego aqui:' + position);
                                                 ipserver = data;
                                                 var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv;
                                                 $.getJSON(cadena, function(result) {
-                                                   
+
                                                     $.each(result, function() {
-                                                         var codDistrito = this.codigotDistrito;
+                                                        var codDistrito = this.codigotDistrito;
                                                         var auxObjetos = "<li>"
                                                                 + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
                                                                 + "<tbody>";
@@ -314,28 +322,28 @@ alert('llego aqui:' + position);
                                                         var auxTabla = " ";
                                                         var cont = 0;
                                                         $.each(lista, function() {
-                                                             cont = cont + 1;
-                                                             if (cont === 1){
-                                                                 
-                                                                  auxTabla = auxTabla 
-                                                                    + "<tr><td style='text-align: right;  width: 27%;'>" + codDistrito + "</td>"
-                                                                    + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
-                                                                    + "<td style='text-align: right; width: 33%;'>" + this.personas + "</td></tr>";
-                                                             }else{
-                                                                 
-                                                                  auxTabla = auxTabla 
-                                                                    + "<tr><td style='text-align: right; width: 27%;'>"+"  "+"</td>"
-                                                                    + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
-                                                                    + "<td style='text-align: right; width: 33%;'>" + this.personas + "</td></tr>";
-                                                             }
-                                                           
-                                                           
-                                                            
-                                                                   
+                                                            cont = cont + 1;
+                                                            if (cont === 1) {
+
+                                                                auxTabla = auxTabla
+                                                                        + "<tr><td style='text-align: right;  width: 27%;'>" + codDistrito + "</td>"
+                                                                        + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
+                                                                        + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
+                                                            } else {
+
+                                                                auxTabla = auxTabla
+                                                                        + "<tr><td style='text-align: right; width: 27%;'>" + "  " + "</td>"
+                                                                        + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
+                                                                        + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
+                                                            }
+
+
+
+
                                                         });
-                                                      
+
                                                         var final = "</tbody></table></li>";
-                                                        var queryTotal = auxObjetos + auxTabla+final;
+                                                        var queryTotal = auxObjetos + auxTabla + final;
 
                                                         $("#listviewSistema").append(queryTotal);
                                                     });
@@ -343,6 +351,32 @@ alert('llego aqui:' + position);
                                                 });
                                             }
                                         });
+
+
+                                        function format(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+                                            numero = parseFloat(numero);
+                                            if (isNaN(numero)) {
+                                                return "";
+                                            }
+
+                                            if (decimales !== undefined) {
+                                                // Redondeamos
+                                                numero = numero.toFixed(decimales);
+                                            }
+
+                                            // Convertimos el punto en separador_decimal
+                                            numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
+                                            separador_miles = ".";
+                                            if (separador_miles) {
+                                                // Añadimos los separadores de miles
+                                                var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
+                                                while (miles.test(numero)) {
+                                                    numero = numero.replace(miles, "$1" + separador_miles + "$2");
+                                                }
+                                            }
+
+                                            return numero;
+                                        };
 
                                         $('#container1').highcharts({
                                             chart: {

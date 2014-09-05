@@ -32,7 +32,8 @@ $(document).ready(function() {
                 var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-                var openLink = 'mailto:?subject=' + pageTitle + '&body=Se encontró esta información que es muy útil : ' + encodeURIComponent(pageUrl);
+               var openLink = 'mailto:?subject=' + pageTitle 
+                        + '&body=Se ha compartido información del Ministerio de Coordinación de Desarrollo Social - MCDS: : ' + encodeURIComponent(pageUrl);
                 break;
         }
 

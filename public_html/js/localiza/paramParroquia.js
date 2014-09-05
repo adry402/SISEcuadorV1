@@ -266,38 +266,46 @@ function init() {
 
                                 var parroquia = result[2];
                                 var canton = result[1];
-                                $("#per_Par").html(parroquia.per);
-                                $("#per_Ciu").html(canton.per);
-                                $("#pobU_Par").html(parroquia.perUrbana);
-                                $("#pobU_Ciu").html(canton.perUrbana);
-                                $("#pobR_Par").html(parroquia.perRural);
-                                $("#pobR_Ciu").html(canton.perRural);
-                                $("#super_Par").html(parroquia.superficie);
-                                $("#super_Ciu").html(canton.superficie);
-                                $("#alt_Par").html(parroquia.alturaMedia);
-                                $("#alt_Ciu").html(canton.alturaMedia);
-                                $("#den_Par").html(parroquia.densidadPoblacional);
-                                $("#den_Ciu").html(canton.densidadPoblacional);
-                                $("#par_per02").html(parroquia.per02);
-                                $("#ciu_per02").html(canton.per02);
-                                $("#par_per35").html(parroquia.per35);
-                                $("#ciu_per35").html(canton.per35);
-                                $("#par_per617").html(parroquia.per617);
-                                $("#ciu_per617").html(canton.per617);
-                                $("#par_per1829").html(parroquia.per1829);
-                                $("#ciu_per1829").html(canton.per1829);
-                                $("#par_per3064").html(parroquia.per3064);
-                                $("#ciu_per3064").html(canton.per3064);
-                                $("#par_per65").html(parroquia.per65);
-                                $("#ciu_per65").html(canton.per65);
-                                $("#par_perpobreza").html(parroquia.perPobreza);
-                                $("#ciu_perpobreza").html(canton.perPobreza);
-                                $("#par_analfa15").html(parroquia.analfa15);
-                                $("#ciu_analfa15").html(canton.analfa15);
-                                $("#par_escola24").html(parroquia.escola24);
-                                $("#ciu_escola24").html(canton.escola24);
-                                $("#par_hacinaHogares").html(parroquia.hacinaHogares);
-                                $("#ciu_hacinaHogares").html(canton.hacinaHogares);
+                                $("#per_Par").html(format(parroquia.per));
+                                $("#per_Ciu").html(format(canton.per));
+                                $("#pobU_Par").html(format(parroquia.perUrbana));
+                                $("#pobU_Ciu").html(format(canton.perUrbana));
+                                $("#pobR_Par").html(format(parroquia.perRural));
+                                $("#pobR_Ciu").html(format(canton.perRural));
+                                $("#super_Par").html(format(parroquia.superficie));
+                                $("#super_Ciu").html(format(canton.superficie));
+                                $("#alt_Par").html(format(parroquia.alturaMedia));
+                                $("#alt_Ciu").html(format(canton.alturaMedia));
+                                $("#den_Par").html(format(parroquia.densidadPoblacional));
+                                $("#den_Ciu").html(format(canton.densidadPoblacional));
+                                $("#par_per02").html(format(parroquia.per02));
+                                $("#ciu_per02").html(format(canton.per02));
+                                $("#par_per35").html(format(parroquia.per35));
+                                $("#ciu_per35").html(format(canton.per35));
+                                $("#par_per617").html(format(parroquia.per617));
+                                $("#ciu_per617").html(format(canton.per617));
+                                $("#par_per1829").html(format(parroquia.per1829));
+                                $("#ciu_per1829").html(format(canton.per1829));
+                                $("#par_per3064").html(format(parroquia.per3064));
+                                $("#ciu_per3064").html(format(canton.per3064));
+                                $("#par_per65").html(format(parroquia.per65));
+                                $("#ciu_per65").html(format(canton.per65));
+                                $("#par_perpobreza").html(format(parroquia.perPobreza));
+                                 $("#parpor_perpobreza").html(format(parroquia.perPobreza));
+                                $("#ciu_perpobreza").html(format(canton.perPobreza));
+                                $("#ciupor_perpobreza").html(format(canton.perPobreza));
+                                $("#par_analfa15").html(format(parroquia.analfa15));
+                                $("#parpor_analfa15").html(format(parroquia.analfa15));
+                                $("#ciu_analfa15").html(format(canton.analfa15));
+                                $("#ciupor_analfa15").html(format(canton.analfa15));
+                                $("#par_escola24").html(format(parroquia.escola24));
+                                $("#parpor_escola24").html(format(parroquia.escola24));
+                                $("#ciu_escola24").html(format(canton.escola24));
+                                 $("#ciupor_escola24").html(format(canton.escola24));
+                                $("#par_hacinaHogares").html(format(parroquia.hacinaHogares));
+                                $("#parpor_hacinaHogares").html(format(parroquia.hacinaHogares));
+                                $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
+                                $("#ciupor_hacinaHogares").html(format(canton.hacinaHogares));
                                 $.ajax({
                                     url: "cadena.txt",
                                     dataType: "text",
@@ -321,17 +329,14 @@ function init() {
                                                         auxTabla = auxTabla
                                                                 + "<tr><td style='text-align: right; width: 27%'>" + codDistrito + "</td>"
                                                                 + "<td style='text-align: right; width: 40%'>" + this.nombreCanton + "</td>"
-                                                                + "<td style='text-align: right; width: 33%'>" + this.personas + "</td></tr>";
+                                                                + "<td style='text-align: right; width: 33%'>" + format(this.personas)+ "</td></tr>";
                                                     } else {
 
                                                         auxTabla = auxTabla
                                                                 + "<tr><td style='text-align: right; width: 27%'>" + "  " + "</td>"
                                                                 + "<td style='text-align: right; width: 40%'>" + this.nombreCanton + "</td>"
-                                                                + "<td style='text-align: right; width: 33%'>" + this.personas + "</td></tr>";
+                                                                + "<td style='text-align: right; width: 33%'>" + format(this.personas) + "</td></tr>";
                                                     }
-
-
-
 
                                                 });
 
@@ -345,7 +350,31 @@ function init() {
                                     }
                                 });
 
+                                function format(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+                                    numero = parseFloat(numero);
+                                    if (isNaN(numero)) {
+                                        return "";
+                                    }
 
+                                    if (decimales !== undefined) {
+                                        // Redondeamos
+                                        numero = numero.toFixed(decimales);
+                                    }
+
+                                    // Convertimos el punto en separador_decimal
+                                    numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
+                                    separador_miles = ".";
+                                    if (separador_miles) {
+                                        // Añadimos los separadores de miles
+                                        var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
+                                        while (miles.test(numero)) {
+                                            numero = numero.replace(miles, "$1" + separador_miles + "$2");
+                                        }
+                                    }
+
+                                    return numero;
+                                }
+                                ;
                                 $('#container1').highcharts({
                                     chart: {
                                         type: 'column'
