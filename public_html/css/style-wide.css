@@ -1,33 +1,24 @@
-body, input, select, textarea {
-    font-size: 14pt;
-    letter-spacing: 0.035em;
-    line-height: 1.75em;
-}
-
 
 
 /* Header */
 
 #header {
-    position: relative;
-    margin-top: 2em;
-    height: 60px;
-    color: #fff
+    padding: 30px 0px 20px 100px;
+    height: 100px;
+    color: #fff;
+    margin-left:0px;
+    margin-right: 0px
 }
 
 /* Nav */
 
 #nav {
-    position: absolute;
-    top: 20px;
-    right: 150px;
-
+    position: relative;
+    text-align: left;
 }
 
 #nav a {
-    margin-left: 3em;
-    color:#fff;
-    font-size: 15px;
+    margin: 0 1em 0 1em;
 }
 
 
@@ -121,4 +112,30 @@ body, input, select, textarea {
     height: 60px;
     background: #f6f6f6;
     margin-top: 30px;
+}
+
+#leftPanelButton .toggle {
+    text-align: left;
+    padding-left: 23px;
+    height: 100px;
+    background:rgba(0,28,54,0.9) url('images/menu.png') no-repeat;
+    background-position: 30px;
+    
+}
+
+#rightPanelButton .toggle {
+
+    height: 100px;
+
+}
+
+.icon-myshare{
+    background:rgba(0,28,54,0.9)  url(images/icon-share.png) no-repeat !important;
+    background-position: 40px !important;
+
+}
+
+.icon-mysearch{
+    background:rgba(0,28,54,0.9)  url(images/icon-search.png) no-repeat  !important;
+    background-position: 40px !important;
 }
