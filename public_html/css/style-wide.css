@@ -3,7 +3,8 @@
 /* Header */
 
 #header {
-    padding: 30px 0px 20px 100px;
+    padding-top: 30px;
+    padding-left: 15%;
     height: 100px;
     color: #fff;
     margin-left:0px;
@@ -39,16 +40,20 @@
     margin: 3em 0 3em 0;
 }
 
-.button-wrap{
-    width: 50px !important;
-    height: 50px  !important;
+#share a {
+    margin: 2em;
+    padding: 2em;
+    background: #001C36;
+    background-position: center;
+    width: 30px;
+    height: 30px;
 }
 
 #miMapa{
     width: 65%; 
     margin-left: 160px !important;
     height:350px; 
-    margin-top: 20px;
+    margin-top: 50px !important;;
 }
 
 
@@ -139,3 +144,9 @@
     background:rgba(0,28,54,0.9)  url(images/icon-search.png) no-repeat  !important;
     background-position: 40px !important;
 }
+
+ .loadingPag{
+
+        top:300px;
+        left: 350px;
+    }

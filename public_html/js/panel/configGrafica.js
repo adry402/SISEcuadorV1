@@ -16,13 +16,13 @@ window._skel_config = {
 window._skel_panels_config = {
     panels: {
         leftPanel: {
-            breakpoints: 'narrow,narrower,mobile',
+            breakpoints: 'wide,narrow,narrower,mobile',
             position: 'left',
             size: 250,
             html: '<div data-action="moveCell" data-args="left-sidebar,content"></div>'
         },
         rightPanel: {
-            breakpoints: 'narrow,narrower,mobile',
+            breakpoints: 'wide,narrow,narrower,mobile',
             position: 'right',
             size: 250,
             html: '<div data-action="moveCell" data-args="right-sidebar,content"></div>'
@@ -45,14 +45,14 @@ window._skel_panels_config = {
             
         },
         leftPanelButton: {
-            breakpoints: 'narrow,narrower,mobile',
+            breakpoints: 'wide,narrow,narrower,mobile',
             position: 'top-left',
             width: 80,
             height: 60,
             html: '<div class="toggle" data-action="togglePanel" data-args="leftPanel"></div>'
         },
         rightPanelButton: {
-            breakpoints: 'narrow,narrower,mobile',
+            breakpoints: 'wide,narrow,narrower,mobile',
             position: 'top-right',
             width: 80,
             height: 60,
