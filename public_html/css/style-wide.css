@@ -1,62 +1,124 @@
 body, input, select, textarea {
-	font-size: 15pt;
-	letter-spacing: 0.035em;
-	line-height: 1.75em;
+    font-size: 14pt;
+    letter-spacing: 0.035em;
+    line-height: 1.75em;
 }
 
-h1 {
-	font-size: 1.5em;
-}
 
-h2 {
-	font-size: 1.25em;
-	margin-bottom: 0.75em;
-}
-
-.button {
-	font-size: 1.25em;
-	padding: 0.65em 2.25em 0.65em 2.25em;
-}
 
 /* Header */
 
-	#header {
-		position: relative;
-		margin-top: 3em;
-	}
+#header {
+    position: relative;
+    margin-top: 2em;
+    height: 60px;
+    color: #fff
+}
 
 /* Nav */
 
-	#nav {
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
+#nav {
+    position: absolute;
+    top: 20px;
+    right: 150px;
 
-	#nav a {
-		margin-left: 2em;
-	}
+}
 
-/* Hero */
+#nav a {
+    margin-left: 3em;
+    color:#fff;
+    font-size: 15px;
+}
 
-	#hero {
-		border-radius: 0.5em;
-		margin: 3em 0 3em 0;
-		padding: 4em 0 4em 0;
-	}
 
-	#hero h2 {
-		font-size: 2.5em;
-		margin-bottom: 1em;
-	}
+#rightPanel {
 
-	#hero p {
-		font-size: 1.25em;
-		margin-bottom: 1.75em;
-	}
+    background: #f6f6f6;
+}
+
+.listviewSector{margin-top: 20px}
+
+.tabs{
+    margin-top: 10px
+}
 
 /* Footer */
 
-	#footer {
-		margin: 3em 0 3em 0;
-	}
+#footer {
+    margin: 3em 0 3em 0;
+}
+
+.button-wrap{
+    width: 50px !important;
+    height: 50px  !important;
+}
+
+#miMapa{
+    width: 65%; 
+    margin-left: 160px !important;
+    height:350px; 
+    margin-top: 20px;
+}
+
+
+.tituloTablas{
+
+    font-size: 18px;
+    font-family: hbold;
+    text-align: left;
+
+}
+
+
+.infoTerritorial{
+    font-size: 15px;
+}
+
+.infoTerritorial table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+}
+
+.infoTerritorial table thead tr{
+    font-size: 16px;
+    color:#fff;
+    background-color:  #A7A7A7 !important;
+    border-bottom:1px #494949 solid;
+    text-align: center;
+}
+
+.infoTerritorial table tr:nth-child(2n) {
+    background: #d1d1d1;
+
+}
+
+.infoTerritorial table tr:nth-child(2n+1){
+    background: #e6e6e6;
+}
+
+.infoTerritorial img{
+    width: 100%;
+    height: 4px;
+}
+
+#container1{
+    margin-bottom: 100px;
+}
+
+#rightPanel table{
+
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+#rightPanel select{
+
+    font-size: 15px;
+    width: 200px !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    height: 60px;
+    background: #f6f6f6;
+    margin-top: 30px;
+}

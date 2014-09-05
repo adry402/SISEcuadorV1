@@ -291,21 +291,21 @@ function init() {
                                 $("#par_per65").html(format(parroquia.per65));
                                 $("#ciu_per65").html(format(canton.per65));
                                 $("#par_perpobreza").html(format(parroquia.perPobreza));
-                                 $("#parpor_perpobreza").html(format(parroquia.perPobreza));
+                                 $("#parpor_perpobreza").html(parseFloat((parroquia.perPobreza * 100 / parroquia.totalPobreza).toFixed(2)) + '%');
                                 $("#ciu_perpobreza").html(format(canton.perPobreza));
-                                $("#ciupor_perpobreza").html(format(canton.perPobreza));
+                                $("#ciupor_perpobreza").html(parseFloat((canton.perPobreza * 100 / canton.totalPobreza).toFixed(2)) + '%');
                                 $("#par_analfa15").html(format(parroquia.analfa15));
-                                $("#parpor_analfa15").html(format(parroquia.analfa15));
+                                $("#parpor_analfa15").html(parseFloat((parroquia.analfa15 * 100 / parroquia.perAnalfa15).toFixed(2)) + '%');
                                 $("#ciu_analfa15").html(format(canton.analfa15));
-                                $("#ciupor_analfa15").html(format(canton.analfa15));
+                                $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
                                 $("#par_escola24").html(format(parroquia.escola24));
-                                $("#parpor_escola24").html(format(parroquia.escola24));
+                                $("#parpor_escola24").html(parseFloat((parroquia.escola24 * 100 / parroquia.perEscola24).toFixed(2)) + '%');
                                 $("#ciu_escola24").html(format(canton.escola24));
-                                 $("#ciupor_escola24").html(format(canton.escola24));
+                                 $("#ciupor_escola24").html(parseFloat((canton.escola24 * 100 / canton.perEscola24).toFixed(2)) + '%');
                                 $("#par_hacinaHogares").html(format(parroquia.hacinaHogares));
-                                $("#parpor_hacinaHogares").html(format(parroquia.hacinaHogares));
+                                $("#parpor_hacinaHogares").html(parseFloat((parroquia.hacinaHogares * 100 / parroquia.hogaresTotal).toFixed(2)) + '%');
                                 $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
-                                $("#ciupor_hacinaHogares").html(format(canton.hacinaHogares));
+                                $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(2)) + '%');
                                 $.ajax({
                                     url: "cadena.txt",
                                     dataType: "text",
