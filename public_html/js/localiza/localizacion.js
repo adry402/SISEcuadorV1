@@ -513,6 +513,9 @@ function init() {
 
 
     }
+    else{
+         alert('no llego aqui:' + position);
+    }
 }
 
 
