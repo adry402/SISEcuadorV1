@@ -10,6 +10,7 @@ var lng;
 var cadena = "";
 var estiloProvincia;
 function init() {
+    
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
 
@@ -41,7 +42,16 @@ function init() {
 
     $("#miMapa").css("display", "none");
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        alert('llego aqui:');
+        
+        var options = {timeout: 31000, enableHighAccuracy: true, maximumAge: 90000};
+        
+        navigator.geolocation.watchPosition(function(position){
+            alert(position.coords.latitude + ", " +  position.coords.longitude+"<br>");
+});
+        
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+        function onSuccess(position) {
 
 
             alert('llego aqui:' + position);
@@ -376,7 +386,8 @@ function init() {
                                             }
 
                                             return numero;
-                                        };
+                                        }
+                                        ;
 
                                         $('#container1').highcharts({
                                             chart: {
@@ -508,14 +519,16 @@ function init() {
 
 
 
-        });
+        };
+        function onError(error) {
+alert('code: ' + error.code + '\n' +
+'message: ' + error.message + '\n');
+}
 
 
 
     }
-    else{
-         alert('no llego aqui:' + position);
-    }
+    
 }
 
 
