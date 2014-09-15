@@ -168,7 +168,7 @@ body {
 #rightPanel a {
     display: block;
     color: #000;
-    border-top: solid 1px #546368;
+    border-bottom: solid 1px #BFBFBF;
     line-height: 4em;
 
 }
@@ -184,9 +184,11 @@ body {
 }
 
 #share a {
-    color: #fff;
+    padding-bottom: 10px;
+    color: #000;
     text-decoration: none;
 }
+
 
 /**********************************************************/
 /*Estilo para el autocomplete                            */
@@ -368,7 +370,7 @@ body {
 }
 
 li.active a, li.active a:hover {
-    background:#fff;
+    background:#e3e3e3;
     color:#000;
   
 }
@@ -478,27 +480,56 @@ li.active a, li.active a:hover {
 }
 
 .email{
-     background:#001C36  url(images/icon-msg.png) no-repeat center  !important;
-     width: 36px;
-     height: 23px;
+     background:transparent  url(images/icon-msg.png) no-repeat left !important;
+     
+}
+
+.email:hover{
+     background:#e3e3e3  url(images/icon-msg.png) no-repeat left !important;     
+     
 }
 .facebook{
-     background:#001C36  url(images/icon-facebook.png) no-repeat center   !important;
+     background:transparent url(images/icon-facebook.png) no-repeat left !important;
     
 }
+
+.facebook:hover{     
+     background:#e3e3e3 url(images/icon-facebook.png) no-repeat left !important;
+    
+}
+
+
 .twitter{
-     background:#001C36  url(images/icon-twitter.png) no-repeat center   !important;
+     background:transparent url(images/icon-twitter.png) no-repeat left !important;
+     
+}
+
+.twitter:hover{
+     background:#e3e3e3 url(images/icon-twitter.png) no-repeat left !important;
      
 }
 
 .google{
-     background:#001C36  url(images/icon-google.png) no-repeat center   !important;
+     background:transparent url(images/icon-google.png) no-repeat left !important;
    
 }
 
-#share a{
-   margin-top: 20px;
+.google:hover{
+     background:#e3e3e3 url(images/icon-google.png) no-repeat left !important;
+   
 }
+
+.whatsapp{
+     background:transparent url(images/icon-whats.png) no-repeat left !important;
+   
+}
+
+.whatsapp:hover{
+     background:#e3e3e3 url(images/icon-whats.png) no-repeat left !important;
+   
+}
+
+
 #labelShare{
     font-family: hbold;
     

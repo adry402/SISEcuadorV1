@@ -188,8 +188,8 @@ a.button-left span {
     }
     /*    Botones de ingreso a los sistemas*/
     a.button-left {
-        width: 160px !important;
-        margin-left: 30px;
+        width: 170px !important;
+        margin-left: 20px;
     }
     a.button-left span {
         padding-top: 20px;
@@ -245,8 +245,8 @@ a.button-left span {
 
     a.button-left {
 
-        width: 165px !important;
-        margin-left: 45px;
+        width: 170px !important;
+        margin-left: 40px;
         padding-bottom: 10px;
     }
 }

@@ -39,8 +39,8 @@ window._skel_panels_config = {
         contactBar: {
             position: 'bottom-center',
             width: '100%',
-           height: 45,
-             html: '<a href="javascript:history.back();" class="icon-left"></a>' 
+            height: 45,
+            html: '<a href="javascript:history.back();" class="icon-left"></a>' 
                 
             
         },

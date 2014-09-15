@@ -41,12 +41,14 @@
 }
 
 #share a {
-    margin: 2em;
-    padding: 2em;
-    background: #001C36;
-    background-position: center;
-    width: 30px;
-    height: 30px;
+    padding-bottom: 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+#share a span{
+    padding-left: 40px;
+    padding-bottom: 10px;
 }
 
 #miMapa{
@@ -135,13 +137,13 @@
 }
 
 .icon-myshare{
-    background:rgba(0,28,54,0.9)  url(images/icon-share.png) no-repeat !important;
+    background:rgba(0,28,54,0.9) url(images/icon-share.png) no-repeat !important;
     background-position: 40px !important;
 
 }
 
 .icon-mysearch{
-    background:rgba(0,28,54,0.9)  url(images/icon-search.png) no-repeat  !important;
+    background:rgba(0,28,54,0.9) url(images/icon-search.png) no-repeat  !important;
     background-position: 40px !important;
 }
 

@@ -12,8 +12,8 @@ $(document).ready(function() {
     }
 
     var pageTitle = document.title; //HTML page title
-    var pageUrl = 'www.siise.gob.ec/share/relvGrafica.html?' + nombreIndicador + '&' + serialGrupo + '&' + serialSistema; //Location of the page
-
+    var pageUrl = 'http://www.siise.gob.ec/share/relvGrafica.html?' + nombreIndicador + '&' + serialGrupo + '&' + serialSistema; //Location of the page
+    var openLink = '';
 
 
     //user clicks on a share button
@@ -22,19 +22,22 @@ $(document).ready(function() {
 
         switch (shareName) //switch to different links based on different social name
         {
-            case 'facebook':
-                var openLink = 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
+            case 'facebook':                
+                openLink = 'http://m.facebook.com/sharer.php?u='+encodeURIComponent(pageUrl)+'&t='+encodeURIComponent('Ministerio de Coordinación de Desarrollo Social') ;                
                 break;
             case 'twitter':
-                var openLink = 'http://twitter.com/home?status=' + encodeURIComponent(pageTitle + ' ' + pageUrl);
+                openLink = 'http://www.twitter.com/share?text='+encodeURIComponent('Comparto información desde el #SIISE Sistema de Indicadores Sociales de Ecuador del @SocialEc #MCDS')+'&url=' + encodeURIComponent(pageUrl);                                
                 break;
             case 'google':
-                var openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
+                openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-               var openLink = 'mailto:?subject=' + pageTitle 
-                        + '&body=Se ha compartido información del Ministerio de Coordinación de Desarrollo Social - MCDS: : ' + encodeURIComponent(pageUrl);
+               openLink = 'mailto:?subject=' + pageTitle 
+                        + '&body= Se ha compartido información del Ministerio de Coordinación de Desarrollo Social - MCDS. Aquí el link: ' + encodeURIComponent(pageUrl);
                 break;
+            case 'whatsapp':                 
+                openLink ='whatsapp://send?text=Información compartida desde la aplicación "Sistema de Indicadores Sociales de Ecuador SIISE" del Miniterio Coordinador de Desarrollo Social MCDS. '+encodeURIComponent(pageUrl);
+                break;    
         }
 
         //Parameters for the Popup window
@@ -46,6 +49,7 @@ $(document).ready(function() {
 
         //open Popup window and redirect user to share website.
         window.open(openLink, 'Compartir este enlace', winOptions);
+        
         return false;
     });
 });

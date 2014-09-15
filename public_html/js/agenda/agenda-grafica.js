@@ -9,6 +9,7 @@ function ViewModelGrafica() {
         nombreIndicador = Variable;
     }
 
+
     var cadena = "";
     principal.ejemploLista = ko.observableArray();
     principal.fichaList = ko.observableArray();
@@ -47,7 +48,7 @@ function ViewModelGrafica() {
 
                 $(".loadingPag").css("display", "none");
 
- $("#definicion").css("display", "block");
+                $("#definicion").css("display", "block");
 //                $("#footerGrafico").css("display", "block");
 ////
 ////                //Se hace visible la tabla
