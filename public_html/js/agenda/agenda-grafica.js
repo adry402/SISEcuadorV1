@@ -84,7 +84,7 @@ function ViewModelGrafica() {
                                 principal.ejemploLista.push({
                                     dato1: "",
                                     dato2: result.valoresX_indicador[j] + "- meta",
-                                    dato3: datoR[j] + " " + result.tooltip_indicador
+                                    dato3: datoR[j] 
 
                                 });
 
@@ -94,7 +94,7 @@ function ViewModelGrafica() {
                                 principal.ejemploLista.push({
                                     dato1: "",
                                     dato2: result.valoresX_indicador[j],
-                                    dato3: datoR[j] + " " + result.tooltip_indicador
+                                    dato3: datoR[j] 
                                 });
                                 if (serieName === serieName1)
                                     itemPorHoja = itemPorHoja + 1;
@@ -110,6 +110,7 @@ function ViewModelGrafica() {
 
 //Los valores que se necesitan son arrays
                 var valoresX = result.valoresX_indicador;
+                  $("#labelTool").html('&nbsp;('+result.tooltip_indicador+')');
 
                 $('#container').highcharts({
                     //Type spline: suaviza las curvas
@@ -148,7 +149,7 @@ function ViewModelGrafica() {
                             }]
                     },
                     tooltip: {
-                        valueSuffix: result.tooltip_indicador
+                         valueSuffix: ' ' + result.tooltip_indicador
                     }
                     ,
                     exporting: {

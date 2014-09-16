@@ -28,7 +28,7 @@ function init() {
     mapa.addLayer(layerBase);
 
     $("#miMapa").css("display", "none");
-
+    $("#labelUbicacion").css("display", "none");
 
     function ViewModelSector() {
 
@@ -200,8 +200,8 @@ function init() {
         var codigo_ciu;
         var codigo_par;
 
-
-
+        $("#labelUbicacion").html('La ubicación seleccionada es: &nbsp;');
+        $("#labelUbicacion").css("display", "block");
         $.ajax({
             url: "cadenaMapa.txt",
             dataType: "text",
@@ -240,6 +240,8 @@ function init() {
 
                     $("#provincia").html(consulta[3]);
                     $("#canton").html(consulta[1]);
+                    $(".provinciaTabla").html(consulta[3]);
+                    $(".cantonTabla").html(consulta[1]);
                     codigo_prv = consulta[2];
                     codigo_ciu = consulta[0];
                     codigo_par = consulta[0];
@@ -266,7 +268,7 @@ function init() {
                                 $("#pobU_Ciu").html(format(canton.perUrbana));
                                 $("#pobR_Prv").html(format(provincia.perRural));
                                 $("#pobR_Ciu").html(format(canton.perRural));
-                             
+
                                 $("#super_Prv").html(format(provincia.superficie));
                                 $("#super_Ciu").html(format(canton.superficie));
                                 $("#alt_Prv").html(format(provincia.alturaMedia));
@@ -367,8 +369,8 @@ function init() {
                                     }
                                 });
 
-                             
-                                
+
+
                                 function format(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
                                     numero = parseFloat(numero);
                                     if (isNaN(numero)) {

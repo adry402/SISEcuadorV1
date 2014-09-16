@@ -100,7 +100,7 @@ body{
 
 .loadingPag{
 
-    top:100px;
+    top:10px;
     left: 65px;
 }
 #container{
@@ -115,7 +115,7 @@ body{
 @media  screen and (min-width : 321px) {
     .loadingPag{
 
-        top:-10px;
+        top:-70px;
         left: 130px;
     }
 

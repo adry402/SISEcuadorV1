@@ -26,7 +26,7 @@ function init() {
     mapa.addLayer(layerBase);
 
     $("#miMapa").css("display", "none");
-
+$("#labelUbicacion").css("display", "none");
 
     function ViewModelSector() {
 
@@ -206,7 +206,8 @@ function init() {
         var codigo_ciu;
         var codigo_par;
 
-
+$("#labelUbicacion").html('La ubicación seleccionada es: &nbsp;');
+$("#labelUbicacion").css("display", "block");
 
         $.ajax({
             url: "cadenaMapa.txt",
@@ -246,6 +247,8 @@ function init() {
 
                     $("#canton").html(consulta[1]);
                     $("#parroquia").html(consulta[4]);
+                     $(".cantonTabla").html(consulta[1]);
+                    $(".parroquiaTabla").html(consulta[4]);
                     codigo_prv = consulta[2];
                     codigo_ciu = consulta[0];
                     codigo_par = consulta[5];

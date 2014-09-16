@@ -27,16 +27,28 @@
             <div class="row">
                 <!-- Barra izquierda -->
                 <section class="3u" id="left-sidebar">
-                    <nav id="nav">
+                   <nav id="nav">
                         <a  href="index.html" >Inicio</a>
-                        <a  href="relvSector.html?13" >Indicadores relevantes</a>
-                        <a  href="sector.html?12" >Indicadores sociales</a>
+                        <a  href="sector.html?12" >Indicadores temáticos</a>
                         <a  href="cnsT1.html" >Indicadores territoriales</a>
-                         <a  href="agnSse.html" >Agenda social</a>
+                        <a  href="relvSector.html?13" >Indicadores relevantes</a>
+                        <a  href="agnSse.html" >Agenda social</a>
                     </nav>
                 </section>
                 <!-- Contenido -->
                 <section class="9u" id="content">
+                    <br>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><div id="labelUbicacion"></div></td>
+                                <td style="text-align: center; font-family: hbold"> <div id="provincia"></div></td>
+                                <td> - </td>
+                                <td style="text-align: center; font-family: hbold"><div id="canton"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
                     <div id="miMapa">
                     </div>
 
@@ -52,17 +64,13 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th style="font-family: hbold">Provincia</th>
-                                    <th style="font-family: hbold">Cantón</th>
+                                    <th><div class="provinciaTabla"></div></th>
+                            <th><div class="cantonTabla"></div></th>
 
-                                </tr>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Ubicación</td>
-                                    <td style="text-align: center; font-family: hbold"><div id="provincia"></div></td>
-                                    <td style="text-align: center; font-family: hbold"><div id="canton"></div></td>
-                                </tr>
+
                                 <tr>
                                     <td>Población total</td>
                                     <td style=" text-align: right"><div id="per_Prv"></div></td>
@@ -134,10 +142,10 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th >Provincia</th>
-                                    <th>Cantón</th>
+                                    <th><div class="provinciaTabla"></div></th>
+                            <th><div class="cantonTabla"></div></th>
 
-                                </tr>
+                            </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -185,9 +193,9 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th >Provincia</th>
-                                    <th>Cantón</th>
-                                </tr>
+                                    <th><div class="provinciaTabla"></div></th>
+                            <th><div class="cantonTabla"></div></th>
+                            </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -196,7 +204,7 @@
                                     <td style=" text-align: right"><div id="ciu_perpobreza"></div></td>
 
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td style=" text-align: right">Porcentaje</td>
                                     <td style=" text-align: right"><div id="prvpor_perpobreza"></div></td>
                                     <td style=" text-align: right"><div id="ciupor_perpobreza"></div></td>
@@ -220,7 +228,7 @@
                                     <td style=" text-align: right"><div id="ciu_escola24"></div></td>
 
                                 </tr>
-                                  <tr>
+                                <tr>
                                     <td style=" text-align: right">Porcentaje</td>
                                     <td style=" text-align: right"><div id="prvpor_escola24"></div></td>
                                     <td style=" text-align: right"><div id="ciupor_escola24"></div></td>
