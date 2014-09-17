@@ -149,6 +149,14 @@
 
  .loadingPag{
 
-        top:300px;
-        left: 350px;
+        top:50px;
+        left: 400px;
     }
+    
+    #mapaSitio{
+   
+   
+    background: transparent;
+    color: #fff
+    
+}

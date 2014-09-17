@@ -1,7 +1,7 @@
 /*Tablet Vertical*/
 /* Header */
 #mapaSitio{
-    font-size: 15px;
+    
     margin-top: -20px;
 }
 
@@ -115,9 +115,6 @@
         left: 350px;
     }
 
-    #mapaSitio{
-        color:red
-    }
 
 }
 
@@ -126,9 +123,6 @@
 
         top:60px;
         left: 500px;
-    }
-     #mapaSitio{
-        color:blue
     }
 
 }

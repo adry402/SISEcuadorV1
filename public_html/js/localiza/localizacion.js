@@ -10,12 +10,12 @@ var lng;
 var cadena = "";
 var estiloProvincia;
 function init() {
-    
- 
+
+
 
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
-$("#labelUbicacion").css("display", "none");
+    $("#labelUbicacion").css("display", "none");
 
     $('#parroquiaCombo').attr("disabled", true);
 
@@ -43,7 +43,7 @@ $("#labelUbicacion").css("display", "none");
 //        mapa.addControl(new OpenLayers.Control.MousePosition({numDigits: 2}));
 
     $("#miMapa").css("display", "none");
-   
+
     if (navigator.geolocation) {
 
 
@@ -51,7 +51,7 @@ $("#labelUbicacion").css("display", "none");
 
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-      
+
         function onSuccess(position) {
 
 
@@ -78,7 +78,7 @@ $("#labelUbicacion").css("display", "none");
                 var auxParroquia;
                 var banderaParroquia;
                 $("#labelUbicacion").html('Su ubicación actual es: &nbsp;');
-$("#labelUbicacion").css("display", "block");
+                $("#labelUbicacion").css("display", "block");
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -237,7 +237,7 @@ $("#labelUbicacion").css("display", "block");
                             var objeto = result[0];
                             $("#provincia").html(objeto[5]);
                             $("#canton").html(objeto[3]);
-                             $(".provincia").html(objeto[5]);
+                            $(".provincia").html(objeto[5]);
                             $(".canton").html(objeto[3]);
                             codigo_prv = objeto[4];
                             codigo_ciu = objeto[2];
@@ -290,10 +290,8 @@ $("#labelUbicacion").css("display", "block");
                                         $("#prvpor_analfa15").html(parseFloat((provincia.analfa15 * 100 / provincia.perAnalfa15).toFixed(2)) + '%');
                                         $("#ciu_analfa15").html(format(canton.analfa15));
                                         $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
-                                        $("#prv_escola24").html(format(provincia.escola24));
-                                        $("#prvpor_escola24").html(parseFloat((provincia.escola24 * 100 / provincia.perEscola24).toFixed(2)) + '%');
-                                        $("#ciu_escola24").html(format(canton.escola24));
-                                        $("#ciupor_escola24").html(parseFloat((canton.escola24 * 100 / canton.perEscola24).toFixed(2)) + '%');
+                                        $("#prv_escola24").html(parseFloat((provincia.escola24 / provincia.perEscola24).toFixed(2)));
+                                        $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(2)));
                                         $("#prv_hacinaHogares").html(format(provincia.hacinaHogares));
                                         $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(2)) + '%');
                                         $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
@@ -547,8 +545,8 @@ $("#labelUbicacion").css("display", "block");
                 var auxParroquia;
                 var banderaParroquia;
 
-$("#labelUbicacion").html('Ubicación establecida: &nbsp;');
-$("#labelUbicacion").css("display", "block");
+                $("#labelUbicacion").html('Ubicación establecida: &nbsp;');
+                $("#labelUbicacion").css("display", "block");
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -760,10 +758,8 @@ $("#labelUbicacion").css("display", "block");
                                         $("#prvpor_analfa15").html(parseFloat((provincia.analfa15 * 100 / provincia.perAnalfa15).toFixed(2)) + '%');
                                         $("#ciu_analfa15").html(format(canton.analfa15));
                                         $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
-                                        $("#prv_escola24").html(format(provincia.escola24));
-                                        $("#prvpor_escola24").html(parseFloat((provincia.escola24 * 100 / provincia.perEscola24).toFixed(2)) + '%');
-                                        $("#ciu_escola24").html(format(canton.escola24));
-                                        $("#ciupor_escola24").html(parseFloat((canton.escola24 * 100 / canton.perEscola24).toFixed(2)) + '%');
+                                        $("#prv_escola24").html(parseFloat((provincia.escola24 / provincia.perEscola24).toFixed(2)));
+                                        $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(2)));
                                         $("#prv_hacinaHogares").html(format(provincia.hacinaHogares));
                                         $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(2)) + '%');
                                         $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
@@ -957,12 +953,12 @@ $("#labelUbicacion").css("display", "block");
                         });
                     }
                 });
-          
+
             }
 // Activamos knockout.js
             ko.applyBindings(new ViewModelSector());
 
-            
+
 
             lat = -0.20300087;
             lng = -78.4987696;

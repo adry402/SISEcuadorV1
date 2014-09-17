@@ -1,7 +1,9 @@
 /* Tablet Horizontal*/
 /* Header */
 
-
+#content{
+    margin-top:40px;
+}
 
 #header {
     margin-top: 0em;

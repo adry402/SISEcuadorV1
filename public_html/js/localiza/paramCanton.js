@@ -295,10 +295,8 @@ function init() {
                                 $("#prvpor_analfa15").html(parseFloat((provincia.analfa15 * 100 / provincia.perAnalfa15).toFixed(2)) + '%');
                                 $("#ciu_analfa15").html(format(canton.analfa15));
                                 $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
-                                $("#prv_escola24").html(format(provincia.escola24));
-                                $("#prvpor_escola24").html(parseFloat((provincia.escola24 * 100 / provincia.perEscola24).toFixed(2)) + '%');
-                                $("#ciu_escola24").html(format(canton.escola24));
-                                $("#ciupor_escola24").html(parseFloat((canton.escola24 * 100 / canton.perEscola24).toFixed(2)) + '%');
+                                $("#prv_escola24").html(parseFloat((provincia.escola24 / provincia.perEscola24).toFixed(2)));
+                                $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(2)));
                                 $("#prv_hacinaHogares").html(format(provincia.hacinaHogares));
                                 $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(2)) + '%');
                                 $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
