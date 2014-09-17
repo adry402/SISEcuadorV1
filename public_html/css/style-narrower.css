@@ -1,14 +1,12 @@
 /*Tablet Vertical*/
 /* Header */
 #mapaSitio{
-   
-  
     font-size: 15px;
-    
+    margin-top: -20px;
 }
 
 #content{
-    margin-top:0px;
+    margin-top:40px;
 }
 
 
@@ -18,13 +16,14 @@
     font-size:20px;
     background: #001C36;
     margin-left:80px;
-    margin-right: 80px
+    margin-right: 80px;
+    height: 100px;
 }
 
 #leftPanelButton .toggle {
     text-align: left;
     padding-left: 23px;
-    height: 100px;
+    height: 99px;
     background:rgba(0,28,54,0.9) url('images/menu.png') no-repeat;
     background-position: 30px;
 
@@ -42,7 +41,7 @@
 
 #rightPanelButton .toggle {
 
-    height: 100px;
+    height: 99px;
 
 }
 
@@ -112,11 +111,10 @@
 
 @media (min-width: 760px) and (max-width: 979px) { 
     .loadingPag{
-
         top:0px;
         left: 0px;
     }
-    
+
     #mapaSitio{
         color:red
     }
@@ -128,6 +126,9 @@
 
         top:300px;
         left: 450px;
+    }
+     #mapaSitio{
+        color:blue
     }
 
 }
