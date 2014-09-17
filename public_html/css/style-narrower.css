@@ -1,6 +1,15 @@
 /*Tablet Vertical*/
 /* Header */
+#mapaSitio{
+   
+  
+    font-size: 15px;
+    
+}
 
+#content{
+    margin-top:0px;
+}
 
 
 #header {
@@ -91,7 +100,7 @@
 /*Este es el UL*/
 .listviewSector{
 
-    font-size:17px;
+    font-size:18px;
 
 }
 
@@ -101,11 +110,15 @@
 }
 
 
-@media (min-width: 768px) and (max-width: 979px) { 
+@media (min-width: 760px) and (max-width: 979px) { 
     .loadingPag{
 
-        top:300px;
-        left: 350px;
+        top:0px;
+        left: 0px;
+    }
+    
+    #mapaSitio{
+        color:red
     }
 
 }

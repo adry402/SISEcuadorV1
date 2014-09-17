@@ -16,7 +16,7 @@ function ViewModelIndicador() {
         serialSector = elem[2];
     }
     $(".loadingPag").css("display", "block");
-   
+
     var ipserver;
     $.ajax({
         url: "cadena.txt",
@@ -26,9 +26,9 @@ function ViewModelIndicador() {
             var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indsisgrpind/movil/" + serialSistema + "/" + serialSubsector;
 
             $.getJSON(cadena, function(result) {
-//     
+                $("#mapaSitio").html(result[0].serialSse.descripcionSse + " » " + result[0].serialSse.nombreSse);
                 $(".loadingPag").css("display", "none");
-               
+
                 $.each(result, function() {
                     principal.ejemploLista.push({
                         url: ko.observable("grafica.html?" + this.serialInd.serialInd + "&" + this.serialSse.serialGrp.serialGrp + "&12"),
@@ -39,10 +39,10 @@ function ViewModelIndicador() {
             });
         }
     });
-    
-    
-    
-      principal.firstName = ko.observable("");
+
+
+
+    principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
     function indOj() {
         this.label = "";
@@ -50,8 +50,8 @@ function ViewModelIndicador() {
         this.serialGrp = "";
 
     }
-    
-    
+
+
     $("#firstName").css("display", "none");
 
     $.ajax({

@@ -19,7 +19,7 @@
 @media  screen and (min-width : 321px) {
     #titleBar {
 
-        background-position: 120px !important;
+        background-position: 110px !important;
     }
 }
 @media  screen and (max-width : 360px )and ( min-width: 321px) {

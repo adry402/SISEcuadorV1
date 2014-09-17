@@ -116,10 +116,11 @@ body {
 
 #titleBar {
     font-family: hbold;
-     background: rgba(0,28,54,0.9)!important;
-  font-size: 16px;
-  
+    background: rgba(0,28,54,0.9)!important;
+    font-size: 16px;
 }
+
+
 
 #header{
    font-family: hbold;
@@ -335,6 +336,7 @@ body {
 /*----- Tabs -----*/
 .tabs {
     width:100%;
+
 }
 
 /*----- Tab Links -----*/
@@ -447,7 +449,6 @@ li.active a, li.active a:hover {
 
     font-size:15px;
     font-family:hlight;
-
     list-style: none;
 
 }
@@ -464,7 +465,6 @@ li.active a, li.active a:hover {
 .listviewSector li a{
     text-decoration: none;
     display:block;
-
     padding: 15px;
     cursor:pointer;
     color: #000;
@@ -549,5 +549,14 @@ li.active a, li.active a:hover {
     margin-top: 30px;
     width: 60px;
     height: 60px;
+}
+
+#mapaSitio{
+    font-size: 12px;
+    text-decoration: underline;
+    color: #001C36;
+    text-align: left;
+    background: #fff;
+    font-family: hlight;
 }
 

@@ -7,7 +7,7 @@ window._skel_config = {
     grid: {gutters: 30},
      breakpoints: {
 		wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
-		narrow: { range: '761-1199', containers: 990 },
+		narrow: { range: '960-1199', containers: 960 },
 		narrower: { range: '761-960', containers: 'fluid' },
 		mobile: { range: '-760', containers: 'fluid', lockViewport: true, grid: { collapse: true, gutters: 20 } }
 	}
@@ -34,7 +34,8 @@ window._skel_panels_config = {
             position: 'top',
             width: '100%',
             height: 50,
-            html: '<div data-action="copyHTML" data-args="title"></div>'
+            html: '<div data-action="copyHTML" data-args="title"></div>' + 
+            '<div data-action="copyHTML" data-args="mapaSitio"></div>'
         },
        
         contactBar: {

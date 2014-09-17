@@ -28,6 +28,8 @@ function ViewModelGrafica() {
 
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
+                 $("#mapaSitio").html(result.subsector_grafica+ " » " +result.nombre_indicador);
+
                 for (var j = 0; j < 1; j++) {
                     principal.fichaList.push({
                         url: ko.observable("ficha.html?" + result.path_indicador),
