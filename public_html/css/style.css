@@ -547,8 +547,8 @@ li.active a, li.active a:hover {
 
 .btnConsultaT{
     margin-top: 30px;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 50px;
 }
 
 #mapaSitio{
@@ -560,3 +560,14 @@ li.active a, li.active a:hover {
     font-family: hlight;
 }
 
+.infoUbicacion table{
+    width: 90%;
+    border-spacing: 2px;
+     font-size: 12px;
+    text-align: center;
+}
+
+.infoUbicacion table thead tr{
+    font-size: 12px;
+    text-align: center;
+}
