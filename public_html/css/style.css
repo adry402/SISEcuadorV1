@@ -123,9 +123,9 @@ body {
 
 
 #header{
-   font-family: hbold;
-   
-     background: rgba(0,28,54,0.9)!important; 
+    font-family: hbold;
+
+    background: rgba(0,28,54,0.9)!important; 
 }
 
 
@@ -161,8 +161,18 @@ body {
 #leftPanel,
 #rightPanel,
 #bottomPanel {
-   
+
     padding: 1.25em;
+}
+
+#bottomPanel {
+    background: rgba(0,28,54,0.9)  !important;
+}
+.compartirT{
+
+    background: url(images/icon-share.png) no-repeat;
+    width: 30px;
+    height: 30px;
 }
 
 #leftPanel a,
@@ -352,7 +362,7 @@ body {
     float:left;
     list-style:none;
     border-left: 1px solid #fff
-    
+
 }
 
 .tab-links a {
@@ -374,7 +384,7 @@ body {
 li.active a, li.active a:hover {
     background:#e3e3e3;
     color:#000;
-  
+
 }
 
 /*----- Content of Tabs -----*/
@@ -480,63 +490,63 @@ li.active a, li.active a:hover {
 }
 
 .email{
-     background:transparent  url(images/icon-msg.png) no-repeat left !important;
-     
+    background:transparent  url(images/icon-msg.png) no-repeat left !important;
+
 }
 
 .email:hover{
-     background:#e3e3e3  url(images/icon-msg.png) no-repeat left !important;     
-     
+    background:#e3e3e3  url(images/icon-msg.png) no-repeat left !important;     
+
 }
 .facebook{
-     background:transparent url(images/icon-facebook.png) no-repeat left !important;
-    
+    background:transparent url(images/icon-facebook.png) no-repeat left !important;
+
 }
 
 .facebook:hover{     
-     background:#e3e3e3 url(images/icon-facebook.png) no-repeat left !important;
-    
+    background:#e3e3e3 url(images/icon-facebook.png) no-repeat left !important;
+
 }
 
 
 .twitter{
-     background:transparent url(images/icon-twitter.png) no-repeat left !important;
-     
+    background:transparent url(images/icon-twitter.png) no-repeat left !important;
+
 }
 
 .twitter:hover{
-     background:#e3e3e3 url(images/icon-twitter.png) no-repeat left !important;
-     
+    background:#e3e3e3 url(images/icon-twitter.png) no-repeat left !important;
+
 }
 
 .google{
-     background:transparent url(images/icon-google.png) no-repeat left !important;
-   
+    background:transparent url(images/icon-google.png) no-repeat left !important;
+
 }
 
 .google:hover{
-     background:#e3e3e3 url(images/icon-google.png) no-repeat left !important;
-   
+    background:#e3e3e3 url(images/icon-google.png) no-repeat left !important;
+
 }
 
 .whatsapp{
-     background:transparent url(images/icon-whats.png) no-repeat left !important;
-   
+    background:transparent url(images/icon-whats.png) no-repeat left !important;
+
 }
 
 .whatsapp:hover{
-     background:#e3e3e3 url(images/icon-whats.png) no-repeat left !important;
-   
+    background:#e3e3e3 url(images/icon-whats.png) no-repeat left !important;
+
 }
 
 
 #labelShare{
     font-family: hbold;
-    
+
 }
 
 #miMapa{
-   background: #f6f6f6;
+    background: #f6f6f6;
 }
 
 .nombreIndicador{
@@ -561,13 +571,30 @@ li.active a, li.active a:hover {
 }
 
 .infoUbicacion table{
-    width: 90%;
+    width: 100%;
     border-spacing: 2px;
-     font-size: 12px;
+    font-size: 13px;
     text-align: center;
 }
 
 .infoUbicacion table thead tr{
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
 }
+
+#shareTerritorial a { 
+    width: 180px;
+    height: 50px;
+    color: #fff;
+    padding-bottom: 20px;
+}
+#shareTerritorial a span{
+    padding-left: 40px;
+    padding-bottom: 30px;
+}
+
+#contactBar{
+    font-size: 16px;
+    text-decoration: none;
+}
+

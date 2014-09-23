@@ -15,6 +15,7 @@ function init() {
 
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
+     $(".infoUbicacion").css("display", "none");
     $("#labelUbicacion").css("display", "none");
 
     $('#parroquiaCombo').attr("disabled", true);
@@ -77,8 +78,7 @@ function init() {
                 var auxCanton;
                 var auxParroquia;
                 var banderaParroquia;
-                $("#labelUbicacion").html('Su ubicación actual es: &nbsp;');
-                $("#labelUbicacion").css("display", "block");
+               
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -234,6 +234,9 @@ function init() {
                             $(".loadingPag").css("display", "none");
                             $(".infoTerritorial").css("display", "block");
                             $("#miMapa").css("display", "block");
+                             $("#labelUbicacion").html('Su ubicación actual es: &nbsp;');
+                $("#labelUbicacion").css("display", "block");
+                 $(".infoUbicacion").css("display", "block");
                             var objeto = result[0];
                             $("#provincia").html(objeto[5]);
                             $("#canton").html(objeto[3]);

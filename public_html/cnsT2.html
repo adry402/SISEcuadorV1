@@ -7,7 +7,7 @@
         <script src="js/libs/jquery-1.9.1.min/jquery-1.9.1.min.js"></script>
         <script src="js/libs/jquery-ui/jquery-ui.js"></script>
         <script src="js/libs/knockout-2.2.1/knockout-min.js"></script>
-        <script src="js/panel/configPanel.js"></script>
+        <script src="js/panel/configTerritorial.js"></script>
         <script src="js/panel/skel.min.js"></script>
         <script src="js/panel/skel-panels.min.js"></script>
         <script src="js/libs/jquery-ui/jquery-ui.js"></script>
@@ -27,7 +27,7 @@
             <div class="row">
                 <!-- Barra izquierda -->
                 <section class="3u" id="left-sidebar">
-                   <nav id="nav">
+                    <nav id="nav">
                         <a  href="index.html" >Inicio</a>
                         <a  href="sector.html?12" >Indicadores temáticos</a>
                         <a  href="cnsT1.html" >Indicadores territoriales</a>
@@ -37,24 +37,25 @@
                 </section>
                 <!-- Contenido -->
                 <section class="9u" id="content">
+                    <br>
                     <div id="labelUbicacion" class="tituloTablas"></div>
-                    <div class="infoTerritorial">
-                         <table>
-                        <tbody>
-                            <tr>
-                                <td style="text-align: center; font-family: hbold"> Provincia</td>
+                    <div class="infoUbicacion">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center; font-family: hbold"> Provincia</td>
 
-                                <td style="text-align: center; font-family: hbold">Cantón</td>
-                            </tr>
-                            <tr>
+                                    <td style="text-align: center; font-family: hbold">Cantón</td>
+                                </tr>
+                                <tr>
 
-                                <td> <div id="provincia"></div></td>
+                                    <td> <div id="provincia"></div></td>
 
-                                <td><div id="canton"></div></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                        
+                                    <td><div id="canton"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                     <div id="miMapa">
                     </div>
@@ -235,7 +236,7 @@
                                     <td style=" text-align: right"><div id="ciu_escola24"></div></td>
 
                                 </tr>
-                              
+
                                 <tr>
                                     <td>Número de hogares en hacinamiento</td>
                                     <td style=" text-align: right"><div id="prv_hacinaHogares"></div></td>
@@ -263,20 +264,40 @@
                 </section>
                 <!-- Barra derecha -->
                 <section class="3u" id="right-sidebar">
+
                     <div>
                         <select id="region"  data-bind="options: regiones, value: regionSeleccionada, optionsText : 'nombreReg', optionsValue : 'serialReg', optionsCaption : 'Región'"></select><br/>
                         <select id="provincia"  data-bind="options: provincias, value: provinciaSeleccionada, optionsText : 'nombrePrv', optionsValue : 'serialPrv', optionsCaption : 'Provincia'"></select><br/>
                         <select id="canton" data-bind="options: cantones, value: cantonSeleccionado, optionsText : 'nombreCiu', optionsValue : 'serialCiu', optionsCaption : 'Cantón'"></select><br/>
                         <select id="parroquia" data-bind="options: parroquias, value: parrSeleccionada, optionsText : 'nombrePar', optionsValue : 'serialPar', optionsCaption : 'Parroquia'"></select><br/>
                         <form data-bind="submit: redirigir">
-
                             <input id="btnConsultaT" type="submit" value="Consultar">
                         </form>
                     </div>
+
+
                 </section>
             </div>
 
         </div>
+        <!-- Bottom Panel -->
+        <div id="bottomPanel">
+            <form>
 
+
+                <div id="shareTerritorial">
+
+                    <div class="row">
+                        <div class="2u"><a class="email button-wrap" href="#" ><span>E-mail</span></a></div>
+                        <div class="2u"><a class="google button-wrap" href="#" ><span>Google+</span></a></div>
+                        <div class="2u"> <a class="facebook button-wrap" href="#" ><span>Facebook</span></a></div>
+                        <div class="2u"><a class="twitter button-wrap" href="#" ><span>Twitter</span></a></div>
+                        <div class="2u"><a id="btnWhatsApp" class="whatsapp button-wrap" href="#"><span>WhatsApp</span></a></div>
+                    </div>
+
+                </div> 
+                <script src="js/shareTerritorial.js"></script>
+            </form>
+        </div>
     </body>
 </html>

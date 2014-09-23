@@ -485,12 +485,13 @@ function init() {
 
                             });
                         }
-
                     });
-
                 });
             }
         });
+
+
+
     }
 // Activamos knockout.js
     ko.applyBindings(new ViewModelSector());
