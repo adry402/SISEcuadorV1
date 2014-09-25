@@ -15,12 +15,12 @@ function init() {
 
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
-     $(".infoUbicacion").css("display", "none");
+    $(".infoUbicacion").css("display", "none");
     $("#labelUbicacion").css("display", "none");
 
     $('#parroquiaCombo').attr("disabled", true);
-
-//    $('#bntConsultaT').prop("disabled", true);
+    $('#provinciaCombo').attr("disabled", true);
+    $('#cantonCombo').attr("disabled", true);
 
     $('input[type="submit"]').attr('disabled', 'disabled');
 
@@ -78,7 +78,7 @@ function init() {
                 var auxCanton;
                 var auxParroquia;
                 var banderaParroquia;
-               
+
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -103,8 +103,8 @@ function init() {
 
                 self.regionSeleccionada.subscribe(function(serialRegion) {
                     self.provincias([]);
-                    $('#parroquiaCombo').attr("disabled", true);
-                    $('input[type="submit"]').attr('disabled', 'disabled');
+
+
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -113,6 +113,10 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indprovincia/" + serialRegion;
 
                             $.getJSON(cadena, function(result) {
+                                $('#provinciaCombo').attr("disabled", false);
+                                $('#cantonCombo').attr("disabled", true);
+                                $('#parroquiaCombo').attr("disabled", true);
+                                $('input[type="submit"]').attr('disabled', 'disabled');
                                 $.each(result, function() {
                                     self.provincias.push({
                                         serialPrv: this.serialPrv,
@@ -130,8 +134,7 @@ function init() {
                 self.provinciaSeleccionada.subscribe(function(serialProvincia) {
                     self.cantones([]);
 
-                    $('#parroquiaCombo').attr("disabled", true);
-                    $('input[type="submit"]').attr('disabled', 'disabled');
+
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -140,6 +143,10 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indcanton/" + serialProvincia;
 
                             $.getJSON(cadena, function(result) {
+                                $('#provinciaCombo').attr("disabled", false);
+                                $('#cantonCombo').attr("disabled", false);
+                                $('#parroquiaCombo').attr("disabled", true);
+                                $('input[type="submit"]').attr('disabled', 'disabled');
 
                                 auxProvincia = result[0].serialPrv.codigotPrv;
 
@@ -170,6 +177,8 @@ function init() {
                             $.getJSON(cadena, function(result) {
                                 auxCanton = result[0].codigotPar.substring(0, 4);
                                 banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
+                                $('#provinciaCombo').attr("disabled", false);
+                                $('#cantonCombo').attr("disabled", false);
                                 $('#parroquiaCombo').attr("disabled", false);
                                 $('input[type="submit"]').removeAttr('disabled');
                                 $.each(result, function() {
@@ -234,9 +243,9 @@ function init() {
                             $(".loadingPag").css("display", "none");
                             $(".infoTerritorial").css("display", "block");
                             $("#miMapa").css("display", "block");
-                             $("#labelUbicacion").html('Su ubicación actual es: &nbsp;');
-                $("#labelUbicacion").css("display", "block");
-                 $(".infoUbicacion").css("display", "block");
+                            $("#labelUbicacion").html('Usted se encuentra en: &nbsp;');
+                            $("#labelUbicacion").css("display", "block");
+                            $(".infoUbicacion").css("display", "block");
                             var objeto = result[0];
                             $("#provincia").html(objeto[5]);
                             $("#canton").html(objeto[3]);
@@ -541,15 +550,12 @@ function init() {
 
                 self.parr = ko.observableArray();
 
-
                 //variables para consulta de busqueda
                 var auxProvincia;
                 var auxCanton;
                 var auxParroquia;
                 var banderaParroquia;
 
-                $("#labelUbicacion").html('Ubicación establecida: &nbsp;');
-                $("#labelUbicacion").css("display", "block");
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -574,8 +580,6 @@ function init() {
 
                 self.regionSeleccionada.subscribe(function(serialRegion) {
                     self.provincias([]);
-                    $('#parroquiaCombo').attr("disabled", true);
-                    $('input[type="submit"]').attr('disabled', 'disabled');
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -584,6 +588,10 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indprovincia/" + serialRegion;
 
                             $.getJSON(cadena, function(result) {
+                                $('#provinciaCombo').attr("disabled", false);
+                                $('#cantonCombo').attr("disabled", true);
+                                $('#parroquiaCombo').attr("disabled", true);
+                                $('input[type="submit"]').attr('disabled', 'disabled');
                                 $.each(result, function() {
                                     self.provincias.push({
                                         serialPrv: this.serialPrv,
@@ -601,8 +609,7 @@ function init() {
                 self.provinciaSeleccionada.subscribe(function(serialProvincia) {
                     self.cantones([]);
 
-                    $('#parroquiaCombo').attr("disabled", true);
-                    $('input[type="submit"]').attr('disabled', 'disabled');
+
                     $.ajax({
                         url: "cadena.txt",
                         dataType: "text",
@@ -611,7 +618,10 @@ function init() {
                             var cadena = ipserver + "/ServicioWeb/webresources/indcanton/" + serialProvincia;
 
                             $.getJSON(cadena, function(result) {
-
+                                $('#provinciaCombo').attr("disabled", false);
+                                $('#cantonCombo').attr("disabled", false);
+                                $('#parroquiaCombo').attr("disabled", true);
+                                $('input[type="submit"]').attr('disabled', 'disabled');
                                 auxProvincia = result[0].serialPrv.codigotPrv;
 
                                 $.each(result, function() {
@@ -641,6 +651,8 @@ function init() {
                             $.getJSON(cadena, function(result) {
                                 auxCanton = result[0].codigotPar.substring(0, 4);
                                 banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
+                                $('#provinciaCombo').attr("disabled", false);
+                                $('#cantonCombo').attr("disabled", false);
                                 $('#parroquiaCombo').attr("disabled", false);
                                 $('input[type="submit"]').removeAttr('disabled');
                                 $.each(result, function() {

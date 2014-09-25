@@ -29,7 +29,7 @@
                 <section class="3u" id="left-sidebar">
                     <nav id="nav">
                         <a  href="index.html" >Inicio</a>
-                        <a  href="sector.html?12" >Indicadores temáticos</a>
+                        <a  href="sector.html?12" >Indicadores sociales</a>
                         <a  href="cnsT1.html" >Indicadores territoriales</a>
                         <a  href="relvSector.html?13" >Indicadores relevantes</a>
                         <a  href="agnSse.html" >Agenda social</a>
@@ -38,7 +38,7 @@
                 <!-- Contenido -->
                 <section class="9u" id="content">
                     <br>
-                    <div id="labelUbicacion" class="tituloTablas"></div>
+                    <div id="labelUbicacion"></div>
                     <div class="infoUbicacion">
                          <table>
                         <tbody>
@@ -67,7 +67,7 @@
                         <br>
                         <img src="css/images/separador.png" alt=""/>
                         <br>
-                        <span class="tituloTablas">INFORMACION GENERAL</span>    
+                        <span class="tituloTablas">INFORMACIÓN GENERAL</span>    
                         <table>
                             <thead>
                                 <tr>
@@ -126,7 +126,7 @@
                         <img src="css/images/separador.png" alt=""/>
                         <br>
                         <br>
-                        <span class="tituloTablas">POBLACION POR CICLO DE VIDA</span> 
+                        <span class="tituloTablas">POBLACIÓN POR CICLO DE VIDA</span> 
                         <table>
                             <thead>
                                 <tr>
@@ -245,12 +245,12 @@
                 <section class="3u" id="right-sidebar">
                     <div>
                         <select id="region"  data-bind="options: regiones, value: regionSeleccionada, optionsText : 'nombreReg', optionsValue : 'serialReg', optionsCaption : 'Región'"></select><br/>
-                        <select id="provincia"  data-bind="options: provincias, value: provinciaSeleccionada, optionsText : 'nombrePrv', optionsValue : 'serialPrv', optionsCaption : 'Provincia'"></select><br/>
-                        <select id="canton" data-bind="options: cantones, value: cantonSeleccionado, optionsText : 'nombreCiu', optionsValue : 'serialCiu', optionsCaption : 'Cantón'"></select><br/>
-                        <select id="parroquia" data-bind="options: parroquias, value: parrSeleccionada, optionsText : 'nombrePar', optionsValue : 'serialPar', optionsCaption : 'Parroquia'"></select><br/>
+                        <select id="provinciaCombo"  data-bind="options: provincias, value: provinciaSeleccionada, optionsText : 'nombrePrv', optionsValue : 'serialPrv', optionsCaption : 'Provincia'"></select><br/>
+                        <select id="cantonCombo" data-bind="options: cantones, value: cantonSeleccionado, optionsText : 'nombreCiu', optionsValue : 'serialCiu', optionsCaption : 'Cantón'"></select><br/>
+                        <select id="parroquiaCombo" data-bind="options: parroquias, value: parrSeleccionada, optionsText : 'nombrePar', optionsValue : 'serialPar', optionsCaption : 'Parroquia'"></select><br/>
                         <form data-bind="submit: redirigir">
 
-                            <input id="btnConsultaT" type="submit" value="Consultar">
+                            <input class="btnConsultaT" type="submit" value="Consultar">
                         </form>
                     </div>
                 </section>

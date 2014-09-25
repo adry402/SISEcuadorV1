@@ -573,12 +573,12 @@ li.active a, li.active a:hover {
 .infoUbicacion table{
     width: 100%;
     border-spacing: 2px;
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
 }
 
 .infoUbicacion table thead tr{
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -596,5 +596,10 @@ li.active a, li.active a:hover {
 #contactBar{
     font-size: 16px;
     text-decoration: none;
+}
+
+#labelUbicacion{
+    font-family: hbold;
+    font-size: 14px;
 }
 

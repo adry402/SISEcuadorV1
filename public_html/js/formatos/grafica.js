@@ -71,7 +71,7 @@ function ViewModelGrafica() {
                             principal.ejemploLista.push({
                                 dato1: "",
                                 dato2: result.valoresX_indicador[j],
-                                dato3: datoR[j] 
+                                dato3: format(datoR[j]) 
                             });
 
                         }
@@ -79,15 +79,15 @@ function ViewModelGrafica() {
                             principal.ejemploLista.push({
                                 dato1: "",
                                 dato2: result.valoresX_indicador[j],
-                                dato3: datoR[j]});
+                                dato3: format(datoR[j])
+                            });
 
                         }
-
 
                     }
                 }
 
-                $("#labelTool").html('&nbsp;('+result.tooltip_indicador+')');
+                $("#labelTool").html('&nbsp;' + result.titulo_tablaDatos);
                 pager = new Pager('results', result.valoresX_indicador.length + 1);
                 pager.init();
                 pager.showPageNav('pager', 'pageNavPosition');
@@ -167,6 +167,31 @@ function ViewModelGrafica() {
             });
         }
     });
+function format(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+        numero = parseFloat(numero);
+        if (isNaN(numero)) {
+            return "";
+        }
+
+        if (decimales !== undefined) {
+            // Redondeamos
+            numero = numero.toFixed(decimales);
+        }
+
+        // Convertimos el punto en separador_decimal
+        numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
+        separador_miles = ".";
+        if (separador_miles) {
+            // Añadimos los separadores de miles
+            var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
+            while (miles.test(numero)) {
+                numero = numero.replace(miles, "$1" + separador_miles + "$2");
+            }
+        }
+
+        return numero;
+    }
+    ;
 
 
 }

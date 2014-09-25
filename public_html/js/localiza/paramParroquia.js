@@ -26,7 +26,7 @@ function init() {
     mapa.addLayer(layerBase);
 
     $("#miMapa").css("display", "none");
-$("#labelUbicacion").css("display", "none");
+    $("#labelUbicacion").css("display", "none");
 
     function ViewModelSector() {
 
@@ -41,6 +41,8 @@ $("#labelUbicacion").css("display", "none");
         $(".loadingPag").css("display", "block");
         $(".infoTerritorial").css("display", "none");
         $('#parroquiaCombo').attr("disabled", true);
+        $('#provinciaCombo').attr("disabled", true);
+        $('#cantonCombo').attr("disabled", true);
         $('input[type="submit"]').attr('disabled', 'disabled');
 
         var self = this;
@@ -90,8 +92,7 @@ $("#labelUbicacion").css("display", "none");
         //Carga las provincias segun la region
         self.regionSeleccionada.subscribe(function(serialRegion) {
             self.provincias([]);
-            $('#parroquiaCombo').attr("disabled", true);
-            $('input[type="submit"]').attr('disabled', 'disabled');
+
             $.ajax({
                 url: "cadena.txt",
                 dataType: "text",
@@ -100,6 +101,10 @@ $("#labelUbicacion").css("display", "none");
                     var cadena = ipserver + "/ServicioWeb/webresources/indprovincia/" + serialRegion;
 
                     $.getJSON(cadena, function(result) {
+                        $('#provinciaCombo').attr("disabled", false);
+                        $('#cantonCombo').attr("disabled", true);
+                        $('#parroquiaCombo').attr("disabled", true);
+                        $('input[type="submit"]').attr('disabled', 'disabled');
                         $.each(result, function() {
                             self.provincias.push({
                                 serialPrv: this.serialPrv,
@@ -117,8 +122,6 @@ $("#labelUbicacion").css("display", "none");
         self.provinciaSeleccionada.subscribe(function(serialProvincia) {
             self.cantones([]);
 
-            $('#parroquiaCombo').attr("disabled", true);
-            $('input[type="submit"]').attr('disabled', 'disabled');
             $.ajax({
                 url: "cadena.txt",
                 dataType: "text",
@@ -127,6 +130,10 @@ $("#labelUbicacion").css("display", "none");
                     var cadena = ipserver + "/ServicioWeb/webresources/indcanton/" + serialProvincia;
 
                     $.getJSON(cadena, function(result) {
+                        $('#provinciaCombo').attr("disabled", false);
+                        $('#cantonCombo').attr("disabled", false);
+                        $('#parroquiaCombo').attr("disabled", true);
+                        $('input[type="submit"]').attr('disabled', 'disabled');
                         auxProvincia = result[0].serialPrv.codigotPrv;
                         $.each(result, function() {
                             self.cantones.push({
@@ -154,6 +161,8 @@ $("#labelUbicacion").css("display", "none");
                     $.getJSON(cadena, function(result) {
                         auxCanton = result[0].codigotPar.substring(0, 4);
                         banderaParroquia = "cnsT2.html?" + auxProvincia + "&" + auxCanton;
+                        $('#provinciaCombo').attr("disabled", false);
+                        $('#cantonCombo').attr("disabled", false);
                         $('#parroquiaCombo').attr("disabled", false);
                         $('input[type="submit"]').removeAttr('disabled');
                         $.each(result, function() {
@@ -206,8 +215,8 @@ $("#labelUbicacion").css("display", "none");
         var codigo_ciu;
         var codigo_par;
 
-$("#labelUbicacion").html('La ubicación seleccionada es: &nbsp;');
-$("#labelUbicacion").css("display", "block");
+        $("#labelUbicacion").html('La ubicación seleccionada es: &nbsp;');
+        $("#labelUbicacion").css("display", "block");
 
         $.ajax({
             url: "cadenaMapa.txt",
@@ -247,7 +256,7 @@ $("#labelUbicacion").css("display", "block");
 
                     $("#canton").html(consulta[1]);
                     $("#parroquia").html(consulta[4]);
-                     $(".cantonTabla").html(consulta[1]);
+                    $(".cantonTabla").html(consulta[1]);
                     $(".parroquiaTabla").html(consulta[4]);
                     codigo_prv = consulta[2];
                     codigo_ciu = consulta[0];
@@ -294,7 +303,7 @@ $("#labelUbicacion").css("display", "block");
                                 $("#par_per65").html(format(parroquia.per65));
                                 $("#ciu_per65").html(format(canton.per65));
                                 $("#par_perpobreza").html(format(parroquia.perPobreza));
-                                 $("#parpor_perpobreza").html(parseFloat((parroquia.perPobreza * 100 / parroquia.totalPobreza).toFixed(2)) + '%');
+                                $("#parpor_perpobreza").html(parseFloat((parroquia.perPobreza * 100 / parroquia.totalPobreza).toFixed(2)) + '%');
                                 $("#ciu_perpobreza").html(format(canton.perPobreza));
                                 $("#ciupor_perpobreza").html(parseFloat((canton.perPobreza * 100 / canton.totalPobreza).toFixed(2)) + '%');
                                 $("#par_analfa15").html(format(parroquia.analfa15));
@@ -302,8 +311,8 @@ $("#labelUbicacion").css("display", "block");
                                 $("#ciu_analfa15").html(format(canton.analfa15));
                                 $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
                                 $("#par_escola24").html(parseFloat((parroquia.escola24 / parroquia.perEscola24).toFixed(2)));
-                                 $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(2)));
-                                 $("#par_hacinaHogares").html(format(parroquia.hacinaHogares));
+                                $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(2)));
+                                $("#par_hacinaHogares").html(format(parroquia.hacinaHogares));
                                 $("#parpor_hacinaHogares").html(parseFloat((parroquia.hacinaHogares * 100 / parroquia.hogaresTotal).toFixed(2)) + '%');
                                 $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
                                 $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(2)) + '%');
@@ -330,7 +339,7 @@ $("#labelUbicacion").css("display", "block");
                                                         auxTabla = auxTabla
                                                                 + "<tr><td style='text-align: right; width: 27%'>" + codDistrito + "</td>"
                                                                 + "<td style='text-align: right; width: 40%'>" + this.nombreCanton + "</td>"
-                                                                + "<td style='text-align: right; width: 33%'>" + format(this.personas)+ "</td></tr>";
+                                                                + "<td style='text-align: right; width: 33%'>" + format(this.personas) + "</td></tr>";
                                                     } else {
 
                                                         auxTabla = auxTabla
