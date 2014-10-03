@@ -149,8 +149,8 @@
 
  .loadingPag{
 
-        top:50px;
-        left: 400px;
+        top:70px;
+        left: 500px;
     }
     
     #mapaSitio{
@@ -159,4 +159,8 @@
     background: transparent;
     color: #fff
     
+}
+
+#btnWhatsApp{
+    display: none !important;
 }

@@ -327,7 +327,7 @@ function init() {
                                             $.each(result, function() {
                                                 var codDistrito = this.codigotDistrito;
                                                 var auxObjetos = "<li>"
-                                                        + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
+                                                        + "<table><thead><tr><th>Distrito</th><th>Parroquia</th><th>Personas</th></tr></thead>"
                                                         + "<tbody>";
                                                 var lista = this.datosCanton;
                                                 var auxTabla = " ";

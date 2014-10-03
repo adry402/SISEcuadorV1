@@ -108,9 +108,10 @@ footer{
     height:30px; 
     left:0px; 
     right:0px; 
+    padding-top: 15px;
     overflow:hidden;
     background: #001C36;
-    font-family: hlight;
+    font-family: hbold;
     color: #fff;
     font-size: 11px;    
 
