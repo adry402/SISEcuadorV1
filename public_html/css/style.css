@@ -376,7 +376,7 @@ body {
 }
 
 .tab-links a:hover {
-    background:#a7cce5;
+   
     text-decoration:none;
 }
 li.active a{
@@ -566,6 +566,7 @@ li.active a, li.active a:hover {
     font-size: 18px;
     padding-top: 20px;
     font-family: hregular; 
+     font-weight: bold;
 }
 
 .btnConsultaT{
@@ -614,6 +615,7 @@ li.active a, li.active a:hover {
 #labelUbicacion{
      font-family: hregular;
     font-size: 15px;
+     font-weight: bold;
 }
 
 .tituloTablas{
