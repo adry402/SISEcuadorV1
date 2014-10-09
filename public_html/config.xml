@@ -6,14 +6,14 @@
         id        = "ec.gob.desarrollosocial.siisemovil.v2"
         version   = "1.0.0">
 
-    <name>MCDS-SISE</name>
+    <name>MCDS - SISEcuador</name>
 
     <description>
-        Sistema Integrado de Indicadores Sociales del Ecuador
+        Sistema de Informacion Social del Ecuador
     </description>
 
     <author href="www.siise.gob.ec" email="siise@desarrollosocial.gob.ec">
-        SIISE - Sistema Integrado de Indicadores Sociales del Ecuador
+        Ministerio Coordinador de Desarrollo Social
     </author>
 
    
