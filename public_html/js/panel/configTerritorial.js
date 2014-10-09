@@ -29,7 +29,7 @@ window._skel_panels_config = {
         },
         bottomPanel: {
             position: 'bottom',
-            size: 80
+            size: 200
                     /*
                      Since this panel is a bit more complicated, we're omitting its 'html' option and
                      defining it inline (ie. in index.html).

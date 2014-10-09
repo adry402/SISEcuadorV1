@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Sistema de Indicadores Sociales Ecuador</title>
+        <title>Sistema de Información Social del Ecuador</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <!--[if lte IE 8]><script src="js/html5shiv.js" type="text/javascript"></script><![endif]-->
         <script src="js/libs/jquery-1.9.1.min/jquery-1.9.1.min.js"></script>
@@ -12,6 +12,7 @@
         <script src="js/panel/skel-panels.min.js"></script>
         <script src="js/libs/jquery-ui/jquery-ui.js"></script>
         <script type="text/javascript" src="js/libs/OpenLayers/OpenLayers.js"></script>
+         <link rel="stylesheet" href="css/normalize.min.css">
 
         <link rel="stylesheet" href="css/cabeceras/cabeceraTt.css">
     </head>
@@ -67,7 +68,7 @@
                         <br>
                         <img src="css/images/separador.png" alt=""/>
                         <br>
-                        <span class="tituloTablas">INFORMACIÓN GENERAL</span>    
+                        <span class="tituloTablas">Información general</span>    
                         <table>
                             <thead>
                                 <tr>
@@ -85,13 +86,13 @@
                                     <td style=" text-align: right"><div id="per_Ciu"></div></td>
                                 </tr>
                                 <tr>
-                                    <td>Población urbana total</td>
+                                    <td>Población urbana</td>
                                     <td style=" text-align: right"><div id="pobU_Prv"></div></td>
                                     <td style=" text-align: right"><div id="pobU_Ciu"></div></td>
 
                                 </tr>
                                 <tr>
-                                    <td>Población rural total</td>
+                                    <td>Población rural</td>
                                     <td style=" text-align: right"><div id="pobR_Prv"></div></td>
                                     <td style=" text-align: right"><div id="pobR_Ciu"></div></td>
 
@@ -107,7 +108,7 @@
                                     <td style=" text-align: right" id="alt_Ciu"></td>
                                 </tr>
                                 <tr>
-                                    <td>Densidad Poblacional (hab/km2)</td>
+                                    <td style=" text-align: left">Densidad Poblacional (hab/km2)</td>
                                     <td style=" text-align: right" id="den_Prv"></td>
                                     <td style=" text-align: right" id="den_Ciu"></td>
                                 </tr>
@@ -126,7 +127,7 @@
                         <img src="css/images/separador.png" alt=""/>
                         <br>
                         <br>
-                        <span class="tituloTablas">DISTRIBUCIÓN POBLACIONAL (PARROQUIAS POR CANTÓN)</span>  
+                        <span class="tituloTablas">Distribución poblacional (parroquias por cantón)</span>  
                         <table>
                             <thead>
                                 <tr>
@@ -145,7 +146,7 @@
                         <img src="css/images/separador.png" alt=""/>
                         <br>
                         <br>
-                        <span class="tituloTablas">POBLACIÓN POR CICLO DE VIDA</span> 
+                        <span class="tituloTablas">Población por ciclo de vida</span> 
                         <table>
                             <thead>
                                 <tr>
@@ -196,7 +197,7 @@
                         <img src="css/images/separador.png" alt=""/>
                         <br>
                         <br>
-                        <span class="tituloTablas">INDICADORES GENERALES</span>
+                        <span class="tituloTablas">Indicadores generales</span>
                         <table>
                             <thead>
                                 <tr>
@@ -259,8 +260,6 @@
                         <script src="js/localiza/paramCanton.js"></script>
 
                     </div>
-
-
                 </section>
                 <!-- Barra derecha -->
                 <section class="3u" id="right-sidebar">
@@ -274,8 +273,6 @@
                             <input class="btnConsultaT" type="submit" value="Consultar">
                         </form>
                     </div>
-
-
                 </section>
             </div>
 
@@ -283,8 +280,6 @@
         <!-- Bottom Panel -->
         <div id="bottomPanel">
             <form>
-
-
                 <div id="shareTerritorial">
 
                     <div class="row">
@@ -296,7 +291,7 @@
                     </div>
 
                 </div> 
-                <script src="js/shareTerritorial.js"></script>
+                <script src="js/shareTerritorial2.js"></script>
             </form>
         </div>
     </body>

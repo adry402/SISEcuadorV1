@@ -361,17 +361,16 @@ body {
     margin:0px 0px;
     float:left;
     list-style:none;
-    border-left: 1px solid #fff
-
+    border-right: 1px solid #b0b0b0
 }
 
 .tab-links a {
     padding:6px 26px;
     display:inline-block;
-    background:#001C36;
+
     font-size:13px;
     font-weight:600;
-    color:#fff;
+    color:#000;
     text-decoration: none;
     transition:all linear 0.15s;
 }
@@ -380,9 +379,16 @@ body {
     background:#a7cce5;
     text-decoration:none;
 }
+li.active a{
+    border-bottom: 5px solid #A2A2A2;
+}
+li:last-child{
+    border-right: none;
+
+}
 
 li.active a, li.active a:hover {
-    background:#e3e3e3;
+
     color:#000;
 
 }
@@ -406,13 +412,20 @@ li.active a, li.active a:hover {
 }
 
 #definicion{
-    font-size: 16px;
-    text-decoration: underline;
-}
+    font-size: 15px;
+    color: #444150;
+    font-family: hmedium
 
+
+}
+.link{
+    font-size: 14px;
+}
 #ficha{
     font-size: 15px;
+    color: #444150
 }
+
 
 #divFuente{
     font-size: 10px;
@@ -550,9 +563,9 @@ li.active a, li.active a:hover {
 }
 
 .nombreIndicador{
-    font-size: 17px;
+    font-size: 18px;
     padding-top: 20px;
-    font-family: hbold;
+    font-family: hregular; 
 }
 
 .btnConsultaT{
@@ -599,7 +612,16 @@ li.active a, li.active a:hover {
 }
 
 #labelUbicacion{
-    font-family: hlight;
+     font-family: hregular;
     font-size: 15px;
 }
 
+.tituloTablas{
+
+    font-size: 18px;
+    font-family: hregular;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: 1px
+
+}

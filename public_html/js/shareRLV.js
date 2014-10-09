@@ -22,22 +22,26 @@ $(document).ready(function() {
 
         switch (shareName) //switch to different links based on different social name
         {
-            case 'facebook':                
+            case 'facebook':
+                //openLink = 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 openLink = 'http://m.facebook.com/sharer.php?u='+encodeURIComponent(pageUrl)+'&t='+encodeURIComponent('Ministerio de Coordinación de Desarrollo Social') ;                
                 break;
             case 'twitter':
-                openLink = 'http://www.twitter.com/share?text='+encodeURIComponent('Comparto información desde el #SIISE Sistema de Indicadores Sociales de Ecuador del @SocialEc #MCDS')+'&url=' + encodeURIComponent(pageUrl);                                
+                //openLink = 'http://twitter.com/home?status=' + encodeURIComponent(pageTitle + ' ' + pageUrl);                
+                openLink = 'http://www.twitter.com/share?text='+encodeURIComponent('Compartiendo información desde #SISEcuador Sistema de Información Social del Ecuador del @SocialEc #MCDS')+'&url=' + encodeURIComponent(pageUrl);                                
                 break;
             case 'google':
                 openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
             case 'email':
-               openLink = 'mailto:?subject=' + pageTitle 
-                        + '&body= Se ha compartido información del Ministerio de Coordinación de Desarrollo Social - MCDS. Aquí el link: ' + encodeURIComponent(pageUrl);
+                openLink = 'mailto:?subject=' + pageTitle 
+                        + '&body= Se ha compartido información del Ministerio de Coordinación de Desarrollo Social - MCDS ' + encodeURIComponent(pageUrl);
+                break;                
+            case 'whatsapp': 
+                //$('#btnWhatsApp').attr("href","whatsapp://send?text=Compartiendo informacion desde "+encodeURIComponent(pageUrl));
+                openLink ='whatsapp://send?text= Información compartida desde la aplicación "Sistema de Informacion Social del Ecuador SISEcuador" del Miniterio Coordinador de Desarrollo Social MCDS. '+encodeURIComponent(pageUrl);
                 break;
-            case 'whatsapp':                 
-                openLink ='whatsapp://send?text=Información compartida desde la aplicación "Sistema de Indicadores Sociales de Ecuador SIISE" del Miniterio Coordinador de Desarrollo Social MCDS. '+encodeURIComponent(pageUrl);
-                break;    
+            
         }
 
         //Parameters for the Popup window

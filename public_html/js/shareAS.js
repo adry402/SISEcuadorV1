@@ -27,7 +27,7 @@ $(document).ready(function() {
                 break;
             case 'twitter':
                 //openLink = 'http://twitter.com/home?status=' + encodeURIComponent(pageTitle + ' ' + pageUrl);                
-                openLink = 'http://www.twitter.com/share?text='+encodeURIComponent('Compartiendo información desde #SIISE Sistema de Indicadores Sociales de Ecuador del @SocialEc #MCDS')+'&url=' + encodeURIComponent(pageUrl);                                
+                openLink = 'http://www.twitter.com/share?text='+encodeURIComponent('Compartiendo información desde #SISEcuador Sistema de Información Social del Ecuador del @SocialEc #MCDS')+'&url=' + encodeURIComponent(pageUrl);                                
                 break;
             case 'google':
                 openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
@@ -38,7 +38,7 @@ $(document).ready(function() {
                 break;                
             case 'whatsapp': 
                 //$('#btnWhatsApp').attr("href","whatsapp://send?text=Compartiendo informacion desde "+encodeURIComponent(pageUrl));
-                openLink ='whatsapp://send?text= Información compartida desde la aplicación "Sistema de Indicadores Sociales de Ecuador SIISE" del Miniterio Coordinador de Desarrollo Social MCDS. '+encodeURIComponent(pageUrl);
+                openLink ='whatsapp://send?text= Información compartida desde la aplicación "Sistema de Informacion Social del Ecuador SISEcuador" del Miniterio Coordinador de Desarrollo Social MCDS. '+encodeURIComponent(pageUrl);
                 break;
             
         }

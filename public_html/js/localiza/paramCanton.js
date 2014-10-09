@@ -280,12 +280,12 @@ function init() {
                                 $("#pobR_Prv").html(format(provincia.perRural));
                                 $("#pobR_Ciu").html(format(canton.perRural));
 
-                                $("#super_Prv").html(format(provincia.superficie));
-                                $("#super_Ciu").html(format(canton.superficie));
-                                $("#alt_Prv").html(format(provincia.alturaMedia));
-                                $("#alt_Ciu").html(format(canton.alturaMedia));
-                                $("#den_Prv").html(format(provincia.densidadPoblacional));
-                                $("#den_Ciu").html(format(canton.densidadPoblacional));
+                                $("#super_Prv").html(format((provincia.superficie).toFixed(1)));
+                                $("#super_Ciu").html(format((canton.superficie).toFixed(1)));
+                                $("#alt_Prv").html(format((provincia.alturaMedia).toFixed(1)));
+                                $("#alt_Ciu").html(format((canton.alturaMedia).toFixed(1)));
+                                $("#den_Prv").html(format((provincia.densidadPoblacional).toFixed(1)));
+                                $("#den_Ciu").html(format((canton.densidadPoblacional).toFixed(1)));
                                 $("#prv_per02").html(format(provincia.per02));
                                 $("#ciu_per02").html(format(canton.per02));
                                 $("#prv_per35").html(format(provincia.per35));
@@ -299,19 +299,19 @@ function init() {
                                 $("#prv_per65").html(format(provincia.per65));
                                 $("#ciu_per65").html(format(canton.per65));
                                 $("#prv_perpobreza").html(format(provincia.perPobreza));
-                                $("#prvpor_perpobreza").html(parseFloat((provincia.perPobreza * 100 / provincia.totalPobreza).toFixed(2)) + '%');
+                                $("#prvpor_perpobreza").html(parseFloat((provincia.perPobreza * 100 / provincia.totalPobreza).toFixed(1)) + '%');
                                 $("#ciu_perpobreza").html(format(canton.perPobreza));
-                                $("#ciupor_perpobreza").html(parseFloat((canton.perPobreza * 100 / canton.totalPobreza).toFixed(2)) + '%');
+                                $("#ciupor_perpobreza").html(parseFloat((canton.perPobreza * 100 / canton.totalPobreza).toFixed(1)) + '%');
                                 $("#prv_analfa15").html(format(provincia.analfa15));
-                                $("#prvpor_analfa15").html(parseFloat((provincia.analfa15 * 100 / provincia.perAnalfa15).toFixed(2)) + '%');
+                                $("#prvpor_analfa15").html(parseFloat((provincia.analfa15 * 100 / provincia.perAnalfa15).toFixed(1)) + '%');
                                 $("#ciu_analfa15").html(format(canton.analfa15));
-                                $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(2)) + '%');
-                                $("#prv_escola24").html(parseFloat((provincia.escola24 / provincia.perEscola24).toFixed(2)));
-                                $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(2)));
+                                $("#ciupor_analfa15").html(parseFloat((canton.analfa15 * 100 / canton.perAnalfa15).toFixed(1)) + '%');
+                                $("#prv_escola24").html(parseFloat((provincia.escola24 / provincia.perEscola24).toFixed(1)));
+                                $("#ciu_escola24").html(parseFloat((canton.escola24 / canton.perEscola24).toFixed(1)));
                                 $("#prv_hacinaHogares").html(format(provincia.hacinaHogares));
-                                $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(2)) + '%');
+                                $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(1)) + '%');
                                 $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
-                                $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(2)) + '%');
+                                $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(1)) + '%');
 
                                 $.ajax({
                                     url: "cadena.txt",
@@ -338,14 +338,15 @@ function init() {
                                         ipserver = data;
                                         var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv;
                                         $.getJSON(cadena, function(result) {
-
-                                            $.each(result, function() {
-                                                var codDistrito = this.codigotDistrito;
-                                                var auxObjetos = "<li>"
+                                              var auxObjetos = "<li>"
                                                         + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
                                                         + "<tbody>";
+                                                 var auxTabla = " ";
+                                            $.each(result, function() {
+                                                var codDistrito = this.codigotDistrito;
+                                              
                                                 var lista = this.datosCanton;
-                                                var auxTabla = " ";
+                                               
                                                 var cont = 0;
                                                 $.each(lista, function() {
                                                     cont = cont + 1;
@@ -363,16 +364,14 @@ function init() {
                                                                 + "<td style='text-align: right; width: 33%'>" + format(this.personas) + "</td></tr>";
                                                     }
 
-
-
-
                                                 });
 
+                                               });
                                                 var final = "</tbody></table></li>";
                                                 var queryTotal = auxObjetos + auxTabla + final;
 
                                                 $("#listviewSistema").append(queryTotal);
-                                            });
+                                            
 
                                         });
                                     }
@@ -412,6 +411,9 @@ function init() {
                                     title: {
                                         text: 'Tipologia de viviendas totales'
                                     },
+                                     subtitle: {
+                                                text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
+                                            },
                                     credits: {
                                         enabled: false
                                     },
@@ -439,14 +441,14 @@ function init() {
                                     },
                                     series: [{
                                             name: '% viviendas aceptables',
-                                            data: [parseFloat((provincia.vivAceptable * 100 / provincia.viviendas).toFixed(2)), parseFloat((canton.vivAceptable * 100 / canton.viviendas).toFixed(2))]
+                                            data: [parseFloat((provincia.vivAceptable * 100 / provincia.viviendas).toFixed(1)), parseFloat((canton.vivAceptable * 100 / canton.viviendas).toFixed(1))]
                                         }, {
                                             name: '% viviendas recuperables',
-                                            data: [parseFloat((provincia.vivRecuperable * 100 / provincia.viviendas).toFixed(2)), parseFloat((canton.vivRecuperable * 100 / canton.viviendas).toFixed(2))]
+                                            data: [parseFloat((provincia.vivRecuperable * 100 / provincia.viviendas).toFixed(1)), parseFloat((canton.vivRecuperable * 100 / canton.viviendas).toFixed(1))]
                                         },
                                         {
                                             name: '% viviendas irrecuperables',
-                                            data: [parseFloat((provincia.vivIrrecuperable * 100 / provincia.viviendas).toFixed(2)), parseFloat((canton.vivIrrecuperable * 100 / canton.viviendas).toFixed(2))]
+                                            data: [parseFloat((provincia.vivIrrecuperable * 100 / provincia.viviendas).toFixed(1)), parseFloat((canton.vivIrrecuperable * 100 / canton.viviendas).toFixed(1))]
                                         }]
                                 });
 
@@ -459,6 +461,9 @@ function init() {
                                     title: {
                                         text: 'Población urbano/rural'
                                     },
+                                     subtitle: {
+                                                text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
+                                            },
                                     credits: {
                                         enabled: false
                                     },
@@ -486,10 +491,10 @@ function init() {
                                     },
                                     series: [{
                                             name: '% población urbana',
-                                            data: [parseFloat((provincia.perUrbana * 100 / provincia.per).toFixed(2)), parseFloat((canton.perUrbana * 100 / canton.per).toFixed(2))]
+                                            data: [parseFloat((provincia.perUrbana * 100 / provincia.per).toFixed(1)), parseFloat((canton.perUrbana * 100 / canton.per).toFixed(1))]
                                         }, {
                                             name: '% población rural',
-                                            data: [parseFloat((provincia.perRural * 100 / provincia.per).toFixed(2)), parseFloat((canton.perRural * 100 / canton.per).toFixed(2))]
+                                            data: [parseFloat((provincia.perRural * 100 / provincia.per).toFixed(1)), parseFloat((canton.perRural * 100 / canton.per).toFixed(1))]
                                         }]
                                 });
 

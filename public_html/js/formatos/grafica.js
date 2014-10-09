@@ -40,7 +40,7 @@ function ViewModelGrafica() {
 
 
                 $(".nombreIndicador").css("display", "block");
-                $(".nombreIndicador").html(result.nombre_indicador);
+                $(".nombreIndicador").html(result.nombre_indicador + " (" + result.anio_indicador+")");
 //                //Se hace visible la tabla
                 $("#tblCabecera").css("display", "block");
                 $("#pageNavPosition").css("display", "block");
@@ -104,7 +104,7 @@ function ViewModelGrafica() {
 
                     },
                     title: {
-                        text: result.nombre_indicador,
+                        text: result.nombre_indicador + " (" + result.anio_indicador + ")",
                         align: 'left'
                     },
 //            subtitle:{
@@ -179,8 +179,8 @@ function format(numero, decimales, separador_decimal, separador_miles) { // v200
         }
 
         // Convertimos el punto en separador_decimal
-        numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
-        separador_miles = ".";
+        numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ".");
+        separador_miles = ",";
         if (separador_miles) {
             // Añadimos los separadores de miles
             var miles = new RegExp("(-?[0-9]+)([0-9]{3})");

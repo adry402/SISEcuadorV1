@@ -191,8 +191,8 @@ function ViewModelGrafica() {
         }
 
         // Convertimos el punto en separador_decimal
-        numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
-        separador_miles = ".";
+        numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ".");
+        separador_miles = ",";
         if (separador_miles) {
             // Añadimos los separadores de miles
             var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
