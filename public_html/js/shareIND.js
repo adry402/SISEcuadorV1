@@ -44,15 +44,7 @@ $(document).ready(function() {
             
         }
 
-        //Parameters for the Popup window
-        winWidth = 650;
-        winHeight = 450;
-        winLeft = ($(window).width() - winWidth) / 2,
-                winTop = ($(window).height() - winHeight) / 2,
-                winOptions = 'width=' + winWidth + ',height=' + winHeight + ',top=' + winTop + ',left=' + winLeft;
-
-        //open Popup window and redirect user to share website.
-        window.open(openLink, 'Compartir este enlace', winOptions);
+      
         return false;
     });
 });
