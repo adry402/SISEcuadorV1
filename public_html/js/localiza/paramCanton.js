@@ -406,7 +406,11 @@ function init() {
 
                                 $('#container1').highcharts({
                                     chart: {
-                                        type: 'column'
+                                        type: 'column',
+                                         style: {
+                            fontFamily: 'Helvetica' // default font
+
+                        }
                                     },
                                     title: {
                                         text: 'Tipologia de viviendas totales'

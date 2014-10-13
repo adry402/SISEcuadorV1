@@ -115,7 +115,11 @@ function ViewModelGrafica() {
                 $('#container').highcharts({
                     //Type spline: suaviza las curvas
                     chart: {
-                        type: result.tipo_grafica
+                        type: result.tipo_grafica,
+                        style: {
+                            fontFamily: 'Helvetica' // default font
+
+                        }
                     },
                     title: {
                         text: result.nombre_indicador,

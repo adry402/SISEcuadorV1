@@ -108,7 +108,7 @@ footer{
     height:30px; 
     left:0px; 
     right:0px; 
-    padding-top: 15px;
+    padding-top: 5px;
     overflow:hidden;
     background: #001C36;
     font-family: hbold;
@@ -119,6 +119,8 @@ footer{
 footer table{
 
     margin: auto;
+     border-collapse: separate;
+  border-spacing:  5px;
 }
 
 section{

@@ -565,7 +565,7 @@ li.active a, li.active a:hover {
 .nombreIndicador{
     font-size: 18px;
     padding-top: 20px;
-    font-family: hregular; 
+    font-family: hlight; 
      font-weight: bold;
 }
 
@@ -582,6 +582,7 @@ li.active a, li.active a:hover {
     text-align: left;
     background: #fff;
     font-family: hlight;
+    line-height: 1.5
 }
 
 .infoUbicacion table{
@@ -620,10 +621,9 @@ li.active a, li.active a:hover {
 
 .tituloTablas{
 
-    font-size: 18px;
-    font-family: hregular;
+    font-size: 17px;
+    font-family: hlight;
     text-align: left;
     font-weight: bold;
-    letter-spacing: 1px
-
+ 
 }

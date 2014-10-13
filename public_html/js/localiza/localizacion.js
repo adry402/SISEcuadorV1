@@ -276,7 +276,7 @@ function init() {
                                         $("#pobU_Ciu").html(format(canton.perUrbana));
                                         $("#pobR_Prv").html(format(provincia.perRural));
                                         $("#pobR_Ciu").html(format(canton.perRural));
-                                        
+
                                         $("#super_Prv").html(format((provincia.superficie).toFixed(1)));
                                         $("#super_Ciu").html(format((canton.superficie).toFixed(1)));
                                         $("#alt_Prv").html(format((provincia.alturaMedia).toFixed(1)));
@@ -402,7 +402,11 @@ function init() {
 
                                         $('#container1').highcharts({
                                             chart: {
-                                                type: 'column'
+                                                type: 'column',
+                                                style: {
+                                                    fontFamily: 'Helvetica' // default font
+
+                                                }
                                             },
                                             title: {
                                                 text: 'Tipologia de viviendas totales'
@@ -452,7 +456,11 @@ function init() {
 
                                         $('#container').highcharts({
                                             chart: {
-                                                type: 'column'
+                                                type: 'column',
+                                                style: {
+                                                    fontFamily: 'Helvetica' // default font
+
+                                                }
                                             },
                                             title: {
                                                 text: 'Población urbano/rural'
@@ -877,12 +885,16 @@ function init() {
 
                                         $('#container1').highcharts({
                                             chart: {
-                                                type: 'column'
+                                                type: 'column',
+                                                style: {
+                                                    fontFamily: 'Helvetica' // default font
+
+                                                }
                                             },
                                             title: {
                                                 text: 'Tipologia de viviendas totales'
                                             },
-                                             subtitle: {
+                                            subtitle: {
                                                 text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
                                             },
                                             credits: {
@@ -927,12 +939,16 @@ function init() {
 
                                         $('#container').highcharts({
                                             chart: {
-                                                type: 'column'
+                                                type: 'column',
+                                                style: {
+                                                    fontFamily: 'Helvetica' // default font
+
+                                                }
                                             },
                                             title: {
                                                 text: 'Población urbano/rural'
                                             },
-                                             subtitle: {
+                                            subtitle: {
                                                 text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
                                             },
                                             credits: {

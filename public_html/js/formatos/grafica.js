@@ -99,7 +99,11 @@ function ViewModelGrafica() {
                 $('#container').highcharts({
                     //Type spline: suaviza las curvas
                     chart: {
-                        type: 'spline'
+                        type: 'spline',
+                     style: {
+                            fontFamily: 'Helvetica' // default font
+
+                        }
 
 
                     },
