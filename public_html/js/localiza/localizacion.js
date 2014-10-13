@@ -761,11 +761,14 @@ function init() {
                                         $("#pobU_Ciu").html(format(canton.perUrbana));
                                         $("#pobR_Prv").html(format(provincia.perRural));
                                         $("#pobR_Ciu").html(format(canton.perRural));
-                                        $("#super_Prv").html(format(provincia.superficie));
-                                        $("#super_Ciu").html(format(canton.superficie));
-                                        $("#alt_Prv").html(format(provincia.alturaMedia));
-                                        $("#alt_Ciu").html(format(canton.alturaMedia));
-                                        $("#den_Prv").html(format(provincia.densidadPoblacional));
+                                        
+                                         $("#super_Prv").html(format((provincia.superficie).toFixed(1)));
+                                        $("#super_Ciu").html(format((canton.superficie).toFixed(1)));
+                                        $("#alt_Prv").html(format((provincia.alturaMedia).toFixed(1)));
+                                        $("#alt_Ciu").html(format((canton.alturaMedia).toFixed(1)));
+                                        $("#den_Prv").html(format((provincia.densidadPoblacional).toFixed(1)));
+                                        $("#den_Ciu").html(format((canton.densidadPoblacional).toFixed(1)));
+                                        
                                         $("#den_Ciu").html(format(canton.densidadPoblacional));
                                         $("#prv_per02").html(format(provincia.per02));
                                         $("#ciu_per02").html(format(canton.per02));
