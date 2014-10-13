@@ -98,13 +98,8 @@ function ViewModelGrafica() {
                 $('#container').highcharts({
                     //Type spline: suaviza las curvas
                     chart: {
-                        type: 'spline',
-                     style: {
-                            fontFamily: 'Helvetica' // default font
-
-                        }
-
-
+                        type: 'spline'
+              
                     },
                     title: {
                         text: result.nombre_indicador + " (" + result.anio_indicador + ")",
