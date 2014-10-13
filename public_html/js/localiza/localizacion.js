@@ -769,7 +769,7 @@ function init() {
                                         $("#den_Prv").html(format((provincia.densidadPoblacional).toFixed(1)));
                                         $("#den_Ciu").html(format((canton.densidadPoblacional).toFixed(1)));
                                         
-                                        $("#den_Ciu").html(format(canton.densidadPoblacional));
+                                       
                                         $("#prv_per02").html(format(provincia.per02));
                                         $("#ciu_per02").html(format(canton.per02));
                                         $("#prv_per35").html(format(provincia.per35));
