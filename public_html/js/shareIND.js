@@ -26,10 +26,7 @@ $(document).ready(function() {
                 //openLink = 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 openLink = 'http://m.facebook.com/sharer.php?u='+encodeURIComponent(pageUrl)+'&t='+encodeURIComponent('Ministerio de Coordinación de Desarrollo Social') ;                
                 break;
-            case 'twitter':
-                //openLink = 'http://twitter.com/home?status=' + encodeURIComponent(pageTitle + ' ' + pageUrl);                
-                openLink = 'http://www.twitter.com/share?text='+encodeURIComponent('Compartiendo información desde #SISEcuador Sistema de Información Social del Ecuador del @SocialEc #MCDS')+'&url=' + encodeURIComponent(pageUrl);                                
-                break;
+           
             case 'google':
                 openLink = 'https://plus.google.com/share?url=' + encodeURIComponent(pageUrl) + '&amp;title=' + encodeURIComponent(pageTitle);
                 break;
@@ -43,8 +40,33 @@ $(document).ready(function() {
                 break;
             
         }
+         //Parameters for the Popup window
+        winWidth = 650;
+        winHeight = 450;
+        winLeft = ($(window).width() - winWidth) / 2,
+                winTop = ($(window).height() - winHeight) / 2,
+                winOptions = 'width=' + winWidth + ',height=' + winHeight + ',top=' + winTop + ',left=' + winLeft;
+
+        //open Popup window and redirect user to share website.
+        window.open(openLink, 'Compartir este enlace', winOptions);
 
       
         return false;
     });
+
+    !function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id))
+        {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }
+    (document, 'script', 'twitter-wjs');
+    
+    
+    
+
 });
