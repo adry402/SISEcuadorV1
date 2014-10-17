@@ -27,7 +27,7 @@ function ViewModelSubsector() {
 
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-               $("#mapaSitio").html( result[0].descripcionSse);
+               $(".mapaSitio").html( result[0].descripcionSse);
                 $.each(result, function() {
                     principal.ejemploLista.push({
                         url: ko.observable("indicador.html?" + 12 + "&" + this.serialSse + "&" + serialSector),

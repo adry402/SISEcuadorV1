@@ -27,7 +27,7 @@ function ViewModelGrafica() {
 
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-                 $("#mapaSitio").html(result.subsector_grafica+ " » " +result.nombre_indicador);
+                 $(".mapaSitio").html(result.subsector_grafica);
 
                 for (var j = 0; j < 1; j++) {
                     principal.fichaList.push({

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-         <title>Sistema de Información Social del Ecuador</title>
+        <title>Sistema de Información Social del Ecuador</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <!--[if lte IE 8]><script src="js/html5shiv.js" type="text/javascript"></script><![endif]-->
         <script src="js/libs/jquery-1.9.1.min/jquery-1.9.1.min.js"></script>
@@ -12,26 +12,39 @@
         <script src="js/panel/skel.min.js"></script>
         <script src="js/panel/skel-panels.min.js"></script>
         <link rel="stylesheet" href="css/cabeceras/cabecerasRelevantes.css">
-         <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/normalize.min.css">
         <script src="js/shareRLV.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer>
+            {
+                lang: 'es';
+            }
+        </script>
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=526335330845255&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
         <div class="container">
             <!-- Cabecera -->
             <div id="header">
-                <div id="title">
-                    Indicadores relevantes
+                 <div id="title">
+                    <div class="titulo-general">Indicadores relevantes</div>                     
+                    <div class="mapaSitio"></div>
                 </div>
-                 <div id="mapaSitio">
-
-                    </div>
             </div>
 
             <!-- Cuerpo -->
             <div class="row">
                 <!-- Barra izquierda -->
                 <section class="3u" id="left-sidebar">
-                   <nav id="nav">
+                    <nav id="nav">
                         <a  href="index.html" >Inicio</a>
                         <a  href="sector.html?12" >Indicadores sociales</a>
                         <a  href="cnsT1.html" >Indicadores territoriales</a>
@@ -42,7 +55,7 @@
                 <!-- Contenido -->
 
                 <section class="9u" id="content">
-                    
+
                     <div class="tabs">
                         <ul class="tab-links">
                             <li class="active"><a href="#tab1">Gráfica</a></li>
@@ -85,7 +98,7 @@
                                                 Año
                                             </th>
                                             <th>
-                                                 Datos<span id="labelTool"></span>
+                                                Datos<span id="labelTool"></span>
                                             </th>
 
 
@@ -107,7 +120,7 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                 <br>
+                                <br>
                             </div>
 
                             <div id="tab3" class="tab">
@@ -120,7 +133,7 @@
                                 <br>
                                 <section id="ficha"></section>
                                 <br>
-                             <table class="link">
+                                <table class="link">
                                     <tbody data-bind="foreach: fichaList">
                                         <tr>
                                             <td>
@@ -141,7 +154,6 @@
                 </section>
                 <!-- Barra derecha -->
                 <section class="3u" id="right-sidebar">
-
                     <div id="labelShare">Compartir</div> 
                     <nav id="share">
                         <a class="email button-wrap" href="#" ><span></span>E-mail</a>
@@ -149,8 +161,7 @@
                         <a class="twitter button-wrap" href="#" ><span>Twitter</span></a>
                         <a id="btnWhatsApp" class="whatsapp button-wrap" href="#"><span>WhatsApp</span></a>
                         <a class="google button-wrap" href="#" ><span>Google+</span></a>
-                        
-                    </nav>
+                    </nav> 
                 </section>
             </div>
         </div>

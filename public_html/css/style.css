@@ -176,14 +176,31 @@ body {
     height: 30px;
 }
 
-#leftPanel a,
-#rightPanel a {
+#leftPanel a
+{
     display: block;
     color: #000;
     border-bottom: solid 1px #BFBFBF;
     line-height: 4em;
 
 }
+#rightPanel a {
+    display: block;
+    color: #000;
+    border-bottom: none;
+    line-height: 4em;
+}
+
+#bottomPanel a {
+    display: block;
+    color: #fff;
+    border-bottom: none;
+    line-height: 3em;
+}
+#bottomPanel a span{
+    padding-left: 40px;
+}
+
 
 #leftPanel li:first-child > a,
 #rightPanel li:first-child > a {
@@ -200,6 +217,73 @@ body {
     color: #000;
     text-decoration: none;
 }
+
+
+
+#shareTweet {
+    padding-top: 28px;
+    padding-bottom: 18px;
+    color: #000;
+    text-decoration: none;
+    border-bottom: solid 1px #BFBFBF; 
+}
+#shareWhatsapp
+{
+    padding-top: 17px;
+    padding-bottom: 15px;
+    color: #000;
+    text-decoration: none;
+    border-bottom: solid 1px #BFBFBF;
+}
+#shareWhatsappT a 
+{
+    text-decoration: none;
+}
+
+
+
+#shareMail {
+    padding-top: 17px;
+    padding-bottom: 15px;
+    color: #000;
+    text-decoration: none;
+    border-bottom: solid 1px #BFBFBF;
+}
+#shareMailT  {
+    
+   margin-top: 19px;
+}
+#shareMailT a {
+    
+    text-decoration: none;
+}
+
+
+#shareWhatsapp a{
+    height: 50px;
+}
+#shareMail a{
+    height: 50px;
+}
+
+
+#shareGoogle
+{
+    color: #000;
+    text-decoration: none;
+    border-bottom: solid 1px #BFBFBF;
+}
+
+
+#shareFacebook
+{
+    padding-top: 21px;
+    padding-bottom: 35px;
+    color: #000;
+    text-decoration: none;
+    border-bottom: solid 1px #BFBFBF; 
+}
+
 
 
 /**********************************************************/
@@ -377,7 +461,7 @@ body {
 }
 
 .tab-links a:hover {
-   
+
     text-decoration:none;
 }
 li.active a{
@@ -505,13 +589,11 @@ li.active a, li.active a:hover {
 
 .email{
     background:transparent  url(images/icon-msg.png) no-repeat left !important;
+    
 
 }
 
-.email:hover{
-    background:#e3e3e3  url(images/icon-msg.png) no-repeat left !important;     
 
-}
 .facebook{
     background:transparent url(images/icon-facebook.png) no-repeat left !important;
 
@@ -548,15 +630,12 @@ li.active a, li.active a:hover {
 
 }
 
-.whatsapp:hover{
-    background:#e3e3e3 url(images/icon-whats.png) no-repeat left !important;
 
-}
 
 
 #labelShare{
     font-family: hbold;
-
+    
 }
 
 #miMapa{
@@ -567,7 +646,7 @@ li.active a, li.active a:hover {
     font-size: 18px;
     padding-top: 20px;
     font-family: hlight; 
-     font-weight: bold;
+    font-weight: bold;
 }
 
 .btnConsultaT{
@@ -576,14 +655,16 @@ li.active a, li.active a:hover {
     height: 50px;
 }
 
-#mapaSitio{
+.titulo-general{
+    font-family: hbold;
+}
+
+.mapaSitio{
     font-size: 12px;
-    text-decoration: underline;
-    color: #001C36;
+   
     text-align: left;
-    background: #fff;
     font-family: hlight;
-    line-height: 1.5
+    line-height: 1.4
 }
 
 .infoUbicacion table{
@@ -601,12 +682,14 @@ li.active a, li.active a:hover {
 #shareTerritorial a { 
     width: 180px;
     height: 50px;
-    color: #fff;
+    color: transparent;
     padding-bottom: 20px;
 }
 #shareTerritorial a span{
     padding-left: 40px;
     padding-bottom: 30px;
+    color: transparent;
+    text-decoration: none;
 }
 
 #contactBar{
@@ -615,9 +698,9 @@ li.active a, li.active a:hover {
 }
 
 #labelUbicacion{
-     font-family: hregular;
+    font-family: hregular;
     font-size: 15px;
-     font-weight: bold;
+    font-weight: bold;
 }
 
 .tituloTablas{
@@ -627,4 +710,6 @@ li.active a, li.active a:hover {
     text-align: left;
     font-weight: bold;
 }
+
+
 

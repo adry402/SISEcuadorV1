@@ -26,7 +26,7 @@ function ViewModelIndicador() {
             var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indsisgrpind/movil/" + serialSistema + "/" + serialSubsector;
 
             $.getJSON(cadena, function(result) {
-                $("#mapaSitio").html(result[0].serialSse.descripcionSse + " » " + result[0].serialSse.nombreSse);
+                $(".mapaSitio").html( result[0].serialSse.nombreSse);
                 $(".loadingPag").css("display", "none");
 
                 $.each(result, function() {

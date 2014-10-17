@@ -5,16 +5,7 @@
     margin-top:40px;
 }
 
-#header {
-    margin-top: 0em;
-    text-align: left;
-    font-family: hbold;
-    color: #fff;
-    height: 100px;
-    margin-left:0px;
-    margin-right: 0px
 
-}
 
 #leftPanelButton .toggle {
     text-align: left;
@@ -67,11 +58,21 @@
 /* Title */
 
 #title {
-    padding-left: 200px;
-    padding-top: 30px;
-    margin: 0 0 1.5em 0;
+     padding-left: 160px;
+        padding-top: 25px;
+        margin: 0 0 1.5em 0;        
+        color: #fff;
+
+}
+
+#header {
+    margin-top: 0em;
+    text-align: left;
+    font-family: hbold;
+    color: #fff;
     height: 100px;
-    background-position: 160px !important;
+    margin-left:0px;
+    margin-right: 0px
 
 }
 

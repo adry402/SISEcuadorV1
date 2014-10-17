@@ -47,7 +47,7 @@ function ViewModelGrafica() {
                 $(".nombreIndicador").html(result.nombre_indicador);
 
                 $(".loadingPag").css("display", "none");
-                $("#mapaSitio").html(result.subsector_grafica + " » " + result.nombre_indicador);
+                $(".mapaSitio").html(result.subsector_grafica);
                 $("#definicion").css("display", "block");
 //                $("#footerGrafico").css("display", "block");
 ////

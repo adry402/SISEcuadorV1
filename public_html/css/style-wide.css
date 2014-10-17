@@ -3,12 +3,13 @@
 /* Header */
 
 #header {
-    padding-top: 30px;
-    padding-left: 20%;
+    padding-top: 20px;
+    padding-left: 120px;
     height: 100px;
     color: #fff;
     margin-left:0px;
-    margin-right: 0px
+    margin-right: 0px;
+       
 }
 
 /* Nav */
@@ -120,7 +121,7 @@
     height: 100px;
     background:rgba(0,28,54,0.9) url('images/menu.png') no-repeat;
     background-position: 30px;
-    
+
 }
 
 #rightPanelButton .toggle {
@@ -140,20 +141,30 @@
     background-position: 40px !important;
 }
 
- .loadingPag{
+.loadingPag{
 
-        top:70px;
-        left: 500px;
-    }
-    
-    #mapaSitio{
-   
-   
+    top:70px;
+    left: 500px;
+}
+
+#mapaSitio{
+
+
     background: transparent;
     color: #fff
-    
+
 }
 
 #btnWhatsApp{
     display: none !important;
+}
+
+/* Title */
+
+#title {
+    padding-left: 40px;
+    padding-top: 5px;
+    margin: 0 0 1.5em 0;        
+    color: #fff;
+
 }

@@ -1,41 +1,29 @@
 /*Tablet Vertical*/
 /* Header */
-#mapaSitio{
-    
-    margin-top: -20px;
-}
+
 
 #content{
     margin-top:40px;
 }
 
 
-#header {
-    margin-top: 0em;
-    color: white;
-    font-size:20px;
-    background: #001C36;
-    margin-left:80px;
-    margin-right: 80px;
-    height: 100px;
-}
 
 #leftPanelButton .toggle {
     text-align: left;
     padding-left: 23px;
     height: 100px;
-    background:rgba(0,28,54,0.9) url('images/menu.png') no-repeat;
+    background:transparent url('images/menu.png') no-repeat;
     background-position: 30px;
 
 }
 .icon-myshare{
-    background:rgba(0,28,54,0.9) url(images/icon-share.png) no-repeat !important;
+    background:transparent url(images/icon-share.png) no-repeat !important;
     background-position: 40px !important;
 
 }
 
 .icon-mysearch{
-    background:rgba(0,28,54,0.9) url(images/icon-search.png) no-repeat  !important;
+    background:transparent url(images/icon-search.png) no-repeat  !important;
     background-position: 40px !important;
 }
 
@@ -72,12 +60,21 @@
 /* Title */
 
 #title {
-    padding-left: 200px;
-    padding-top: 30px;
+    padding-left: 160px;
+    padding-top: 27px;
     margin: 0 0 1.5em 0;
     height: 100px;
     background-position: 160px !important;
 
+}
+
+#header {
+    margin-top: 0em;
+    color: white;
+    font-size:20px;
+    background: #001C36;
+   
+    height: 100px;
 }
 
 /* Nav */

@@ -23,7 +23,7 @@ function ViewModelIndicador() {
 
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-$("#mapaSitio").html(result[0].serialSse.serialGrp.nombreGrp);
+$(".mapaSitio").html(result[0].serialSse.serialGrp.nombreGrp);
               
                 $.each(result, function() {
                     principal.ejemploLista.push({

@@ -27,7 +27,7 @@ function ViewModelIndicador() {
             $.getJSON(cadena, function(result) {
 //     
                 $(".loadingPag").css("display", "none");
-              $("#mapaSitio").html(result[0].path_indicador + " ");
+              $(".mapaSitio").html(result[0].path_indicador + " ");
                 $.each(result, function() {
                     principal.ejemploLista.push({
                         url: ko.observable("agnGrafica.html?" + this.variable_indicador),

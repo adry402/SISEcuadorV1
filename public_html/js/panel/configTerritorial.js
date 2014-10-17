@@ -42,8 +42,7 @@ window._skel_panels_config = {
             position: 'top',
             width: '100%',
             height: 50,
-            html: '<div data-action="copyHTML" data-args="title"></div>' +
-                    '<div data-action="copyHTML" data-args="mapaSitio"></div>'
+            html: '<div data-action="copyHTML" data-args="title"></div>' 
         },
         contactBar: {
             position: 'bottom-center',

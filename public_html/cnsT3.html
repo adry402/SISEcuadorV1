@@ -7,16 +7,31 @@
         <script src="js/libs/jquery-1.9.1.min/jquery-1.9.1.min.js"></script>
         <script src="js/libs/jquery-ui/jquery-ui.js"></script>
         <script src="js/libs/knockout-2.2.1/knockout-min.js"></script>
-         <script src="js/panel/configTerritorial.js"></script>
+        <script src="js/panel/configTerritorial.js"></script>
         <script src="js/panel/skel.min.js"></script>
         <script src="js/panel/skel-panels.min.js"></script>
         <script src="js/libs/jquery-ui/jquery-ui.js"></script>
         <script type="text/javascript" src="js/libs/OpenLayers/OpenLayers.js"></script>
-         <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/normalize.min.css">
 
         <link rel="stylesheet" href="css/cabeceras/cabeceraTt.css">
+        <script src="https://apis.google.com/js/platform.js" async defer>
+            {
+                lang: 'es';
+            }
+        </script>
     </head>
     <body onLoad="init();">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id))
+                        return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=526335330845255&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
         <div class="container">
             <!-- Cabecera -->
             <div id="header">
@@ -38,7 +53,7 @@
                 </section>
                 <!-- Contenido -->
                 <section class="9u" id="content">
-                    
+
                     <div id="labelUbicacion"></div>
                     <div class="infoUbicacion">
                         <table>
@@ -260,23 +275,24 @@
         </div>
         <!-- Bottom Panel -->
         <div id="bottomPanel">
-            <form>
-
-
-                <div id="shareTerritorial">
-
-                    <div class="row">
-                        <div class="2u"><a class="email button-wrap" href="#" ><span>E-mail</span></a></div>
-                        <div class="2u"> <a class="facebook button-wrap" href="#" ><span>Facebook</span></a></div>
-                        <div class="2u"><a class="twitter button-wrap" href="#" ><span>Twitter</span></a></div>
-                        <div class="2u"><a id="btnWhatsApp" class="whatsapp button-wrap" href="#"><span>WhatsApp</span></a></div>
-                        <div class="2u"><a class="google button-wrap" href="#" ><span>Google+</span></a></div>
-                        
-                    </div>
-
-                </div> 
-                <script src="js/shareTerritorial3.js"></script>
-            </form>
+            <div id="labelShare" style="color:#fff">Compartir</div> 
+            <div class="row">
+                <div class="2u">
+                     <a class="email button-wrap" href="#" ><span></span>E-mail</a>
+                </div>
+                <div class="2u">
+                    <a class="facebook button-wrap" href="#" ><span>Facebook</span></a>
+                </div>
+                <div class="3u">
+                    <a class="twitter button-wrap" href="#" ><span>Twitter</span></a>
+                </div>
+                <div class="3u">
+                    <a id="btnWhatsApp" class="whatsapp button-wrap" href="#"><span>WhatsApp</span></a>
+                </div>
+                <div class="3u">
+                    <a class="google button-wrap" href="#" ><span>Google+</span></a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
