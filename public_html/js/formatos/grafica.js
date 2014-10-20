@@ -49,8 +49,8 @@ function ViewModelGrafica() {
                 $("#divFuente").css("display", "block");
                 $('#ficha').html(result.definicion_grafica);
 
-                $("#lblFuente").html(result.fuente_indicador);
-                $("#lblAnio").html(result.anio_indicador);
+                $(".lblFuente").html(result.fuente_indicador);
+                $(".lblAnio").html(result.anio_indicador);
                 var i;
 
                 for (var i = 0; i < result.valoresY_indicador.length; i++) {

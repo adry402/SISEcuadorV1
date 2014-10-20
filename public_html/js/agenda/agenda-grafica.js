@@ -61,8 +61,8 @@ function ViewModelGrafica() {
 //                
 //
                 $('#ficha').html(result.definicion_grafica);
-                $("#lblFuente").html(result.fuente_indicador);
-                $("#lblAnio").html(result.anio_indicador);
+                $(".lblFuente").html(result.fuente_indicador);
+                $(".lblAnio").html(result.anio_indicador);
                 var i;
                 var itemPorHoja = 0;
                 var serieName = result.valoresY_indicador[0].name;
