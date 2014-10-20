@@ -24,14 +24,14 @@
     <body onLoad="init();">
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id))
-                        return;
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=526335330845255&version=v2.0";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=526335330845255&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
         <div class="container">
             <!-- Cabecera -->
             <div id="header">
@@ -249,6 +249,68 @@
                         <div id="container1">
 
                         </div>
+                        <br>
+                        <img src="css/images/separador.png" alt=""/>
+                        <br>
+                        <br>
+                        <span class="tituloTablas">Infraestructura parroquia <span class="parroquiaTabla"></span></span>
+                        <table>
+                            <thead>
+                                <tr> 
+                                    <td rowspan="2"><p>Ministerios</p></td>
+                                    <td colspan="2">Infraestructura actual</td>
+                                </tr>
+                                <tr> 
+                                    <td>Tipo</td>
+                                    <td>Unidades</td>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                <tr> 
+                                    <td rowspan="3">MSP</td>
+                                    <td>Centro de salud</td>
+                                    <td id="centro_salud"></td>
+                                </tr>
+                                <tr> 
+                                    <td>Puestos de salud</td>
+                                    <td id="puestos_salud"></td>
+                                </tr>
+                                <tr> 
+                                    <td>Hospitales básicos</td>
+                                    <td id="hos_basico"></td>
+                                </tr>
+                                <tr> 
+                                    <td rowspan="2">MINDEP</td>
+                                    <td>Canchas</td>
+                                    <td id="canchas"></td>
+                                </tr>
+                                <tr> 
+                                    <td>Polideportivo</td>
+                                    <td id="polideportivo"></td>
+                                </tr>
+                                <tr> 
+                                    <td rowspan="2">MINEDUC</td>
+                                    <td>Fiscal</td>
+                                    <td id="fiscal"></td>
+                                </tr>
+                                <tr> 
+                                    <td>Particular</td>
+                                    <td id="particular"></td>
+                                </tr>
+                                <tr> 
+                                    <td rowspan="2">MININTERIOR</td>
+                                    <td>U.P.C.</td>
+                                    <td id="upc"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <br>
+                        <br>
+                        <br>
 
                         <script src="js/highcharts/highcharts.js"></script>
                         <script src="js/localiza/paramParroquia.js"></script>
@@ -278,7 +340,7 @@
             <div id="labelShare" style="color:#fff">Compartir</div> 
             <div class="row">
                 <div class="2u">
-                     <a class="email button-wrap" href="#" ><span></span>E-mail</a>
+                    <a class="email button-wrap" href="#" ><span></span>E-mail</a>
                 </div>
                 <div class="2u">
                     <a class="facebook button-wrap" href="#" ><span>Facebook</span></a>
@@ -286,11 +348,11 @@
                 <div class="3u">
                     <a class="twitter button-wrap" href="#" ><span>Twitter</span></a>
                 </div>
-             
+
                 <div class="3u">
                     <a class="google button-wrap" href="#" ><span>Google+</span></a>
                 </div>
-                   <div class="3u">
+                <div class="3u">
                     <a id="btnWhatsApp" class="whatsapp button-wrap" href="#"><span>WhatsApp</span></a>
                 </div>
             </div>

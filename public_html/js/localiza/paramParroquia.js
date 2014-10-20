@@ -284,8 +284,8 @@ function init() {
                                 $("#pobU_Ciu").html(format(canton.perUrbana));
                                 $("#pobR_Par").html(format(parroquia.perRural));
                                 $("#pobR_Ciu").html(format(canton.perRural));
-                                
-                                
+
+
                                 $("#super_Par").html(format((parroquia.superficie).toFixed(1)));
                                 $("#super_Ciu").html(format((canton.superficie).toFixed(1)));
                                 $("#alt_Par").html(format((parroquia.alturaMedia).toFixed(1)));
@@ -318,6 +318,19 @@ function init() {
                                 $("#parpor_hacinaHogares").html(parseFloat((parroquia.hacinaHogares * 100 / parroquia.hogaresTotal).toFixed(1)) + '%');
                                 $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
                                 $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(1)) + '%');
+
+
+                                $("#centro_salud").html(parroquia.centro_salud);
+                                $("#puestos_salud").html(parroquia.puesto_salud);
+                                $("#hos_basico").html(parroquia.hospital_basico);
+                                $("#canchas").html(parroquia.canchas_descubierta + parroquia.canchas_cubierta);
+                                $("#polideportivo").html(parroquia.polideportivos);
+                                $("#fiscal").html(parroquia.educacion_publico);
+                                $("#particular").html(parroquia.educacion_privada);
+
+                                $("#upc").html(parroquia.upcs);
+
+
                                 $.ajax({
                                     url: "cadena.txt",
                                     dataType: "text",
@@ -325,15 +338,15 @@ function init() {
                                         ipserver = data;
                                         var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv + "/" + codigo_ciu + "/" + codigo_par;
                                         $.getJSON(cadena, function(result) {
-                                             var auxObjetos = "<li>"
-                                                        + "<table><thead><tr><th>Distrito</th><th>Parroquia</th><th>Personas</th></tr></thead>"
-                                                        + "<tbody>";
-                                                var auxTabla = " ";
+                                            var auxObjetos = "<li>"
+                                                    + "<table><thead><tr><th>Distrito</th><th>Parroquia</th><th>Personas</th></tr></thead>"
+                                                    + "<tbody>";
+                                            var auxTabla = " ";
                                             $.each(result, function() {
                                                 var codDistrito = this.codigotDistrito;
-                                               
+
                                                 var lista = this.datosCanton;
-                                                
+
                                                 var cont = 0;
                                                 $.each(lista, function() {
                                                     cont = cont + 1;
@@ -353,12 +366,12 @@ function init() {
 
                                                 });
 
-                                                });
-                                                 var final = "</tbody></table></li>";
-                                                var queryTotal = auxObjetos + auxTabla + final;
+                                            });
+                                            var final = "</tbody></table></li>";
+                                            var queryTotal = auxObjetos + auxTabla + final;
 
-                                                $("#listviewSistema").append(queryTotal);
-                                           
+                                            $("#listviewSistema").append(queryTotal);
+
 
                                         });
                                     }
@@ -392,17 +405,17 @@ function init() {
                                 $('#container1').highcharts({
                                     chart: {
                                         type: 'column',
-                                         style: {
-                            fontFamily: 'Helvetica' // default font
+                                        style: {
+                                            fontFamily: 'Helvetica' // default font
 
-                        }
+                                        }
                                     },
                                     title: {
                                         text: 'Tipologia de viviendas totales'
                                     },
-                                     subtitle: {
-                                                text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
-                                            },
+                                    subtitle: {
+                                        text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
+                                    },
                                     credits: {
                                         enabled: false
                                     },
@@ -450,9 +463,9 @@ function init() {
                                     title: {
                                         text: 'Población urbano/rural'
                                     },
-                                     subtitle: {
-                                                text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
-                                            },
+                                    subtitle: {
+                                        text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
+                                    },
                                     credits: {
                                         enabled: false
                                     },

@@ -312,7 +312,14 @@ function init() {
                                 $("#prvpor_hacinaHogares").html(parseFloat((provincia.hacinaHogares * 100 / provincia.hogaresTotal).toFixed(1)) + '%');
                                 $("#ciu_hacinaHogares").html(format(canton.hacinaHogares));
                                 $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(1)) + '%');
-
+                                $("#centro_salud").html(canton.centro_salud);
+                                $("#hos_general").html(canton.hospital_general);
+                                $("#canchas").html(canton.canchas_descubierta + canton.canchas_cubierta);
+                                $("#coliseo").html(canton.coliseo);
+                                $("#fiscal").html(canton.educacion_publico);
+                                $("#particular").html(canton.educacion_privada);
+                                $("#uvc").html(canton.uvcs);
+                                $("#upc").html(canton.upcs);
                                 $.ajax({
                                     url: "cadena.txt",
                                     dataType: "text",
