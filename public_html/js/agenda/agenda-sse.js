@@ -123,4 +123,4 @@ function ViewModelSubsector() {
     });
 }
 //// Activamos knockout.js
-koko.applyBindings(new ViewModelSubsector());
+ko.applyBindings(new ViewModelSubsector());
