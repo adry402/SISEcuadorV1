@@ -1,31 +1,47 @@
-
-
+/* 
+ * Javascript sector
+ * autor: @Adriana.Romero
+ * 
+ */
 
 function ViewModelSector() {
-
     var principal = this;
-    principal.ejemploLista = ko.observableArray();
-    principal.listaAcordeon = ko.observableArray();
-    principal.firstName = ko.observable("");
-    //Se recupera la variable
+    /*
+     * Variables globales y de knockout.js
+     * Se recupera las variables responsive
+     * @Variable
+     */
+
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
     }
 
-    $(".loadingPag").css("display", "block");
+    /*
+     * Variables globales y de knockout.js
+     */
     var ipserver;
+    principal.ejemploLista = ko.observableArray();
+    principal.listaAcordeon = ko.observableArray();
+    principal.firstName = ko.observable("");
+    /*
+     * Visibilidad de los elementos html
+     */
+    $(".loadingPag").css("display", "block");
 
+    /*
+     *Evento ajax para listar sectores
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
         success: function(data) {
             ipserver = data;
-           var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indgrupo/movil/" + Variable;
+            var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indgrupo/movil/" + Variable;
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-                 $.each(result, function() {
+                $.each(result, function() {
                     principal.ejemploLista.push({
-                       url: ko.observable("subsector.html?" + this.serialGrp + "&" + this.serialSys),
+                        url: ko.observable("subsector.html?" + this.serialGrp + "&" + this.serialSys),
                         details: ko.observable(""),
                         nombreGrupo: ko.observable(this.nombreGrp)
                     });
@@ -33,9 +49,11 @@ function ViewModelSector() {
             });
         }
     });
-    
-    
-     principal.firstName = ko.observable("");
+
+    /*
+     * Variables para buscador
+     */
+    principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
     function indOj() {
         this.label = "";
@@ -43,8 +61,8 @@ function ViewModelSector() {
         this.serialGrp = "";
 
     }
-    
-    
+
+
     $("#firstName").css("display", "none");
 
     $.ajax({
@@ -82,7 +100,7 @@ function ViewModelSector() {
                     });
                 }
 
-//First names es la lista donde se llenan las palabras que coinciden en la busqueda
+                //First names es la lista donde se llenan las palabras que coinciden en la busqueda
 
 
                 $('#firstName').autocomplete({
@@ -90,11 +108,9 @@ function ViewModelSector() {
                     messages: {
                         noResults: '',
                         results: function() {
-                            //  $('#hideKeyboard').focus();
                         }
                     },
                     focus: function() {
-                        // prevent value inserted on focus
                         return true;
                     },
                     select: function(event, ui) {
@@ -110,8 +126,6 @@ function ViewModelSector() {
                             location.href = "grafica.html?" + serialInd + "&" + serialGrp + "&" + Variable;
 
                         }
-
-
                     }
                 });
             });

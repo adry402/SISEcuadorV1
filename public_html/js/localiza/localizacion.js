@@ -1,64 +1,68 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Javascript ubicacion
+ * autor: @Adriana.Romero
+ * 
  */
-//function ViewModelGrafica() {
 
+
+/*
+ * Variables para ubicacion geografica
+ */
 var mapa;
 var lat;
 var lng;
 var cadena = "";
 var estiloProvincia;
+
+/*
+ * Se carga la iniciar el DOM
+ */
 function init() {
-
-
-
+    /*
+     * Visibilidad de los elementos html
+     */
     $(".loadingPag").css("display", "block");
     $(".infoTerritorial").css("display", "none");
     $(".infoUbicacion").css("display", "none");
     $("#labelUbicacion").css("display", "none");
-
     $('#parroquiaCombo').attr("disabled", true);
     $('#provinciaCombo').attr("disabled", true);
     $('#cantonCombo').attr("disabled", true);
-
     $('input[type="submit"]').attr('disabled', 'disabled');
+    $("#miMapa").css("display", "none");
 
     mapa = new OpenLayers.Map("miMapa");
-
-//    var osm = new OpenLayers.Layer.OSM();
-//    mapa.addLayer(osm);
-
-
-
-
+    /*
+     * Se añade el wms desde el servidor de mapas del SIISE
+     */
     var layerBase = new OpenLayers.Layer.WMS(
             "OpenLayers WMS",
             "http://201.219.3.196:8079/geoserver/wms?service=WMS", {
         layers: "siise:cant_00"
-    }
-    );
+    });
+    //Se añade la capa al mapa
     mapa.addLayer(layerBase);
-    // mapa.addLayer(osm);
-//        mapa.addControl(new OpenLayers.Control.LayerSwitcher(true));
-//        mapa.addControl(new OpenLayers.Control.MousePosition({numDigits: 2}));
-
-    $("#miMapa").css("display", "none");
 
     if (navigator.geolocation) {
 
-
+        /*
+         * option: tiempos de respuesta del buscador de la ubicacion
+         */
         var options = {timeout: 10000, enableHighAccuracy: true, maximumAge: 90000};
 
-
+        //Dependiendo de la respuesta se da la función 
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 
         function onSuccess(position) {
 
+            //La ubicación se devolvió correctamente
 
             function ViewModelSector() {
                 var self = this;
 
+                /*
+                 * Variables globales
+                 */
                 self.regiones = ko.observableArray();
                 self.provincias = ko.observableArray();
                 self.cantones = ko.observableArray();
@@ -79,6 +83,9 @@ function init() {
                 var auxParroquia;
                 var banderaParroquia;
 
+                /*
+                 * Se llenan los combos de la DPA, condicionales
+                 */
                 var ipserver;
                 $.ajax({
                     url: "cadena.txt",
@@ -812,8 +819,8 @@ function init() {
                                         $("#particular").html(canton.educacion_privada);
                                         $("#uvc").html(canton.uvcs);
                                         $("#upc").html(canton.upcs);
-                                        
-                                        
+
+
                                         $.ajax({
                                             url: "cadena.txt",
                                             dataType: "text",

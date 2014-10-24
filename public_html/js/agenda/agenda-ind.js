@@ -1,33 +1,49 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Javascript grafica indicadores
+ * autor: @Adriana.Romero
+ * 
  */
 
 function ViewModelIndicador() {
+    /*
+     *Se recupera las variables enviadas por response desde agndSse
+     *@serialSubsector
+     */
     var principal = this;
-    principal.ejemploLista = ko.observableArray();
-    principal.firstName = ko.observable("");
-    //Se recupera la variable
     if (location.search.substr(1)) {
         serialSubsector = location.search.substr(1);
-
     }
-    
-     var Variable = "11";
-
-    $(".loadingPag").css("display", "block");
+    /*
+     * Variables globales y de knockout.js
+     */
+    var Variable = "11";
     var ipserver;
+    principal.ejemploLista = ko.observableArray();
+    principal.firstName = ko.observable("");
+    /*
+     * Visibilidad de los elementos html
+     */
+    $(".loadingPag").css("display", "block");
+
+    /*
+     *Evento ajax para listar los indicadores
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
         success: function(data) {
             ipserver = data;
+            //Servicio web http://201.219.3.75:8080/ServicioWeb/webresources/grafico/lstInd/100
             var cadena = ipserver + "/ServicioWeb/webresources/grafico/lstInd/" + serialSubsector;
 
             $.getJSON(cadena, function(result) {
-//     
+                /*
+                 * Visibilidad de los elementos html
+                 * Seteo de mapa de sitio
+                 */
+
                 $(".loadingPag").css("display", "none");
-              $(".mapaSitio").html(result[0].path_indicador + " ");
+                $(".mapaSitio").html(result[0].path_indicador + " ");
                 $.each(result, function() {
                     principal.ejemploLista.push({
                         url: ko.observable("agnGrafica.html?" + this.variable_indicador),
@@ -35,26 +51,29 @@ function ViewModelIndicador() {
                         nombreIndicador: ko.observable(this.nombre_indicador)
                     });
                 });
-
             });
-
         }
-
-
     });
-  
-   principal.firstName = ko.observable("");
+
+    /*
+     * Variables para buscador
+     */
+    principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
     function indOj() {
         this.label = "";
         this.serialInd = "";
         this.serialGrp = "";
-
     }
-    
-    
+
+    /*
+     * Visibilidad de los elementos html
+     */
     $("#firstName").css("display", "none");
 
+    /*
+     *Evento ajax para buscador
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
@@ -90,7 +109,7 @@ function ViewModelIndicador() {
                     });
                 }
 
-//First names es la lista donde se llenan las palabras que coinciden en la busqueda
+                //First names es la lista donde se llenan las palabras que coinciden en la busqueda
 
 
                 $('#firstName').autocomplete({
@@ -98,11 +117,9 @@ function ViewModelIndicador() {
                     messages: {
                         noResults: '',
                         results: function() {
-                            //  $('#hideKeyboard').focus();
                         }
                     },
                     focus: function() {
-                        // prevent value inserted on focus
                         return true;
                     },
                     select: function(event, ui) {
@@ -125,10 +142,6 @@ function ViewModelIndicador() {
             });
         }
     });
- 
-    
-    //    principal.urlAtras = "subsector.html?" + serialSector + "&" + serialSistema;
-
 }
-//
+// Activamos knockout.js
 ko.applyBindings(new ViewModelIndicador());

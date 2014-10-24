@@ -1,26 +1,38 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Javascript grafica indicadores
+ * autor: @Adriana.Romero
+ * 
  */
+
 function ViewModelSubsector() {
+
     var principal = this;
+    /*
+     * Variables globales y de knockout.js
+     */
+    var Variable = "11";
+    var ipserver;
     principal.ejemploLista = ko.observableArray();
     principal.firstName = ko.observable("");
-    
-    var Variable = "11";
- 
+    /*
+     * Visibilidad de los elementos html
+     */
     $(".loadingPag").css("display", "block");
-    var ipserver;
+
+
+    /*
+     *Evento ajax para listar los subsectores
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
         success: function(data) {
             ipserver = data;
+            //Codigo 154 para indicadores de agenda social
             var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indsubsector/154";
-
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-               
+
                 $.each(result, function() {
                     principal.ejemploLista.push({
                         url: ko.observable("agnInd.html?" + this.serial_sse),
@@ -29,24 +41,22 @@ function ViewModelSubsector() {
                     });
                 });
             });
-
         }
-
-
     });
-    
-    
-    
- principal.firstName = ko.observable("");
+
+
+    /*
+     * Variables para buscador
+     */
+    principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
     function indOj() {
         this.label = "";
         this.serialInd = "";
         this.serialGrp = "";
-
     }
-    
-    
+
+
     $("#firstName").css("display", "none");
 
     $.ajax({
@@ -55,7 +65,6 @@ function ViewModelSubsector() {
         success: function(data) {
             ipserver = data;
             var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indsisgrpind/movil/buscador/" + 11;
-
             $.getJSON(cadena, function(result) {
 
                 $("#firstName").css("display", "block");
@@ -84,7 +93,7 @@ function ViewModelSubsector() {
                     });
                 }
 
-//First names es la lista donde se llenan las palabras que coinciden en la busqueda
+                //First names es la lista donde se llenan las palabras que coinciden en la busqueda
 
 
                 $('#firstName').autocomplete({
@@ -92,16 +101,12 @@ function ViewModelSubsector() {
                     messages: {
                         noResults: '',
                         results: function() {
-                            //  $('#hideKeyboard').focus();
                         }
                     },
                     focus: function() {
-                        // prevent value inserted on focus
                         return true;
                     },
                     select: function(event, ui) {
-
-
                         var serialGrp = ui.item.serialGrp;
                         var serialInd = ui.item.serialInd;
 
@@ -110,17 +115,12 @@ function ViewModelSubsector() {
                         }
                         else {
                             location.href = "grafica.html?" + serialInd + "&" + serialGrp + "&" + 11;
-
                         }
-
-
                     }
                 });
             });
         }
     });
-
-
 }
-//
-ko.applyBindings(new ViewModelSubsector());
+//// Activamos knockout.js
+koko.applyBindings(new ViewModelSubsector());

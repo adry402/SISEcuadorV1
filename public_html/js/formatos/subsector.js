@@ -1,22 +1,37 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Javascript sector
+ * autor: @Adriana.Romero
+ * 
  */
 
 function ViewModelSubsector() {
     var principal = this;
-    principal.ejemploLista = ko.observableArray();
-    principal.firstName = ko.observable("");
-    //Se recupera la variable
+    /*
+     * Variables globales y de knockout.js
+     * Se recupera las variables responsive
+     * @Variable
+     */
+
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
         var elem = Variable.split('&');
         serialSector = elem[0];
         serialSistema = elem[1];
     }
-    $(".loadingPag").css("display", "block");
-    
+    /*
+     * Variables globales y de knockout.js
+     */
     var ipserver;
+    principal.ejemploLista = ko.observableArray();
+    principal.firstName = ko.observable("");
+    /*
+     * Visibilidad de los elementos html
+     */
+    $(".loadingPag").css("display", "block");
+
+    /*
+     *Evento ajax para listar los sectores
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
@@ -27,7 +42,7 @@ function ViewModelSubsector() {
 
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-               $(".mapaSitio").html( result[0].descripcionSse);
+                $(".mapaSitio").html(result[0].descripcionSse);
                 $.each(result, function() {
                     principal.ejemploLista.push({
                         url: ko.observable("indicador.html?" + 12 + "&" + this.serialSse + "&" + serialSector),
@@ -38,19 +53,19 @@ function ViewModelSubsector() {
             });
         }
     });
-    
-    
-    
-      principal.firstName = ko.observable("");
+
+    /*
+     * Variables para buscador
+     */
+    principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
     function indOj() {
         this.label = "";
         this.serialInd = "";
         this.serialGrp = "";
-
     }
-    
-    
+
+
     $("#firstName").css("display", "none");
 
     $.ajax({
@@ -69,12 +84,8 @@ function ViewModelSubsector() {
                         obj.label = this.nombreInd;
                         obj.serialInd = this.serialInd;
                         obj.serialGrp = this.codigoInd;
-
                         firstNames.push(obj);
-
                     });
-
-
                 } else {
 
                     $.each(result, function() {
@@ -87,25 +98,18 @@ function ViewModelSubsector() {
 
                     });
                 }
-
-//First names es la lista donde se llenan las palabras que coinciden en la busqueda
-
-
+                //First names es la lista donde se llenan las palabras que coinciden en la busqueda
                 $('#firstName').autocomplete({
                     source: firstNames(),
                     messages: {
                         noResults: '',
                         results: function() {
-                            //  $('#hideKeyboard').focus();
                         }
                     },
                     focus: function() {
-                        // prevent value inserted on focus
                         return true;
                     },
                     select: function(event, ui) {
-
-
                         var serialGrp = ui.item.serialGrp;
                         var serialInd = ui.item.serialInd;
 
@@ -114,17 +118,12 @@ function ViewModelSubsector() {
                         }
                         else {
                             location.href = "grafica.html?" + serialInd + "&" + serialGrp + "&" + Variable;
-
                         }
-
-
                     }
                 });
             });
         }
     });
-
-
 }
 //
 ko.applyBindings(new ViewModelSubsector());

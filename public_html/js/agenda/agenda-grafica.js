@@ -1,37 +1,51 @@
-
-
+/* 
+ * Javascript grafica agenda
+ * autor: @Adriana.Romero
+ * 
+ */
 
 function ViewModelGrafica() {
+
+    /*
+     *Se recupera las variables enviadas por response desde agndInd
+     *@nombreIndicador
+     */
+
     var principal = this;
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
-
         nombreIndicador = Variable;
     }
 
-
+    /*
+     * Variables globales y de knockout.js
+     */
     var cadena = "";
+    var ipserver;
     principal.ejemploLista = ko.observableArray();
     principal.fichaList = ko.observableArray();
 
+    /*
+     * Visibilidad de los elementos html
+     */
+
     $(".nombreIndicador").css("display", "none");
     $("#definicion").css("display", "none");
-
     $("#errorGrafico").css("display", "none");
-    //Se hace visible la tabla
     $("#tblCabecera").css("display", "none");
     $("#pageNavPosition").css("display", "none");
     $("#results").css("display", "none");
-
-//
-////hace invisible la fuente y el anio
     $("#divFuente").css("display", "none");
-    var ipserver;
+
+    /*
+     *Evento ajax 
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
         success: function(data) {
             ipserver = data;
+            //Servicio web 201.219.3.75:8080/ServicioWeb/webresources/grafico/Agend_027
             cadena = ipserver + "/ServicioWeb/webresources/grafico/" + nombreIndicador;
 
             $.getJSON(cadena, function(result) {
@@ -43,33 +57,38 @@ function ViewModelGrafica() {
                         textoBoton: ko.observable("Ver ficha")
                     });
                 }
-                $(".nombreIndicador").css("display", "block");
-                $(".nombreIndicador").html(result.nombre_indicador);
 
+                /*
+                 * Visibilidad de los elementos html
+                 */
+                $(".nombreIndicador").css("display", "block");
                 $(".loadingPag").css("display", "none");
-                $(".mapaSitio").html(result.subsector_grafica);
                 $("#definicion").css("display", "block");
-//                $("#footerGrafico").css("display", "block");
-////
-////                //Se hace visible la tabla
                 $("#tblCabecera").css("display", "block");
                 $("#pageNavPosition").css("display", "block");
                 $("#results").css("display", "block");
-////
-//////hace invisible la fuente y el anio
                 $("#divFuente").css("display", "block");
-//                
-//
+
+
+                /*
+                 * Seteo de div
+                 */
                 $('#ficha').html(result.definicion_grafica);
                 $(".lblFuente").html(result.fuente_indicador);
                 $(".lblAnio").html(result.anio_indicador);
+                $(".mapaSitio").html(result.subsector_grafica);
+                $(".nombreIndicador").html(result.nombre_indicador);
+                $("#labelTool").html('&nbsp;' + result.titulo_tablaDatos);
+
+                /*
+                 * Paginación en tabla de datos
+                 */
                 var i;
                 var itemPorHoja = 0;
                 var serieName = result.valoresY_indicador[0].name;
                 for (var i = 0; i < result.valoresY_indicador.length; i++) {
                     var serieName1 = result.valoresY_indicador[i].name;
                     var datoR = result.valoresY_indicador[i].data;
-                    // var listaP = datoR.data.split(',');
                     principal.ejemploLista.push({
                         dato1: result.valoresY_indicador[i].name,
                         dato2: "",
@@ -103,29 +122,32 @@ function ViewModelGrafica() {
                     }
                 }
 
+                /*
+                 * Se inicializa la paginación en la tabla de datos
+                 */
                 pager = new Pager('results', itemPorHoja + 2);
                 pager.init();
                 pager.showPageNav('pager', 'pageNavPosition');
                 pager.showPage(1);
 
-//Los valores que se necesitan son arrays
+                //Los valores que se necesitan son arrays
                 var valoresX = result.valoresX_indicador;
-                $("#labelTool").html('&nbsp;' + result.titulo_tablaDatos);
+
+
+                /*
+                 * Gráfico en HighCharts
+                 */
 
                 $('#container').highcharts({
                     //Type spline: suaviza las curvas
                     chart: {
                         type: result.tipo_grafica
-                   
+
                     },
                     title: {
                         text: result.nombre_indicador,
                         align: 'left'
                     },
-//            subtitle:{
-//                text:'Fuente/Año:' + result.fuente_indicador+"<br>"+result.anio_indicador,
-//                x:-20
-//            },}
                     credits: {
                         enabled: false
                     },
@@ -158,7 +180,7 @@ function ViewModelGrafica() {
                     ,
                     series: []
                 });
-//                Se toma en esta variable
+                // Creación dinámica de series
                 var chart = $('#container').highcharts();
                 for (var i = 0; i < result.valoresY_indicador.length; i++) {
                     var nombre = result.valoresY_indicador[i].name;
@@ -171,6 +193,9 @@ function ViewModelGrafica() {
 
 
             }).error(function() {
+                /*
+                 * Se muestra mensaje de error cuando caduca el tiempo de acceso al servidor
+                 */
                 $(".loadingPag").css("display", "block");
                 $("#errorGrafico").css("display", "block");
                 $("#footerGrafico").css("display", "none");
@@ -180,7 +205,11 @@ function ViewModelGrafica() {
 
         }
     });
-    function format(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+
+    /*
+     * Funcion separador de miles y decimales
+     */
+    function format(numero, decimales, separador_decimal, separador_miles) {
         numero = parseFloat(numero);
         if (isNaN(numero)) {
             return "";
@@ -203,8 +232,7 @@ function ViewModelGrafica() {
         }
 
         return numero;
-    }
-    ;
+    };
 
 }
 // Activamos knockout.js

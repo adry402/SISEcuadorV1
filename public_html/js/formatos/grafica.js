@@ -1,7 +1,19 @@
-
+/* 
+ * Javascript grafica
+ * autor: @Adriana.Romero
+ * 
+ */
 
 function ViewModelGrafica() {
     var principal = this;
+    /*
+     * Variables globales y de knockout.js
+     * Se recupera las variables responsive
+     * @nombreIndicador
+     * @serialGrupo
+     * @serialSistema
+     */
+
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
         var elem = Variable.split('&');
@@ -9,15 +21,24 @@ function ViewModelGrafica() {
         serialGrupo = elem[1];
         serialSistema = elem[2];
     }
+    /*
+     * Visibilidad de los elementos html
+     */
+
     $(".loadingPag").css("display", "block");
     $("#divFuente").css("display", "none");
     $(".nombreIndicador").css("display", "none");
+    /*
+     * Variables globales y de knockout.js
+     */
     var cadena = "";
     principal.ejemploLista = ko.observableArray();
     principal.fichaList = ko.observableArray();
-
-
     var ipserver;
+
+    /*
+     *Evento ajax para la grafica
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
@@ -27,7 +48,7 @@ function ViewModelGrafica() {
 
             $.getJSON(cadena, function(result) {
                 $(".loadingPag").css("display", "none");
-                 $(".mapaSitio").html(result.subsector_grafica);
+                $(".mapaSitio").html(result.subsector_grafica);
 
                 for (var j = 0; j < 1; j++) {
                     principal.fichaList.push({
@@ -39,18 +60,19 @@ function ViewModelGrafica() {
 
 
                 $(".nombreIndicador").css("display", "block");
-                $(".nombreIndicador").html(result.nombre_indicador + " (" + result.anio_indicador+")");
-//                //Se hace visible la tabla
                 $("#tblCabecera").css("display", "block");
                 $("#pageNavPosition").css("display", "block");
                 $("#results").css("display", "block");
-//
-////hace invisible la fuente y el anio
                 $("#divFuente").css("display", "block");
-                $('#ficha').html(result.definicion_grafica);
 
+                $('#ficha').html(result.definicion_grafica);
                 $(".lblFuente").html(result.fuente_indicador);
                 $(".lblAnio").html(result.anio_indicador);
+                $(".nombreIndicador").html(result.nombre_indicador + " (" + result.anio_indicador + ")");
+                $("#labelTool").html('&nbsp;' + result.titulo_tablaDatos);
+                /**
+                 * Función para paginación tabla datos
+                 */
                 var i;
 
                 for (var i = 0; i < result.valoresY_indicador.length; i++) {
@@ -60,8 +82,6 @@ function ViewModelGrafica() {
                         dato1: result.valoresY_indicador[i].name,
                         dato2: "",
                         dato3: ""
-
-
                     });
                     for (var j = 0; j < datoR.length; j++) {
 
@@ -70,7 +90,7 @@ function ViewModelGrafica() {
                             principal.ejemploLista.push({
                                 dato1: "",
                                 dato2: result.valoresX_indicador[j],
-                                dato3: format(datoR[j]) 
+                                dato3: format(datoR[j])
                             });
 
                         }
@@ -85,30 +105,31 @@ function ViewModelGrafica() {
 
                     }
                 }
+                /*
+                 * Se inicializa la paginación en la tabla de datos
+                 */
 
-                $("#labelTool").html('&nbsp;' + result.titulo_tablaDatos);
                 pager = new Pager('results', result.valoresX_indicador.length + 1);
                 pager.init();
                 pager.showPageNav('pager', 'pageNavPosition');
                 pager.showPage(1);
 
-//Los valores que se necesitan son arrays
+                //Los valores que se necesitan son arrays
                 var valoresX = result.valoresX_indicador;
 
+                /*
+                 * Gráfico en HighCharts
+                 */
                 $('#container').highcharts({
                     //Type spline: suaviza las curvas
                     chart: {
                         type: 'spline'
-              
+
                     },
                     title: {
                         text: result.nombre_indicador + " (" + result.anio_indicador + ")",
                         align: 'left'
                     },
-//            subtitle:{
-//                text:'Fuente/Año:' + result.fuente_indicador+"<br>"+result.anio_indicador,
-//                x:-20
-//            },}
                     credits: {
                         enabled: false
                     },
@@ -141,7 +162,7 @@ function ViewModelGrafica() {
                     ,
                     series: []
                 });
-//                Se toma en esta variable
+                // Creación dinámica de series
                 var chart = $('#container').highcharts();
                 for (var i = 0; i < result.valoresY_indicador.length; i++) {
                     var nombre = result.valoresY_indicador[i].name;
@@ -157,6 +178,9 @@ function ViewModelGrafica() {
 
 
             }).error(function() {
+                /*
+                 * Se muestra mensaje de error cuando caduca el tiempo de acceso al servidor
+                 */
                 $(".loadingPag").css("display", "none");
                 $("#errorGrafico").css("display", "block");
                 $(".errorGrafico").html("Al momento no se puede mostrar la informacion");
@@ -165,7 +189,10 @@ function ViewModelGrafica() {
             });
         }
     });
-function format(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+    /*
+     * Funcion separador de miles y decimales
+     */
+    function format(numero, decimales, separador_decimal, separador_miles) {
         numero = parseFloat(numero);
         if (isNaN(numero)) {
             return "";

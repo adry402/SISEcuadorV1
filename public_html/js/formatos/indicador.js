@@ -1,13 +1,20 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Javascript indicadores
+ * autor: @Adriana.Romero
+ * 
  */
 
 function ViewModelIndicador() {
     var principal = this;
-    principal.ejemploLista = ko.observableArray();
-    principal.firstName = ko.observable("");
-    //Se recupera la variable
+
+    /*
+     * Variables globales y de knockout.js
+     * Se recupera las variables responsive
+     * @serialSistema
+     * @serialSubsector
+     * @serialSector
+     */
+
     if (location.search.substr(1)) {
         Variable = location.search.substr(1);
         var elem = Variable.split('&');
@@ -15,9 +22,22 @@ function ViewModelIndicador() {
         serialSubsector = elem[1];
         serialSector = elem[2];
     }
+
+    /*
+     * Variables globales y de knockout.js
+     */
+    principal.ejemploLista = ko.observableArray();
+    principal.firstName = ko.observable("");
+
+    /*
+     * Visibilidad de los elementos html
+     */
+    var ipserver;
     $(".loadingPag").css("display", "block");
 
-    var ipserver;
+    /*
+     *Evento ajax para listar los indicadores
+     */
     $.ajax({
         url: "cadena.txt",
         dataType: "text",
@@ -26,7 +46,7 @@ function ViewModelIndicador() {
             var cadena = ipserver + "/ServicioWeb/webresources/ec.gob.desarrollosocial.indsisgrpind/movil/" + serialSistema + "/" + serialSubsector;
 
             $.getJSON(cadena, function(result) {
-                $(".mapaSitio").html( result[0].serialSse.nombreSse);
+                $(".mapaSitio").html(result[0].serialSse.nombreSse);
                 $(".loadingPag").css("display", "none");
 
                 $.each(result, function() {
@@ -40,7 +60,9 @@ function ViewModelIndicador() {
         }
     });
 
-
+    /*
+     * Variables para buscador
+     */
 
     principal.firstName = ko.observable("");
     var firstNames = ko.observableArray();
@@ -89,7 +111,7 @@ function ViewModelIndicador() {
                     });
                 }
 
-//First names es la lista donde se llenan las palabras que coinciden en la busqueda
+                //First names es la lista donde se llenan las palabras que coinciden en la busqueda
 
 
                 $('#firstName').autocomplete({
@@ -117,15 +139,11 @@ function ViewModelIndicador() {
                             location.href = "grafica.html?" + serialInd + "&" + serialGrp + "&" + Variable;
 
                         }
-
-
                     }
                 });
             });
         }
     });
-
-
 }
 //
 ko.applyBindings(new ViewModelIndicador());
