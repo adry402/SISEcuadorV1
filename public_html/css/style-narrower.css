@@ -13,7 +13,7 @@
     padding-left: 23px;
     height: 100px;
     background:transparent url('images/menu.png') no-repeat;
-    background-position: 30px;
+    background-position: 15px;
 
 }
 .icon-myshare{
@@ -50,11 +50,10 @@
 /* Title */
 
 #title {
-    padding-left: 160px;
+    padding-left: 130px;
     padding-top: 27px;
     margin: 0 0 1.5em 0;
     height: 100px;
-    background-position: 160px !important;
 
 }
 

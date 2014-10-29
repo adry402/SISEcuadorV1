@@ -9,10 +9,11 @@
 
 #leftPanelButton .toggle {
     text-align: left;
-    padding-left: 23px;
+    padding-left: 1px;
     height: 100px;
     background: rgba(0,28,54,0.1) url('images/menu.png') no-repeat;
     background-position: 10px;
+    width: 60px;
 
 }
 .icon-myshare{
@@ -29,6 +30,8 @@
 #rightPanelButton .toggle {
 
     height: 100px;
+    width: 60px;
+    padding-left: 1px;
 
 }
 
@@ -48,7 +51,7 @@
 /* Title */
 
 #title {
-    padding-left: 160px;
+    padding-left: 125px;
     padding-top: 25px;
     margin: 0 0 1.5em 0;        
     color: #fff;
@@ -63,7 +66,7 @@
     height: 100px;
     margin-left:0px;
     margin-right: 0px;
-        font-size: 13px;
+    font-size: 13px;
 
 }
 
@@ -103,14 +106,6 @@
 
 
 
-
-.tab-links a {
-    padding:6px 100px;
-    font-size:17px;
-    
-
-}
-
 .tab-links li {
     margin:0px 0px;
     float:left;
@@ -146,6 +141,7 @@
 
 .tab-links a {
     padding:6px 45px;
+     font-size:16px;
 
 }
 
