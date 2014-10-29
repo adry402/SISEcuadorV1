@@ -87,18 +87,20 @@ function ViewModelGrafica() {
 
                         if (result.tooltip_indicador !== null)
                         {
+                            var aux1 = truncator((datoR[j]),result.numero_decimales);
                             principal.ejemploLista.push({
                                 dato1: "",
                                 dato2: result.valoresX_indicador[j],
-                                dato3: format(datoR[j])
+                                dato3: format(aux1, result.numero_decimales)
                             });
 
                         }
                         else {
+                            var aux1 = truncator((datoR[j]),result.numero_decimales);
                             principal.ejemploLista.push({
                                 dato1: "",
                                 dato2: result.valoresX_indicador[j],
-                                dato3: format(datoR[j])
+                                dato3: format(aux1, result.numero_decimales)
                             });
 
                         }
@@ -169,6 +171,7 @@ function ViewModelGrafica() {
                     chart.addSeries({
                         name: nombre,
                         data: result.valoresY_indicador[i].data
+                       
                     });
                 }
 
@@ -217,7 +220,10 @@ function ViewModelGrafica() {
         return numero;
     }
     ;
-
+    function truncator(numToTruncate, intDecimalPlaces) {
+        var numPower = Math.pow(10, intDecimalPlaces);
+        return ~~(numToTruncate * numPower) / numPower;
+    }
 
 }
 // Activamos knockout.js
