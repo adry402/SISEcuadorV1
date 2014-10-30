@@ -228,4 +228,3 @@ function ViewModelGrafica() {
 }
 // Activamos knockout.js
 ko.applyBindings(new ViewModelGrafica());
-
