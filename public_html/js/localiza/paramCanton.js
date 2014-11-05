@@ -360,14 +360,14 @@ function init() {
                                                     if (cont === 1) {
 
                                                         auxTabla = auxTabla
-                                                                + "<tr><td rowspan=" + colrow + "style='text-align: right;  width: 27%;'>" + codDistrito + "</td>"
-                                                                + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
+                                                                + "<tr><td rowspan=" + colrow + " style='text-align: center; vertical-align:middle;  width: 27%;'>" + codDistrito + "</td>"
+                                                                + "<td style='text-align: left; width: 40%;'>" + this.nombreCanton + "</td>"
                                                                 + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
                                                     } else {
 
                                                         auxTabla = auxTabla
 
-                                                                + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: left; width: 40%;'>" + this.nombreCanton + "</td>"
                                                                 + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
                                                     }
 
