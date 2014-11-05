@@ -345,40 +345,40 @@ function init() {
                                         ipserver = data;
                                         var cadena = ipserver + "/ServicioWeb/webresources/territorial/distrito/" + codigo_prv;
                                         $.getJSON(cadena, function(result) {
-                                              var auxObjetos = "<li>"
-                                                        + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
-                                                        + "<tbody>";
-                                                 var auxTabla = " ";
+                                            var auxObjetos = "<li>"
+                                                    + "<table><thead><tr><th>Distrito</th><th>Cantón</th><th>Personas</th></tr></thead>"
+                                                    + "<tbody>";
+                                            var auxTabla = " ";
                                             $.each(result, function() {
                                                 var codDistrito = this.codigotDistrito;
-                                              
+
                                                 var lista = this.datosCanton;
-                                               
+                                                var colrow = lista.length;
                                                 var cont = 0;
                                                 $.each(lista, function() {
                                                     cont = cont + 1;
                                                     if (cont === 1) {
 
                                                         auxTabla = auxTabla
-                                                                + "<tr><td style='text-align: right; width: 27%'>" + codDistrito + "</td>"
-                                                                + "<td style='text-align: right; width: 40%'>" + this.nombreCanton + "</td>"
-                                                                + "<td style='text-align: right; width: 33%'>" + format(this.personas) + "</td></tr>";
+                                                                + "<tr><td rowspan=" + colrow + "style='text-align: right;  width: 27%;'>" + codDistrito + "</td>"
+                                                                + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
                                                     } else {
 
                                                         auxTabla = auxTabla
-                                                                + "<tr><td style='text-align: right; width: 27%'>" + "  " + "</td>"
-                                                                + "<td style='text-align: right; width: 40%'>" + this.nombreCanton + "</td>"
-                                                                + "<td style='text-align: right; width: 33%'>" + format(this.personas) + "</td></tr>";
+
+                                                                + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
+                                                                + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
                                                     }
 
                                                 });
 
-                                               });
-                                                var final = "</tbody></table></li>";
-                                                var queryTotal = auxObjetos + auxTabla + final;
+                                            });
+                                            var final = "</tbody></table></li>";
+                                            var queryTotal = auxObjetos + auxTabla + final;
 
-                                                $("#listviewSistema").append(queryTotal);
-                                            
+                                            $("#listviewSistema").append(queryTotal);
+
 
                                         });
                                     }
@@ -398,8 +398,8 @@ function init() {
                                     }
 
                                     // Convertimos el punto en separador_decimal
-                                    numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
-                                    separador_miles = ".";
+                                    numero = numero.toString().replace(",", separador_decimal !== undefined ? separador_decimal : ".");
+                                    separador_miles = ",";
                                     if (separador_miles) {
                                         // Añadimos los separadores de miles
                                         var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
@@ -414,17 +414,17 @@ function init() {
                                 $('#container1').highcharts({
                                     chart: {
                                         type: 'column',
-                                         style: {
-                            fontFamily: 'Helvetica' // default font
+                                        style: {
+                                            fontFamily: 'Helvetica' // default font
 
-                        }
+                                        }
                                     },
                                     title: {
                                         text: 'Tipologia de viviendas totales'
                                     },
-                                     subtitle: {
-                                                text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
-                                            },
+                                    subtitle: {
+                                        text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
+                                    },
                                     credits: {
                                         enabled: false
                                     },
@@ -472,9 +472,9 @@ function init() {
                                     title: {
                                         text: 'Población urbano/rural'
                                     },
-                                     subtitle: {
-                                                text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
-                                            },
+                                    subtitle: {
+                                        text: 'Fuente: Censo de Población y Vivienda - INEC \n Año: 2010'
+                                    },
                                     credits: {
                                         enabled: false
                                     },

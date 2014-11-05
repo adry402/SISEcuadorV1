@@ -156,7 +156,7 @@ function ViewModelGrafica() {
                             }]
                     },
                     tooltip: {
-                        valueSuffix: ' ' + result.tooltip_indicador
+                        valueSuffix:  ' ' + result.tooltip_indicador
                     }
                     ,
                     exporting: {

@@ -182,7 +182,7 @@ body {
     color: #000;
     border-bottom: solid 1px #BFBFBF;
     line-height: 4em;
- 
+
 }
 #rightPanel a {
     display: block;
@@ -226,7 +226,7 @@ body {
 }
 #share a span{
     padding-left: 40px;
-    
+
 }
 
 
@@ -260,11 +260,11 @@ body {
     border-bottom: solid 1px #BFBFBF;
 }
 #shareMailT  {
-    
-   margin-top: 19px;
+
+    margin-top: 19px;
 }
 #shareMailT a {
-    
+
     text-decoration: none;
 }
 
@@ -599,7 +599,7 @@ li.active a, li.active a:hover {
 
 .email{
     background:transparent  url(images/icon-msg.png) no-repeat left !important;
-    
+
 
 }
 
@@ -645,7 +645,7 @@ li.active a, li.active a:hover {
 
 #labelShare{
     font-family: hbold;
-    
+
 }
 
 #miMapa{
@@ -671,7 +671,7 @@ li.active a, li.active a:hover {
 
 .mapaSitio{
     font-size: 12px;
-   
+
     text-align: left;
     font-family: hlight;
     line-height: 1.4
@@ -721,5 +721,9 @@ li.active a, li.active a:hover {
     font-weight: bold;
 }
 
-
+.infoTerritorial table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+}
 

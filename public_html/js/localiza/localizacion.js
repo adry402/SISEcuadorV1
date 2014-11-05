@@ -357,6 +357,7 @@ function init() {
                                                         var codDistrito = this.codigotDistrito;
 
                                                         var lista = this.datosCanton;
+                                                        var colrow = lista.length;
 
                                                         var cont = 0;
                                                         $.each(lista, function() {
@@ -364,13 +365,13 @@ function init() {
                                                             if (cont === 1) {
 
                                                                 auxTabla = auxTabla
-                                                                        + "<tr><td style='text-align: right;  width: 27%;'>" + codDistrito + "</td>"
+                                                                        + "<tr><td rowspan="+colrow+ "style='text-align: right;  width: 27%;'>" + codDistrito + "</td>"
                                                                         + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
                                                                         + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
                                                             } else {
 
                                                                 auxTabla = auxTabla
-                                                                        + "<tr><td style='text-align: right; width: 27%;'>" + "  " + "</td>"
+                                                                       
                                                                         + "<td style='text-align: right; width: 40%;'>" + this.nombreCanton + "</td>"
                                                                         + "<td style='text-align: right; width: 33%;'>" + format(this.personas) + "</td></tr>";
                                                             }
@@ -401,8 +402,8 @@ function init() {
                                             }
 
                                             // Convertimos el punto en separador_decimal
-                                            numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
-                                            separador_miles = ".";
+                                            numero = numero.toString().replace(",", separador_decimal !== undefined ? separador_decimal : ".");
+                                            separador_miles = ",";
                                             if (separador_miles) {
                                                 // Añadimos los separadores de miles
                                                 var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
@@ -896,8 +897,8 @@ function init() {
                                             }
 
                                             // Convertimos el punto en separador_decimal
-                                            numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
-                                            separador_miles = ".";
+                                            numero = numero.toString().replace(",", separador_decimal !== undefined ? separador_decimal : ".");
+                                            separador_miles = ",";
                                             if (separador_miles) {
                                                 // Añadimos los separadores de miles
                                                 var miles = new RegExp("(-?[0-9]+)([0-9]{3})");

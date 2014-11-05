@@ -15,23 +15,10 @@
         <link rel="stylesheet" href="css/normalize.min.css">
 
         <link rel="stylesheet" href="css/cabeceras/cabeceraTt.css">
-        <script src="https://apis.google.com/js/platform.js" async defer>
-            {
-                lang: 'es';
-            }
-        </script>
+       
     </head>
     <body onLoad="init();">
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id))
-                        return;
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=526335330845255&version=v2.0";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
+       
         <div class="container">
             <!-- Cabecera -->
             <div id="header">
@@ -230,6 +217,18 @@
                                     <td style=" text-align: right"><div id="ciupor_perpobreza"></div></td>
 
                                 </tr>
+                                 <tr>
+                                    <td>Número de hogares en hacinamiento</td>
+                                    <td style=" text-align: right"><div id="prv_hacinaHogares"></div></td>
+                                    <td style=" text-align: right"><div id="ciu_hacinaHogares"></div></td>
+
+                                </tr>
+                                <tr>
+                                    <td style=" text-align: right">Porcentaje</td>
+                                    <td style=" text-align: right"><div id="prvpor_hacinaHogares"></div></td>
+                                    <td style=" text-align: right"><div id="ciupor_hacinaHogares"></div></td>
+
+                                </tr>
                                 <tr>
                                     <td>Personas analfabetas de 15 años y más</td>
                                     <td style=" text-align: right"><div id="prv_analfa15"></div></td>
@@ -243,24 +242,13 @@
 
                                 </tr>
                                 <tr>
-                                    <td>Promedio de Escolaridad (Personas de 24 años o más)</td>
+                                    <td>Promedio de escolaridad (Personas de 24 años o más)</td>
                                     <td style=" text-align: right"><div id="prv_escola24"></div></td>
                                     <td style=" text-align: right"><div id="ciu_escola24"></div></td>
 
                                 </tr>
 
-                                <tr>
-                                    <td>Número de hogares en hacinamiento</td>
-                                    <td style=" text-align: right"><div id="prv_hacinaHogares"></div></td>
-                                    <td style=" text-align: right"><div id="ciu_hacinaHogares"></div></td>
-
-                                </tr>
-                                <tr>
-                                    <td style=" text-align: right">Porcentaje</td>
-                                    <td style=" text-align: right"><div id="prvpor_hacinaHogares"></div></td>
-                                    <td style=" text-align: right"><div id="ciupor_hacinaHogares"></div></td>
-
-                                </tr>
+                               
                             </tbody>
                         </table>
                         <div id="container1">
@@ -270,7 +258,7 @@
                         <img src="css/images/separador.png" alt=""/>
                         <br>
                         <br>
-                        <span class="tituloTablas">Infraestructura cantón <span class="canton"></span></span>
+                        <span class="tituloTablas">Infraestructura cantón <span class="cantonTabla"></span></span>
                         <table>
                             <thead>
                                 <tr> 
@@ -288,38 +276,38 @@
                                 <tr> 
                                     <td rowspan="2">MSP</td>
                                     <td>Centro de salud</td>
-                                    <td id="centro_salud"></td>
+                                    <td style=" text-align: right" id="centro_salud"></td>
                                 </tr>
                                 <tr> 
                                     <td>Hospitales generales</td>
-                                    <td id="hos_general"></td>
+                                    <td style=" text-align: right" id="hos_general"></td>
                                 </tr>
                                 <tr> 
                                     <td rowspan="2">MINDEP</td>
                                     <td>Canchas</td>
-                                    <td id="canchas"></td>
+                                    <td style=" text-align: right" id="canchas"></td>
                                 </tr>
                                 <tr> 
                                     <td>Coliseos</td>
-                                    <td id="coliseo"></td>
+                                    <td style=" text-align: right" id="coliseo"></td>
                                 </tr>
                                 <tr> 
                                     <td rowspan="2">MINEDUC</td>
                                     <td>Fiscal</td>
-                                    <td id="fiscal"></td>
+                                    <td style=" text-align: right" id="fiscal"></td>
                                 </tr>
                                 <tr> 
                                     <td>Particular</td>
-                                    <td id="particular"></td>
+                                    <td style=" text-align: right" id="particular"></td>
                                 </tr>
                                 <tr> 
                                     <td rowspan="2">MININTERIOR</td>
                                     <td>U.V.C.</td>
-                                    <td id="uvc"></td>
+                                    <td style=" text-align: right" id="uvc"></td>
                                 </tr>
                                 <tr> 
                                     <td>U.P.C.</td>
-                                    <td id="upc">2</td>
+                                    <td style=" text-align: right" id="upc"></td>
                                 </tr>
                             </tbody>
                         </table>
