@@ -11,19 +11,19 @@
     text-align: left;
     padding-left: 1px;
     height: 100px;
-    background: rgba(0,28,54,0.1) url('images/menu.png') no-repeat;
+    background: rgba(0,28,54,0) url('images/menu.png') no-repeat;
     background-position: 10px;
     width: 60px;
 
 }
 .icon-myshare{
-    background:rgba(0,28,54,0.1) url(images/icon-share.png) no-repeat !important;
+    background:rgba(0,28,54,0) url(images/icon-share.png) no-repeat !important;
     background-position: 10px !important;
 
 }
 
 .icon-mysearch{
-    background: rgba(0,28,54,0.1) url(images/icon-search.png) no-repeat  !important;
+    background: rgba(0,28,54,0) url(images/icon-search.png) no-repeat  !important;
     background-position: 10px !important;
 }
 
