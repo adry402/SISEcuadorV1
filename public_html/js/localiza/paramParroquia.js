@@ -320,15 +320,15 @@ function init() {
                                 $("#ciupor_hacinaHogares").html(parseFloat((canton.hacinaHogares * 100 / canton.hogaresTotal).toFixed(1)) + '%');
 
 
-                                $("#centro_salud").html(parroquia.centro_salud);
-                                $("#puestos_salud").html(parroquia.puesto_salud);
-                                $("#hos_basico").html(parroquia.hospital_basico);
-                                $("#canchas").html(parroquia.canchas_descubierta + parroquia.canchas_cubierta);
-                                $("#polideportivo").html(parroquia.polideportivos);
-                                $("#fiscal").html(parroquia.educacion_publico);
-                                $("#particular").html(parroquia.educacion_privada);
+                                $("#centro_salud").html(format(parroquia.centro_salud));
+                                $("#puestos_salud").html(format(parroquia.puesto_salud));
+                                $("#hos_basico").html(format(parroquia.hospital_basico));
+                                $("#canchas").html(format(parroquia.canchas_descubierta + parroquia.canchas_cubierta));
+                                $("#polideportivo").html(format(parroquia.polideportivos));
+                                $("#fiscal").html(format(parroquia.educacion_publico));
+                                $("#particular").html(format(parroquia.educacion_privada));
 
-                                $("#upc").html(parroquia.upcs);
+                                $("#upc").html(format(parroquia.upcs));
 
 
                                 $.ajax({
